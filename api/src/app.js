@@ -33,12 +33,12 @@ server.use('/', routes);
 
 
 // -------------------------------------------------------------
-// Error catching endware.
+// Error catching endware. Middleware de control de errores.
 server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
-  const status = err.status || 500;
-  const message = err.message || err;
-  console.error(err);
-  res.status(status).send(message);
+  const status = err.status || 500; // Si no tiene nada manda 500
+  const message = err.message || err; // Si nos olvidamos mandamos err
+  console.error(err); // Mostramos el error
+  res.status(status).send(message); // Deolvemos todo junto en el send..
 });
 // -------------------------------------------------------------
 

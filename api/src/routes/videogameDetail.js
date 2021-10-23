@@ -5,7 +5,7 @@ const router = Router();
 
 
 // En el caso de que no pasen nada...
-router.get('/',(req,res) => {
+router.post('/',(req,res) => {
     // Recibe los datos recolectados desde el formulario controlado de la ruta de reación de videojuego por body..
     
     /**
@@ -25,6 +25,8 @@ router.get('/',(req,res) => {
     
     const { name, description, launch, rating} = req.body
     
+    // Conforme a los datos del formulario...
+    // Creamos un videojuego...
     
     res.send('soy la ruta de un solo videogame')
 })
