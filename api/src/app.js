@@ -6,24 +6,25 @@ const morgan = require('morgan');
 // Aquí nos conectamos al router
 const routes = require('./routes/index.js');
 
+// Modularizaciones
+const errorHandler = require('./utils/middlewares/errorHandler')
+const setHeaders = require('./utils/middlewares/setHeaders');
+
 require('./db.js');
 
 const server = express();
 
 server.name = 'API';
 
+
 //--------------------------------------------------------------
+// Middleware para el success...
 server.use(express.urlencoded({ extended: true, limit: '50mb' }));
 server.use(express.json({ limit: '50mb' })); // Venía deprecated
 server.use(cookieParser());
 server.use(morgan('dev')); // Respuestas express
-server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // update to match the domain you will make the request from - http://localhost:3000
-  res.header('Access-Control-Allow-Credentials', 'true');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-  next(); // Yo no quiero que muera la función acá.
-});
+// --
+server.use(setHeaders); // No hay que invocarla bro
 // -------------------------------------------------------------
 
 // Conectamos a las rutas. De la misma manera que hicimos en routes
@@ -33,13 +34,8 @@ server.use('/', routes);
 
 
 // -------------------------------------------------------------
-// Error catching endware. Middleware de control de errores.
-server.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
-  const status = err.status || 500; // Si no tiene nada manda 500
-  const message = err.message || err; // Si nos olvidamos mandamos err
-  console.error(err); // Mostramos el error
-  res.status(status).send(message); // Deolvemos todo junto en el send..
-});
+// Middleware de control de errores.
+server.use(errorHandler);
 // -------------------------------------------------------------
 
 module.exports = server;

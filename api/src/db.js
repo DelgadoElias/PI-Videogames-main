@@ -1,7 +1,13 @@
+
+// Variables de entorno
 require('dotenv').config();
+
+// Importaciones completas
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+
+// Usando las variables de entorno
 const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
