@@ -3,6 +3,27 @@ const { Router } = require('express');
 
 const router = Router();
 
+// -------------------------------------------------------------
+// GET
+
+router.get('/:id',(req,res) => {
+    // Obtener el detalle de un videojuego en particular
+    /**
+     * Debe traer solo los datos pedidos en la ruta de detalle 
+     * de videojuego.
+     * 
+     * Incluir los géneros asociados..
+     */
+       
+    // Le pasamos por query?
+
+    const { id} = req.query
+        
+    res.send('soy la ruta de un solo videogame')
+})
+
+// -------------------------------------------------------------
+// POST
 
 // En el caso de que no pasen nada...
 router.post('/',(req,res) => {
@@ -29,7 +50,9 @@ router.post('/',(req,res) => {
     // Creamos un videojuego...
     
     res.send('soy la ruta de un solo videogame')
-})
+});
+
+
 
 
 // En el caso de que manden algún id..
