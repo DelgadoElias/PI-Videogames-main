@@ -2,12 +2,10 @@
 
 const { DataTypes } = require("sequelize");
 
-// TODO: Generate Model
-
 // Módulo necesario..
 // TIP: No se deben usar palabras en español..
 module.exports = (sequelize) => {
-    sequelize.define('genre', {
+    return sequelize.define('genre', {
         id: {
             // Use UUID - Diferenciar entre ambas BDD...
             type: DataTypes.UUID,
