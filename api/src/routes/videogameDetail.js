@@ -52,6 +52,41 @@ router.post('/',(req,res) => {
     res.send('soy la ruta de un solo videogame')
 });
 
+// -------------------------------------------------------------
+// PUT
+router.put('/:id',(req,res) => {
+    // Obtener el detalle de un videojuego en particular
+    /**
+     * Debe traer solo los datos pedidos en la ruta de detalle 
+     * de videojuego.
+     * 
+     * Incluir los géneros asociados..
+     */
+       
+    // Le pasamos por query?
+
+    const { id} = req.query
+        
+    res.send('soy la ruta de un solo videogame')
+})
+// -------------------------------------------------------------
+// DELETE
+
+router.delete('/:id',(req,res) => {
+    // Obtener el detalle de un videojuego en particular
+    /**
+     * Debe traer solo los datos pedidos en la ruta de detalle 
+     * de videojuego.
+     * 
+     * Incluir los géneros asociados..
+     */
+       
+    // Le pasamos por query?
+
+    const { id} = req.query
+        
+    res.send('soy la ruta de un solo videogame')
+})
 
 
 

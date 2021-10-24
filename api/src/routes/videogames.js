@@ -1,5 +1,6 @@
 const { Router } = require('express');
-
+// Modelos requeridos
+const { Videogame } = require('../db.js')
 
 const router = Router();
 
@@ -37,5 +38,30 @@ router.get('/',(req,res) => {
 
     res.send('soy la ruta de los videogames')
 })
+
+// -------------------------------------------------------------
+// POST
+
+router.post((req,res) => {
+
+
+    res.send('Soy el post del router')
+});
+
+// -------------------------------------------------------------
+// PUT
+
+router.put((req,res) => {
+    
+
+    res.send('Soy el put del router')
+});
+
+// -------------------------------------------------------------
+router.delete((req,res) => {
+    
+
+    res.send('Soy el delete del router')
+});
 
 module.exports = router;
