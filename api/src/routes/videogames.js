@@ -6,7 +6,7 @@ const router = Router();
 
 // Videogames..
 
-router.get('/',(req,res) => {
+router.get('/',(req,res, next) => {
 
     // Puede recibir parámetros por query..
     const { name } = req.query;
@@ -22,7 +22,7 @@ router.get('/',(req,res) => {
         // Si pasan query... ------------------------------
         // ------------------------------------------------
     
-        /**
+        /** 
      * Obtener un listado de los primeros 15 videojuegos que
      * contengan la palabra ingresada como query..
      */
@@ -36,7 +36,17 @@ router.get('/',(req,res) => {
             return;
         }
 
-    res.send('soy la ruta de los videogames')
+        // Si no pasan por query...
+
+    // Funciona!!
+    (async()=>{ // Función autoinvocada
+        // No findByPk --> UUID
+        const instancias = await Videogame.findAll();
+        res.send(instancias);
+    })().catch(error => next(error)); 
+    
+    // Videogame.findAll()
+    // .then( x => res.send(x))
 })
 
 // -------------------------------------------------------------
@@ -44,8 +54,8 @@ router.get('/',(req,res) => {
 
 router.post((req,res) => {
 
+    // Ahora veo que hago con esto
 
-    res.send('Soy el post del router')
 });
 
 // -------------------------------------------------------------

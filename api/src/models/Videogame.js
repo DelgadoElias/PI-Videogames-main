@@ -13,6 +13,7 @@ module.exports = (sequelize) => {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+      unique: true
     },
     description: {
       type: DataTypes.STRING,
@@ -22,8 +23,8 @@ module.exports = (sequelize) => {
       type: DataTypes.DATE,
     },
     platform:{
-      type: DataTypes.STRING,
-      allowNull: false
+      type: DataTypes.INTEGER, // Esto debe ser pasado por la otra BDD como id no?
+      // allowNull: false
     }
   });
 };

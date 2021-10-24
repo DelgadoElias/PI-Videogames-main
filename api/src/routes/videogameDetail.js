@@ -1,12 +1,16 @@
 const { Router } = require('express');
+// UUID
+const { v4: uuidv4 } = require('uuid');
+// Models
+const { Videogame } = require('../db.js')
 
-
+// Comienza la magia.
 const router = Router();
 
 // -------------------------------------------------------------
 // GET
 
-router.get('/:id',(req,res) => {
+router.get('/',(req,res) => {
     // Obtener el detalle de un videojuego en particular
     /**
      * Debe traer solo los datos pedidos en la ruta de detalle 
@@ -15,18 +19,29 @@ router.get('/:id',(req,res) => {
      * Incluir los géneros asociados..
      */
        
-    // Le pasamos por query?
+    // Le pasamos por query? -----------------------------------
 
-    const { id} = req.query
-        
-    res.send('soy la ruta de un solo videogame')
+    const { id } = req.query
+
+    // Si no existe el id pasado por query mostraremos otra cosa.
+    if(!id){
+        res.send('No me pasaste id por query')
+        return;
+
+    }
+
+
+    //Default return;
+    //  --------------------------------------------------------
+
+    
 })
 
 // -------------------------------------------------------------
 // POST
 
 // En el caso de que no pasen nada...
-router.post('/',(req,res) => {
+router.post('/',(req,res, next) => {
     // Recibe los datos recolectados desde el formulario controlado de la ruta de reación de videojuego por body..
     
     /**
@@ -44,17 +59,26 @@ router.post('/',(req,res) => {
      * 
      */
     
-    const { name, description, launch, rating} = req.body
     
-    // Conforme a los datos del formulario...
+    // Conforme a los datos del formulario 'videogame'...
     // Creamos un videojuego...
+    const videogame = req.body;
+    console.log(req.body);
     
-    res.send('soy la ruta de un solo videogame')
+    (async()=>{ // Función autoinvocada
+        // No findByPk --> UUID
+        const instancias = await Videogame.create(
+            {...videogame,
+            id: uuidv4()});
+        res.send(instancias);
+    })().catch(error => next(error)); 
+
+
 });
 
 // -------------------------------------------------------------
 // PUT
-router.put('/:id',(req,res) => {
+router.put('/:id',(req,res,next) => {
     // Obtener el detalle de un videojuego en particular
     /**
      * Debe traer solo los datos pedidos en la ruta de detalle 
@@ -64,10 +88,25 @@ router.put('/:id',(req,res) => {
      */
        
     // Le pasamos por query?
+    console.log(req.params)
+    const { videogame } = req.body;
+    const id = req.params.id;
 
-    const { id} = req.query
-        
-    res.send('soy la ruta de un solo videogame')
+      (async()=>{ // Función autoinvocada
+
+        const instancias = await Videogame.update(
+            videogame,{
+                where : { id }
+            });
+            // Así sería para async await?
+        res.send(instancias);
+    })().catch(error => next(error)); 
+
+    /**
+     * return Videogame.update(videogame,{ where : { id } })
+     * .then((x) => { res.send(x) })
+     * .catch((e) => next(x))
+     */
 })
 // -------------------------------------------------------------
 // DELETE
@@ -83,7 +122,7 @@ router.delete('/:id',(req,res) => {
        
     // Le pasamos por query?
 
-    const { id} = req.query
+    const { id } = req.query
         
     res.send('soy la ruta de un solo videogame')
 })
