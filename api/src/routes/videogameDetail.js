@@ -40,7 +40,6 @@ router.get('/',(req,res) => {
 // -------------------------------------------------------------
 // POST
 
-// En el caso de que no pasen nada...
 router.post('/',(req,res, next) => {
     // Recibe los datos recolectados desde el formulario controlado de la ruta de reación de videojuego por body..
     
@@ -90,17 +89,33 @@ router.put('/:id',(req,res,next) => {
     // Le pasamos por query?
     console.log(req.params)
     const { videogame } = req.body;
-    const id = req.params.id;
+    const id = req.params.id; 
 
-      (async()=>{ // Función autoinvocada
 
-        const instancias = await Videogame.update(
-            videogame,{
-                where : { id }
-            });
-            // Así sería para async await?
-        res.send(instancias);
-    })().catch(error => next(error)); 
+        // TODO: Poder hacerlo en async await
+        // Tengo que buscar si o si?
+
+        async function noSirvoAun(){
+            const instancias = await Videogame.update({...videogame},{
+                where : { id } 
+            })
+            res.send(instancias);
+        } // .catch(err => res.send(err))
+
+        //   (async()=>{ // Función autoinvocada
+    //     const instancias = await Videogame.update({ ...videogame},
+    //         {
+    //             where : { id }
+    //         });
+    //         // Así sería para async await?
+
+    //     res.send(instancias);
+    // })().catch(error => next(error)); 
+
+
+            return Videogame.update(videogame,{ where: { id }}).then((x) => {res.send(x)});
+
+
 
     /**
      * return Videogame.update(videogame,{ where : { id } })
