@@ -40,7 +40,7 @@ router.get('/',(req,res) => {
 // -------------------------------------------------------------
 // POST
 
-router.post('/',(req,res, next) => {
+router.post('/',async(req,res, next) => {
     // Recibe los datos recolectados desde el formulario controlado de la ruta de reación de videojuego por body..
     
     /**
@@ -64,15 +64,17 @@ router.post('/',(req,res, next) => {
     const videogame = req.body;
     console.log(req.body);
     
-    (async()=>{ // Función autoinvocada
-        // No findByPk --> UUID
+    // Aquí vamos con las pruebas nuevas
+    try {
         const instancias = await Videogame.create(
             {...videogame,
             id: uuidv4()});
         res.send(instancias);
-    })().catch(error => next(error)); 
 
+    }catch(error){next(error)}; 
+        // No findByPk --> UUID
 
+        // Bruto a optimizado, no al revés--
 });
 
 // -------------------------------------------------------------

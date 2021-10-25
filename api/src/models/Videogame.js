@@ -1,4 +1,4 @@
-const { DataTypes } = require('sequelize');
+const { DataTypes, Sequelize } = require('sequelize');
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
 module.exports = (sequelize) => {
@@ -7,6 +7,7 @@ module.exports = (sequelize) => {
     id: {
       // Use UUID - Diferenciar entre ambas BDD...
       type: DataTypes.UUID,
+      defaultValue:DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true
     },

@@ -1,11 +1,15 @@
-
+  // ***********************************************************
 // Variables de entorno
 require('dotenv').config();
-
+  // ***********************************************************
 // Importaciones completas
 const { Sequelize } = require('sequelize');
 const fs = require('fs');
 const path = require('path');
+  
+// ***********************************************************
+  // ***********************************************************
+
 
 // Usando las variables de entorno HERE
 const {
@@ -17,6 +21,9 @@ const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
+  // ***********************************************************
+  // ***********************************************************
+
 const basename = path.basename(__filename);
 
 const modelDefiners = [];
@@ -28,6 +35,9 @@ fs.readdirSync(path.join(__dirname, '/models'))
     modelDefiners.push(require(path.join(__dirname, '/models', file)));
   });
 
+  // ***********************************************************
+  // ***********************************************************
+
 // Injectamos la conexion (sequelize) a todos los modelos
 modelDefiners.forEach(model => model(sequelize));
 // Capitalizamos los nombres de los modelos ie: product => Product
@@ -35,20 +45,25 @@ let entries = Object.entries(sequelize.models);
 let capsEntries = entries.map((entry) => [entry[0][0].toUpperCase() + entry[0].slice(1), entry[1]]);
 sequelize.models = Object.fromEntries(capsEntries);
 
+  // ***********************************************************
+  // ***********************************************************
+
+
 // En sequelize.models están todos los modelos importados como propiedades
-// Para relacionarlos hacemos un destructuring
+// destructuring
+
+
 const { Videogame, Genre } = sequelize.models;
 
 
-// Aca vendrian las relaciones
-// Product.hasMany(Reviews);
-
-// Tiene que ponerse un through?
+// TODO -- Asociaciones -- Complete
 Videogame.belongsToMany(Genre, {through: 'videogameGenre'});
 Genre.belongsToMany(Videogame, {through: 'videogameGenre'})
 
 
 
+  // ***********************************************************
+  // ***********************************************************
 
 // -------------------------------------------------------------
 module.exports = {
@@ -57,3 +72,6 @@ module.exports = {
   //const { Product, User } = require('./db.js');
   conn: sequelize,     // para importart la conexión { conn } = require('./db.js');
 };
+
+  // ***********************************************************
+  // ***********************************************************

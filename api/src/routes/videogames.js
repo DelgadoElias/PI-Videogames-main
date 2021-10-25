@@ -5,6 +5,7 @@ const { Videogame } = require('../db.js')
 const router = Router();
 
 // Videogames..
+//--------------------------------------------------------------
 
 router.get('/',(req,res, next) => {
 
@@ -54,24 +55,19 @@ router.get('/',(req,res, next) => {
 
         
         // Funciona!!
-        (async()=>{ // Función autoinvocada
+        return (async()=>{ // Función autoinvocada
             // No findByPk --> UUID
             const instancias = await Videogame.findAll();
             res.send(instancias);
         })().catch(error => next(error)); 
 
-
         // TODO: instancias es un Array, hay que tomar los primeros 15 para mostrar.
-    
-    // Videogame.findAll()
-    // .then( x => res.send(x)).catch((x) => { next(x) })
+      
+    // Videogame.findAll().then( x => res.send(x)).catch((x) => { next(x) })
 })
 
-/** 
- * ACÁ NO ES NECESARIO LOS OTROS METODOS DEL ROUTER YA QUE ESTE 
- * SOLAMENTE HACE UN 'SELECT'
- * 
- */
+//--------------------------------------------------------------
+
 
 
 module.exports = router;

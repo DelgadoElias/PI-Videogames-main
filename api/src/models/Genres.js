@@ -9,6 +9,7 @@ module.exports = (sequelize) => {
         id: {
             // Use UUID - Diferenciar entre ambas BDD...
             type: DataTypes.UUID,
+            defaultValue:DataTypes.UUIDV4,
             allowNull: false,
             primaryKey: true
         },

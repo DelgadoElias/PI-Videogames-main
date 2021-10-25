@@ -1,12 +1,12 @@
 const { Router } = require('express');
-
+const { Genre } = require('../db.js');
 
 const router = Router();
 
 // -------------------------------------------------------------
 // genres..
 // GET
-router.get('/',(req,res) => {
+router.get('/',async(req,res) => {
 
     /**
      * Obtener todos los tipos de géneros de videojuegos 
