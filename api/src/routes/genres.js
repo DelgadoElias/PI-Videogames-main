@@ -30,6 +30,15 @@ router.post('/',(req,res) => {
      * guardarlos en us propia BDD y ya usarlos desde allí.
      */
 
+    const { name } = req.body;
+
+    const newGenre = await Episodes.create({
+        name,
+        id:uuid.v4(),
+    })
+
+    // Ya se que genero uno por default, pero prefiero hacerlo de ambos lados para evitar problemas y modificar más rápido
+
     res.send('soy la ruta de los genres')
 })
 // -------------------------------------------------------------
