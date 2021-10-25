@@ -20,7 +20,7 @@ router.get('/',async(req,res) => {
 })
 // -------------------------------------------------------------
 // POST
-router.post('/',(req,res) => {
+router.post('/',async(req,res,next) => {
 
     /**
      * Obtener todos los tipos de géneros de videojuegos 
@@ -32,14 +32,19 @@ router.post('/',(req,res) => {
 
     const { name } = req.body;
 
-    const newGenre = await Episodes.create({
-        name,
-        id:uuid.v4(),
-    })
+    // Async Await
+    try {
+        const newGenre = await Genre.create({
+            name,
+            id:uuid.v4(), // Generado por default igual
+        })
+        res.status(201).send(newGenre);
 
-    // Ya se que genero uno por default, pero prefiero hacerlo de ambos lados para evitar problemas y modificar más rápido
+    }catch(e) {
+        next(e);
+    }
+    //return Genre.create({name, id:uuid.v4}).then((x) => {res.send(x)})
 
-    res.send('soy la ruta de los genres')
 })
 // -------------------------------------------------------------
 // PUT
