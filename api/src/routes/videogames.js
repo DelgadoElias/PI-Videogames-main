@@ -1,73 +1,101 @@
 const { Router } = require('express');
 // Modelos requeridos
-const { Videogame } = require('../db.js')
+const { Videogame, Genre } = require('../db.js')
 
+// Sequelize
+const { Op } = require("sequelize");
+const axios = require('axios');
 const router = Router();
 
 // Videogames..
 //--------------------------------------------------------------
+// COMPLETE . Queries - name, page
+router.get('/',async(req,res, next) => { 
 
-router.get('/',(req,res, next) => {
+    let instanceApi = axios.get('https://api.rawg.io/api/games?key=232664f6fc6541e2a787c5d2528caac5')
+
+    let instanceMine = Videogame.findAll({
+        include: Genre,
+        raw:true
+    });
+    // TODO: Hay alguna manera de combinar esto con async await?
+    Promise.all([instanceApi,instanceMine])
+    .then((x) => {
+        const [instanceApi,instanceMine] = x;
+
+        let filterCharacters = instanceApi.data.results.map((x) => { return { 
+            name: x.name, 
+            released: x.released,
+            image: x.background_image,
+            platforms: x.platforms, }})
+        console.log(instanceApi.data);
+        console.log(instanceMine);
+        res.send(instanceMine);
+    });
+
+})
+
+//-----------------------------------------------------------
+// Create
+// --------------------
+// -------------------------------
+// -------------------------------
+// ----------------
+// -----------------------------------------------------------
+
+/*
+
+router.get('/',async(req,res, next) => { 
 
     // Puede recibir parámetros por query..
-    const { name } = req.query;
+    let { name, page } = req.query; 
     
+    if(!page){
+        page = 1
+    }
+    let pagination = 15 * page
+    let begining = 15 * (page -1)
+
     // ------------------------------------
 
-    /**
-     * Obtener un listado de los videojuegos.
-     * Debe devolver solo los datos para la ruta principal.
-     */
 
-        // ------------------------------------------------
-        // Si pasan query... ------------------------------
-        // ------------------------------------------------
-    
-    /** 
-     * Obtener un listado de los primeros 15 videojuegos que
-     * contengan la palabra ingresada como query..
-     * 
-     * 
-     * let page = 1;
-     * let indix = 15;
-     * 
-     * 
-     * -- Leemos los primeros 15 normalmente.
-     * -- Botón dar a otra página.
-     * 
-     * where: {  id > page*indix && id < (page + 1)*indix }
-     * results:
-     * --> 15  al  30
-     * --> 30  al  45
-     * --> 45  al  60
-     *  
-     */
+     if(name !== undefined){ // COMPLETE
+        try {
+            const finder = await Videogame.findAll({ include: Genre},{ offset: begining, limit: pagination },{where: {
+                name: {
+                  [Op.like]: `%${name}%`
+                },
+                
+              }});
+             // TODO: Caso no hay página para mostrar - FRONTEND
+            return res.send(finder);
+        } catch (e) {
+            next(e)
+        }
+    }
 
-        // Pasarlo a lowerCase para comparación de names
-        if(name){
-            res.status(200)
-            res.send(name)
-            return;
+
+    // ----------------------------------------------------------------
+    // Case: No Query params
+    //Async Await Mode
+        try { // COMPLETE
+            const instancias = await Videogame.findAll({ offset: begining, limit: pagination });
+            // TODO: Caso no hay página para mostrar - FRONTEND
+            return res.send(instancias);
+        } catch (e) {
+            next(e)
         }
 
-        // Si no pasan por query... Leemos todos
+        // Promise Mode
+        // Videogame.findAll().then( x => res.send(x)).catch((x) => { next(x) })
 
-
-        
-        // Funciona!!
-        return (async()=>{ // Función autoinvocada
-            // No findByPk --> UUID
-            const instancias = await Videogame.findAll();
-            res.send(instancias);
-        })().catch(error => next(error)); 
 
         // TODO: instancias es un Array, hay que tomar los primeros 15 para mostrar.
       
-    // Videogame.findAll().then( x => res.send(x)).catch((x) => { next(x) })
+    
 })
 
-//--------------------------------------------------------------
-
+*/ 
 
 
 module.exports = router;

@@ -53,13 +53,15 @@ sequelize.models = Object.fromEntries(capsEntries);
 // destructuring
 
 
-const { Videogame, Genre } = sequelize.models;
+const { Videogame, Genre, Platform } = sequelize.models;
 
 
 // TODO -- Asociaciones -- Complete
 Videogame.belongsToMany(Genre, {through: 'videogameGenre'});
 Genre.belongsToMany(Videogame, {through: 'videogameGenre'})
-
+// **********************
+Videogame.belongsToMany(Platform, {through: 'videogamePlatform'});
+Platform.belongsToMany(Videogame, {through: 'videogamePlatform'});
 
 
   // ***********************************************************

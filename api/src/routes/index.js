@@ -3,19 +3,19 @@ const { Router } = require('express');
 
 //--------------------------------------------------------------
 
-// Variables de rutas
+// Variables de rutas 
 const videogameDetailRoutes = require('./videogameDetail');
 const videogamesRoutes = require('./videogames');
 const genresRoutes = require('./genres');
 
 //--------------------------------------------------------------
 
-// Llamamos al router
+// Llamamos al router COMPLETE
 const router = Router();
 
 //--------------------------------------------------------------
 
-// Conexión de las rutas
+// Conexión de las rutas COMPLETE
 router.use('/videogame',videogameDetailRoutes);
 router.use('/videogames',videogamesRoutes);
 router.use('/genres',genresRoutes);

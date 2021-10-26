@@ -8,12 +8,14 @@ module.exports = (sequelize) => {
     return sequelize.define('genre', {
         id: {
             // Use UUID - Diferenciar entre ambas BDD...
+            //COMPLETE
             type: DataTypes.UUID,
             defaultValue:DataTypes.UUIDV4,
             allowNull: false,
             primaryKey: true
         },
-        name: {
+        // Name del género
+        name: { //COMPLETE
             // Nombre de nuestro genero
             type: DataTypes.STRING,
             allowNull: false

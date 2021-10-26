@@ -4,33 +4,32 @@ const { DataTypes, Sequelize } = require('sequelize');
 module.exports = (sequelize) => {
   // defino el modelo
   return sequelize.define('videogame', {
-    id: {
+    id: { //COMPLETE
       // Use UUID - Diferenciar entre ambas BDD...
       type: DataTypes.UUID,
       defaultValue:DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true
     },
-    name: {
+    name: { // COMPLETE 
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
     },
-    description: {
+    description: { //TODO:
       type: DataTypes.STRING,
       allowNull: false
     },
-    launched:{
-      type: DataTypes.DATE,
+    released:{ //TODO:
+      type: DataTypes.STRING,
     },
-    platform:{
-      type: DataTypes.INTEGER, // Esto debe ser pasado por la otra BDD como id no?
-      // allowNull: false
+    image: {
+      type: DataTypes.STRING
     }
   });
 };
 
-// TODO: Models videogame, genre Many to Many
+// TODO: Models videogame, genre Many to Many COMPLETE
 
 
 /**

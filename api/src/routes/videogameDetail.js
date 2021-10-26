@@ -10,8 +10,9 @@ const router = Router();
 // -------------------------------------------------------------
 // GET
 
-router.get('/',(req,res) => {
-    // Obtener el detalle de un videojuego en particular
+// Devuelve del detalle de un videojuego en particular COMPLETE
+router.get('/:id',async(req,res) => {
+    // Obtener el detalle de un videojuego en particular 
     /**
      * Debe traer solo los datos pedidos en la ruta de detalle 
      * de videojuego.
@@ -19,29 +20,17 @@ router.get('/',(req,res) => {
      * Incluir los géneros asociados..
      */
        
-    // Le pasamos por query? -----------------------------------
-
-    const { id } = req.query
-
-    // Si no existe el id pasado por query mostraremos otra cosa.
-    if(!id){
-        res.send('No me pasaste id por query')
-        return;
-
-    }
-
-
-    //Default return;
-    //  --------------------------------------------------------
-
-    
+    const { id } = req.params
+    const videogame = await Videogame.findByPk(id)
+    res.send(videogame)
 })
 
 // -------------------------------------------------------------
 // POST
 
+//Crea un videojuego COMPLETE
 router.post('/',async(req,res, next) => {
-    // Recibe los datos recolectados desde el formulario controlado de la ruta de reación de videojuego por body..
+    // Recibe los datos recolectados desde el formulario controlado de la ruta de reación de videojuego por body.. COMPLETE
     
     /**
      * Formulario enviado por body...
@@ -76,77 +65,75 @@ router.post('/',async(req,res, next) => {
 
         // Bruto a optimizado, no al revés--
 });
+//Agrega géneros a un videojuego COMPLETE
+router.post('/:videogameId/genre/:genreId', async function(req, res,next) {
+    try {
+
+        //TODO: Code here COMPLETE
+        const{ videogameId,genreId} = req.params;
+
+        // Ligar los videojuegos con sus géneros
+        const videogame = await Videogame.findByPk(videogameId)
+        await videogame.addGenres(genreId)
+        res.send(200)
+
+    } catch (e) {
+        //TODO: Error Here COMPLETE
+        next(e)
+    }
+})
 
 // -------------------------------------------------------------
-// PUT
-router.put('/:id',(req,res,next) => {
-    // Obtener el detalle de un videojuego en particular
-    /**
-     * Debe traer solo los datos pedidos en la ruta de detalle 
-     * de videojuego.
-     * 
-     * Incluir los géneros asociados..
-     */
+// PUT TODO:  COMPLETE
+router.put('/:id',async(req,res,next) => {
+    
        
-    // Le pasamos por query?
-    console.log(req.params)
-    const { videogame } = req.body;
+    
+    const { name, description, launched, platform, image } = req.body;
     const id = req.params.id; 
 
+    let videogame = {}
+    // Guardo todas las propiedades que me vengan del body para cambiar
+    // Ya que no me pueden venir todas, si es undefined no la agarro.
+    for(const property in req.body){
+        if(property !== undefined){
+            videogame[property] = req.body[property];
+        }
+    }
 
-        // TODO: Poder hacerlo en async await
-        // Tengo que buscar si o si?
+        // TODO: Poder hacerlo en async await COMPLETE
 
-        async function noSirvoAun(){
-            const instancias = await Videogame.update({...videogame},{
-                where : { id } 
-            })
-            res.send(instancias);
-        } // .catch(err => res.send(err))
+            // Promise Mode
+            // return Videogame.update({...videogame},{ where: { id }}).then((x) => {res.send(x)});
+            // AyncAwait Mode
+            const updateGame = await Videogame.update({...videogame},{ where: {}})
+            res.send(updateGame);
 
-        //   (async()=>{ // Función autoinvocada
-    //     const instancias = await Videogame.update({ ...videogame},
-    //         {
-    //             where : { id }
-    //         });
-    //         // Así sería para async await?
-
-    //     res.send(instancias);
-    // })().catch(error => next(error)); 
-
-
-            return Videogame.update(videogame,{ where: { id }}).then((x) => {res.send(x)});
-
-
-
-    /**
-     * return Videogame.update(videogame,{ where : { id } })
-     * .then((x) => { res.send(x) })
-     * .catch((e) => next(x))
-     */
 })
 // -------------------------------------------------------------
-// DELETE
+// DELETE TODO: COMPLETE
 
-router.delete('/:id',(req,res) => {
-    // Obtener el detalle de un videojuego en particular
-    /**
-     * Debe traer solo los datos pedidos en la ruta de detalle 
-     * de videojuego.
-     * 
-     * Incluir los géneros asociados..
+// Sicario, mata al del id
+router.delete('/:id',async(req,res, next) => {
+    
+
+    /** --> Promise Mode
+     * return Videogame.destroy({
+     * where:{id:id}}).then((x) => {res.send(x);})
      */
-       
-    // Le pasamos por query?
 
-    const { id } = req.query
-        
-    res.send('soy la ruta de un solo videogame')
+    // Async Await Mode
+    const { id } = req.params
+        try {
+            const destroyedGame = await Videogame.destroy({where: {id: id}})
+            res.send(200)
+        } catch (e) {
+            next(e)
+        }
+    
 })
 
 
-
-// En el caso de que manden algún id..
-// Creo que esta parte sería por query
+// -------------------------------------------------------------
 
 module.exports = router;

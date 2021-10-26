@@ -1,11 +1,15 @@
 const { Router } = require('express');
 const { Genre } = require('../db.js');
+//UUID
+const { v4: uuidv4 } = require('uuid');
+
+
 
 const router = Router();
 
 // -------------------------------------------------------------
 // genres..
-// GET
+// GET - Devuelve todos los géneros COMPLETE
 router.get('/',async(req,res) => {
 
     /**
@@ -16,10 +20,17 @@ router.get('/',async(req,res) => {
      * guardarlos en us propia BDD y ya usarlos desde allí.
      */
 
-    res.send('soy la ruta de los genres')
+    try {
+        const instancias = await Genre.findAll();
+        res.send(instancias);
+    } catch (e) {
+        next(e);
+    }
+    
 })
 // -------------------------------------------------------------
 // POST
+// Crea un nuevo género COMPLETE
 router.post('/',async(req,res,next) => {
 
     /**
@@ -36,7 +47,7 @@ router.post('/',async(req,res,next) => {
     try {
         const newGenre = await Genre.create({
             name,
-            id:uuid.v4(), // Generado por default igual
+            id: uuidv4() // Generado por default igual
         })
         res.status(201).send(newGenre);
 
@@ -48,7 +59,8 @@ router.post('/',async(req,res,next) => {
 })
 // -------------------------------------------------------------
 // PUT
-router.put('/',(req,res) => {
+//Actualiza un género - TODO: COMPLETE
+router.put('/:id',async(req,res,next) => {
 
     /**
      * Obtener todos los tipos de géneros de videojuegos 
@@ -57,22 +69,33 @@ router.put('/',(req,res) => {
      * En una primera instancia debemos traerlos desde rawg y 
      * guardarlos en us propia BDD y ya usarlos desde allí.
      */
+     const { name } = req.body;
+     const id = req.params.id; 
+        console.log(req.body);
+    //  return Genre.update(genre,{ where: { id }}).then((x) => {res.send(x)});
 
-    res.send('soy la ruta de los genres')
+     try {                                  
+        const updated = await Genre.update({name},{
+            where: { id: id },
+        })
+        res.status(201).send(updated);
+     } catch (e) {
+         next(e);
+     }
 })
 // -------------------------------------------------------------
-// DELETE
-router.delete('/',(req,res) => {
+// DELETE - TODO: COMPLETE
+router.delete('/:id',async(req,res,next) => {
 
-    /**
-     * Obtener todos los tipos de géneros de videojuegos 
-     * posibles.
-     * 
-     * En una primera instancia debemos traerlos desde rawg y 
-     * guardarlos en us propia BDD y ya usarlos desde allí.
-     */
-
-    res.send('soy la ruta de los genres')
+    const { id } = req.params
+        try {
+            const destryoedGenre = await Genre.destroy({where: {id: id}})
+            res.send(200)
+        } catch (e) {
+            next(e)
+        }
+    
+        //  return Genre.destroy(genre,{ where: { id }}).then((x) => {res.send(x)}).catch((e) => {res.send(e)});
 })
 
 
