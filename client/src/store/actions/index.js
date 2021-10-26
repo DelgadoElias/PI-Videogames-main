@@ -10,7 +10,7 @@ export function fetchVideogames(){
             let poder = await axios.get('http://localhost:3001/videogames') // Hacemos al backEnd nuestro
             dispatch({
             type: FETCH_VIDEOGAMES,
-            payload: poder
+            payload: poder.data
             })
         } catch (e) {
             console.log(e)

@@ -43,7 +43,7 @@ router.get('/',async(req,res, next) => {
 
     });
     }else{ // Case No name
-        instanceApi = axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`)
+        instanceApi = axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page_size=15`)
 
         instanceMine = Videogame.findAll({
             include: Genre,
