@@ -1,37 +1,77 @@
 const { Router } = require('express');
+require('dotenv').config();
+
 // Modelos requeridos
 const { Videogame, Genre } = require('../db.js')
 
 // Sequelize
 const { Op } = require("sequelize");
+const { v4: uuidv4 } = require('uuid');
 const axios = require('axios');
 const router = Router();
+
+// Variables .env
+const {
+    API_KEY
+  } = process.env;
+
 
 // Videogames..
 //--------------------------------------------------------------
 // COMPLETE . Queries - name, page
 router.get('/',async(req,res, next) => { 
 
-    let instanceApi = axios.get('https://api.rawg.io/api/games?key=232664f6fc6541e2a787c5d2528caac5')
+    // Caja de variables ......................
+    let name = req.query.name;
+    let page = req.query.page;
+    // If no page --> page = 1
+    if(!page){
+        page=1
+    }
 
-    let instanceMine = Videogame.findAll({
+    let instanceApi;
+    let instanceMine;
+
+    if(name){ // Case query name true
+        instanceApi = axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&search=${name}&page=${page}&page_size=15`)
+
+        instanceMine = Videogame.findAll({
         include: Genre,
-        raw:true
+        where: {
+            name: { [Op.iLike]: `%${name}%` },
+        }
+
     });
-    // TODO: Hay alguna manera de combinar esto con async await?
+    }else{ // Case No name
+        instanceApi = axios.get(`https://api.rawg.io/api/games?key=${API_KEY}`)
+
+        instanceMine = Videogame.findAll({
+            include: Genre,
+            raw:true
+        });
+    }
+
+    // Same for all
     Promise.all([instanceApi,instanceMine])
     .then((x) => {
         const [instanceApi,instanceMine] = x;
 
-        let filterCharacters = instanceApi.data.results.map((x) => { return { 
+        let filterCharacters = instanceApi.data.results.map((x) => { return {
+            id: x.id,  //uuidv4()
             name: x.name, 
             released: x.released,
             image: x.background_image,
-            platforms: x.platforms, }})
-        console.log(instanceApi.data);
-        console.log(instanceMine);
-        res.send(instanceMine);
+            // platforms: x.platforms,
+            rating: x.rating,
+            description: x.slug}
+        })
+
+        let allVideogames = [...instanceMine, ...filterCharacters ]
+        // Envío
+        res.send(allVideogames);
     });
+
+    // TODO: Hay alguna manera de combinar esto con async await?
 
 })
 

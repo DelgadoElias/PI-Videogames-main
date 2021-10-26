@@ -3,15 +3,24 @@ const { Router } = require('express');
 const { v4: uuidv4 } = require('uuid');
 // Models
 const { Videogame } = require('../db.js')
+const axios = require('axios');
+require('dotenv').config();
 
 // Comienza la magia.
 const router = Router();
 
 // -------------------------------------------------------------
+
+const {
+    API_KEY
+  } = process.env;
+
+
+
 // GET
 
 // Devuelve del detalle de un videojuego en particular COMPLETE
-router.get('/:id',async(req,res) => {
+router.get('/:id',async(req,res,next) => {
     // Obtener el detalle de un videojuego en particular 
     /**
      * Debe traer solo los datos pedidos en la ruta de detalle 
@@ -21,8 +30,33 @@ router.get('/:id',async(req,res) => {
      */
        
     const { id } = req.params
-    const videogame = await Videogame.findByPk(id)
-    res.send(videogame)
+    
+    if(id.length > 8){
+
+        const videogame = await Videogame.findByPk(id)
+        res.send(videogame)
+   
+    }else{
+        
+        // let instanceApi = axios.get(`https://api.rawg.io/api/games/3498?key=232664f6fc6541e2a787c5d2528caac5`).then((x) =>{
+            
+        //     res.send(x.data)
+        // }).catch(e => next(e))
+
+        try {
+            let instanceApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=232664f6fc6541e2a787c5d2528caac5`)
+
+            res.send(instanceApi.data)
+
+        } catch (e) {
+            next(e)
+        }
+        
+                 // // Por tratar de hardcodearla te trabaste...
+        // // Tranqui, vas a llegar
+    }
+    //https://api.rawg.io/api/games/{id}
+
 })
 
 // -------------------------------------------------------------

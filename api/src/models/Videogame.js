@@ -25,6 +25,9 @@ module.exports = (sequelize) => {
     },
     image: {
       type: DataTypes.STRING
+    },
+    rating:{
+      type: DataTypes.INTEGER
     }
   });
 };
