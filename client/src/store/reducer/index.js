@@ -1,4 +1,4 @@
-import { FETCH_VIDEOGAMES } from "../actions";
+import { FETCH_VIDEOGAMES, SEARCH_VIDEOGAMES } from "../actions";
 
 
 const initialState = {
@@ -16,6 +16,11 @@ export default function reducer(state = initialState, action){
                 ...state,
                 videogames: action.payload,
             }
+            case SEARCH_VIDEOGAMES:
+                return {
+                    ...state,
+                    videogames: action.payload,
+                }
         default: 
             return state;
     }

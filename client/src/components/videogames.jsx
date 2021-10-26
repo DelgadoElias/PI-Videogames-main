@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { fetchVideogames } from '../store/actions'
 import Videogame from "./Videogame"
 
+
+// Componente de lógica
 export default function Videogames(){
     let videogame = useSelector((state) => { return state.videogames})
     // console.log(videogame);
@@ -15,9 +17,10 @@ export default function Videogames(){
     },[])
 
     console.log(videogame);
-    return <div>
+     return <div>  
+         {/* Componente presentacional */}
         {videogame.map((x) => {
-            <Videogame videogame={x}></Videogame>
+            return <Videogame id={x.id} name={x.name} released={x.released} image={x.image} rating={x.rating} description={x.description} ></Videogame>
         })}
     </div>
 }
