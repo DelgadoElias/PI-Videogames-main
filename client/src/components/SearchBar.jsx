@@ -1,15 +1,21 @@
 import {useState} from 'react'
+import {useDispatch} from 'react-redux'
+
+
 import axios from 'axios';
+import { searchVideogames } from '../store/actions';
 require('dotenv').config()
 
 export default function SearchBar(){
 
     let [search, setSearch] = useState('')
+    let dispatch = useDispatch()
+
 
     // NO SEAS PAVO, PARA ALGO TENÉS EL REDUCER, NO TE OLVIDES 
     function onSubmit(e){
         e.preventDefault();
-        axios.get(search)
+        searchVideogames;
     }
 
     function onInputChange(e){
