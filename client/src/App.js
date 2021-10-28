@@ -1,7 +1,8 @@
+import { Route, Switch } from 'react-router';
 import './App.css';
-import Order from './components/order';
+import Order from './components/Order';
 import SearchBar from './components/SearchBar';
-import Videogame from './components/Videogame';
+import VideogameDetail from './components/VideogameDetail';
 import Videogames from './components/Videogames';
 
 
@@ -13,10 +14,20 @@ function App() {
     <div className="App">
       <h1>Henry Videogames</h1>
 
-      {/* Todavía no agregamos CSS */}
+      {/* ..... Todavía no agregamos CSS ..... */}
       <SearchBar></SearchBar>
-      <Order></Order>    
-      <Videogames></Videogames>
+      {/* ..... Enrutamiento completo ..... */}
+      <Switch>
+      {/* ..... Ruta para videogame Detail ..... */}
+        <Route path="/:id">
+          <VideogameDetail />
+        </Route>
+        {/* ..... Ruta inicial ..... */}
+        <Route path="/">
+          <Order></Order>    
+          <Videogames></Videogames>
+        </Route>
+      </Switch>
     </div>
   );
 }
