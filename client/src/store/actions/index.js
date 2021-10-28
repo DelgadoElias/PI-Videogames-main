@@ -4,9 +4,12 @@ import axios from 'axios'
 // ----------------------------------------------------------------
 export const FETCH_VIDEOGAMES = 'FETCH_VIDEOGAMES'
 export const SEARCH_VIDEOGAMES = 'SEARCH_VIDEOGAMES'
-
+export const SORT_VIDEOGAMES = 'SORT_VIDEOGAMES'
 
 // ----------------------------------------------------------------
+
+// Traer a los videojuegos
+
 export function fetchVideogames(){
     return async function(dispatch){
         try {
@@ -22,6 +25,8 @@ export function fetchVideogames(){
     }
 }
 
+// Buscar videojuegos
+
 export function searchVideogames(search, page = 1){
     return async function(dispatch){
         try {
@@ -33,6 +38,16 @@ export function searchVideogames(search, page = 1){
         } catch (e) {
             console.log(e)
         }
+        
+    }
+}
+
+// Ordenamientos
+
+export function sort(order){
+    return {
+        type : SORT_VIDEOGAMES,
+        payload : order
         
     }
 }
