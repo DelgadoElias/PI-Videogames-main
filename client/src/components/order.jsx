@@ -13,20 +13,11 @@ export default function Order(){
 
     // Variables para envíos
         let dispatch = useDispatch()
-    // Cambio de estado completo
-        const [order, setOrder] = useState('')
-    // Mostrar el efecto cambiante de la página web
-        useEffect(() => {
-            // Hacemos un envío a la función de order
-            dispatch(sort(order))
-         },[order])
-
-
 
         // Con esta función captaremos los cambios
         function onSelectedChange(e){
             // Todos los eventos tienen target.value?
-            setOrder(e.target.value)
+            dispatch(sort(e.target.value))
         }
 
 
