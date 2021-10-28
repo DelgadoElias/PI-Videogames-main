@@ -1,31 +1,36 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 
-
-import axios from 'axios';
+// Acciones
 import { searchVideogames } from '../store/actions';
+
+
 require('dotenv').config()
 
 export default function SearchBar(){
 
+    // Funciones de react para actualizar el estado de la aplicación
     let [search, setSearch] = useState('')
+    // Envío de la información
     let dispatch = useDispatch()
 
 
-    // NO SEAS PAVO, PARA ALGO TENÉS EL REDUCER, NO TE OLVIDES 
+    // onSubmit -->  Carga la palabra que buscamos al action function para obtener la info del reducer
     function onSubmit(e){
         e.preventDefault();
-        searchVideogames;
+        dispatch(searchVideogames(search));
     }
 
+    // onInputChange --> Controla los cambios accionados
     function onInputChange(e){
         e.preventDefault();
-
-        setSearch(e.target.value) 
+        // useState del search?
+        setSearch(e.target.value);
         console.log(setSearch);
     }
 
 
+    // Formulario a usar para el navBar
     return(<>
         <form onSubmit={onSubmit}>
             <input type="text" onChange={onInputChange} value={search}/>
