@@ -7,8 +7,9 @@ import Videogame from "./Videogame"
 
 // Componente de lógica
 export default function Videogames(){
-    
+
     let videogame = useSelector((state) => { return state.filteredVideogames})
+    // Ocupamos filteredVideogames en vez de videogames ya que solamente se cambiará si se filtran, sino será idéntico a videogames y no tendremos que hacer mayores cambios
     
     // Despachar funciones
     let dispatch = useDispatch() 

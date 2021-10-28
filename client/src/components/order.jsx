@@ -10,11 +10,14 @@ import { sort } from "../store/actions"
 export default function Order(){
 
     // Cajita de variables
-        let dispatch = useDispatch()
 
+    // Variables para envíos
+        let dispatch = useDispatch()
+    // Cambio de estado completo
         const [order, setOrder] = useState('')
-        
+    // Mostrar el efecto cambiante de la página web
         useEffect(() => {
+            // Hacemos un envío a la función de order
             dispatch(sort(order))
          },[order])
 
@@ -29,8 +32,8 @@ export default function Order(){
 
     return(
         <select name="select" onChange={onSelectedChange}>
-            <option value={ASCENDENTE}>Mayor a menor</option>
-            <option value={DESCENTE}>Menor a mayor</option>
+            <option value={ASCENDENTE}>Acendente</option>
+            <option value={DESCENTE}>Descendente</option>
         </select>
     )
 }
