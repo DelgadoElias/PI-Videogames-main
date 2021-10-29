@@ -49,6 +49,7 @@ export default function VideogameDetail(props){
                     </>  : <h1>Reloading</h1>
                     }
 
-            {/* TODO: Botón para eliminar si el videogame es de la BDD nuestra. Caso contrario, simplemente eliminamos del store nomás */}
+            {/* TODO: Botonera de Eliminar y actualizar el videogame.
+            El get ya tenemos y el add va aparte. */}
     </>)
 }
