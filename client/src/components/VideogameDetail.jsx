@@ -9,15 +9,20 @@ export default function VideogameDetail(props){
 
     const [videogame, setVideogame ] = useState(null)
 
-    let parametros = useParams()
-
-
-    console.log(parametros);
+    let {id} = useParams()
 
 
     useEffect(() => {
-        axios.get('http://localhost:3001/videogame/412520')
 
+        // TODO: Se como pasarlo a async, no se como mostrar las cosas a display
+        axios.get(`http://localhost:3001/videogame/${id}`).then((x) => {
+            // ------------
+            setVideogame(x.data);
+            // ------------
+        }).catch(e => console.log(e));
+        
+        // Se puede limpiar pero no lo veo necesario. Cuándo muere el componente también se va el estado.
+        return () => { setVideogame(null); }
 
      }, []);
 
@@ -27,13 +32,15 @@ export default function VideogameDetail(props){
     //TODO: Decorarlo que está re feo - Está todo tirado así nomás
     return (<> 
 
+        {/* Ocupamos un ternario según el valor del componente --> Si es null escribimos 'loading' - Si no es null escribimos los valores del componente */}
         { 
+
         videogame ? <>
         <h1>{videogame.id}</h1>
 
         <p>{videogame.name}</p>
 
-        <img src={videogame.image} alt={videogame.description} />
+        <img src={videogame.background_image} alt={videogame.description} />
         <p>descripción:{videogame.description}</p>
 
         <p>{videogame.rating}</p>

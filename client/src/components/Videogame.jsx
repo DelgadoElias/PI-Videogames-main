@@ -1,10 +1,15 @@
+import { Link } from 'react-router-dom'
+
 export default function Videogame(props){
     
     // Componente presentacional
 
     const { id, name, description, image, rating, released } = props;
     //TODO: Decorarlo que está re feo - Está todo tirado así nomás
-    return (<> 
+    return (<>
+
+    <Link to={`/${id}`}>
+    
     <h1>{id}</h1>
 
     <p>{name}</p>
@@ -15,5 +20,8 @@ export default function Videogame(props){
     <p>{rating}</p>
 
     <p>{released}</p>
+    
+    </Link>
+
     </>)
 }

@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router';
 import './App.css';
+import AddVideogame from './components/addVideogame';
 import Order from './components/Order';
 import SearchBar from './components/SearchBar';
 import VideogameDetail from './components/VideogameDetail';
@@ -18,8 +19,14 @@ function App() {
       <SearchBar></SearchBar>
       {/* ..... Enrutamiento completo ..... */}
       <Switch>
-      {/* ..... Ruta para videogame Detail ..... */}
-        <Route path="/:id">
+
+        {/* ..... Agregado de un videojuego ..... */}
+        <Route exact path="/add">
+          <AddVideogame></AddVideogame>
+        </Route>
+
+        {/* ..... Ruta para videogame Detail ..... */}
+        <Route exact path="/:id">
           <VideogameDetail />
         </Route>
         {/* ..... Ruta inicial ..... */}
@@ -27,6 +34,7 @@ function App() {
           <Order></Order>    
           <Videogames></Videogames>
         </Route>
+
       </Switch>
     </div>
   );
