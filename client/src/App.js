@@ -1,10 +1,10 @@
 import { Route, Switch } from 'react-router';
 import './App.css';
-import AddVideogame from './components/addVideogame';
+import AddVideogame from './components/crud-Videogames/addVideogame';
 import Order from './components/Order';
 import SearchBar from './components/SearchBar';
-import VideogameDetail from './components/VideogameDetail';
-import Videogames from './components/Videogames';
+import VideogameDetail from './components/videogame/VideogameDetail';
+import Videogames from './components/videogame/Videogames';
 
 
 function App() {
@@ -13,15 +13,22 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Henry Videogames</h1>
+      <h1>PI</h1>
 
       {/* ..... Todavía no agregamos CSS ..... */}
       <SearchBar></SearchBar>
       {/* ..... Enrutamiento completo ..... */}
       <Switch>
 
-        {/* ..... Agregado de un videojuego ..... */}
+        {/* ..... CRUD de un videojuego ..... */}
+        {/* TODO: Hacer funcionar todos los CRUD */}
         <Route exact path="/add">
+          <AddVideogame></AddVideogame>
+        </Route>
+        <Route exact path="/remove">
+          <AddVideogame></AddVideogame>
+        </Route>
+        <Route exact path="/update">
           <AddVideogame></AddVideogame>
         </Route>
 
