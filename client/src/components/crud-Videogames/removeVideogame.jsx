@@ -1,6 +1,4 @@
-import axios from "axios";
-import { useState } from "react";
-import { useHistory } from "react-router";
+
 
 export default function RemoveVideogame({id}){
     
