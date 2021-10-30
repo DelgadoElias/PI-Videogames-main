@@ -14,7 +14,7 @@ export default function VideogameDetail(props){
 
     useEffect(() => {
 
-        // TODO: Se como pasarlo a async, no se como mostrar las cosas a display
+        // TODO: Se como pasarlo a async. Prefiero mostrarlo mitad y mitad
         axios.get(`http://localhost:3001/videogame/${id}`).then((x) => {
             // ------------
             setVideogame(x.data);
