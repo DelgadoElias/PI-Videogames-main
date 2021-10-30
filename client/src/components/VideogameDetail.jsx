@@ -17,8 +17,6 @@ export default function VideogameDetail(props){
 
     useEffect(() => {
         axios.get('http://localhost:3001/videogame/412520')
-
-
      }, []);
 
 
