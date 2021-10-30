@@ -28,7 +28,12 @@ module.exports = (sequelize) => {
     },
     rating:{
       type: DataTypes.INTEGER
-    }
+    },
+    createdInDb: { //TODO:
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true
+    },
   });
 };
 

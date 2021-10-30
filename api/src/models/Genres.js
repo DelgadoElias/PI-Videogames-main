@@ -6,14 +6,8 @@ const { DataTypes } = require("sequelize");
 // TIP: No se deben usar palabras en español..
 module.exports = (sequelize) => {
     return sequelize.define('genre', {
-        id: {
-            // Use UUID - Diferenciar entre ambas BDD...
-            //COMPLETE
-            type: DataTypes.UUID,
-            defaultValue:DataTypes.UUIDV4,
-            allowNull: false,
-            primaryKey: true
-        },
+        // Ahora que lo pienso, no es necesario un ID. Si total vamos a pasar los géneros por ID
+        
         // Name del género
         name: { //COMPLETE
             // Nombre de nuestro genero
@@ -25,7 +19,7 @@ module.exports = (sequelize) => {
 
 /**
  * Propiedades:
- * ID
+ * ID - Generado por Sequelize o mediante lo que nos pasan.
  * Nombre
  */
 
