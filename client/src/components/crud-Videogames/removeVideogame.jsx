@@ -1,3 +1,7 @@
+import axios from "axios";
+import { useState } from "react";
+import { useHistory } from "react-router";
+
 export default function RemoveVideogame({id}){
     
     // TODO: Función que se tome como un botón de eliminar de la BDD nuestra, esto se mostrará en el detalle de la aplicación...
@@ -9,7 +13,4 @@ export default function RemoveVideogame({id}){
      * Si no es nuestra BDD eliminamos del store. 
      * También podemos hacer una blackList de videojuegos para la API externa para simular la eliminación de videojuegos.. 
      */
-    return (<>
-        <h1>Soy el remover</h1>
-     </>)
 }
