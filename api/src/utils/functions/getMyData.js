@@ -15,31 +15,43 @@ async function getMyData(name){
     if(!name){ // ..... ..... 
        
         noNames = Videogame.findAll({
-            include: {
+            include: [{
               model :Genre,
               attributes: ['name'],
               through : {
                 attributes : [],
               }
-            },
+            },{ // ----
+              model :Platform,
+              attributes: ['name'],
+              through : {
+                attributes : [],
+              }
+            }],
           });
           return noNames
 
     }else{
         // Case Name ..... .....
         withNames = Videogame.findAll({
-            include: {
+            include: [{
               model :Genre,
               attributes: ['name'],
               through : {
                 attributes : [],
               }
-            },
+            },{ // ----
+              model :Platform,
+              attributes: ['name'],
+              through : {
+                attributes : [],
+              }
+            }],
             where: {
               name: { [Op.iLike]: `%${name}%` },
             },
           });
-
+        // ....................................................
           return withNames
         // ....................................................
     }

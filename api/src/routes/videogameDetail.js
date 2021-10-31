@@ -11,11 +11,7 @@ const router = Router();
 
 // -------------------------------------------------------------
 
-const {
-    API_KEY
-  } = process.env;
-
-
+// Hubo una vez una necesidad de API_KEY por aquí
 
 // GET
 
@@ -38,7 +34,7 @@ router.get('/:id',async(req,res,next) => {
    
     }else{
         
-        // let instanceApi = axios.get(`https://api.rawg.io/api/games/3498?key=232664f6fc6541e2a787c5d2528caac5`).then((x) =>{
+        // axios.get(`https://api.rawg.io/api/games/3498?key=232664f6fc6541e2a787c5d2528caac5`).then((x) =>{
             
         //     res.send(x.data)
         // }).catch(e => next(e))
