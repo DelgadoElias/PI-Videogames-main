@@ -5,7 +5,7 @@ import {useDispatch} from 'react-redux'
 import { searchVideogames } from '../store/actions';
 
 
-require('dotenv').config()
+
 
 export default function SearchBar(){
 
@@ -19,6 +19,7 @@ export default function SearchBar(){
     function onSubmit(e){
         e.preventDefault();
         dispatch(searchVideogames(search));
+        console.log('Me cliquean');
     }
 
     // onInputChange --> Controla los cambios accionados
@@ -26,7 +27,7 @@ export default function SearchBar(){
         e.preventDefault();
         // useState del search?
         setSearch(e.target.value);
-        console.log(setSearch);
+        
     }
 
 

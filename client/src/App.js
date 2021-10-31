@@ -2,7 +2,12 @@ import { Route, Switch } from 'react-router';
 import './App.css';
 
 // Functions
+
+// Ordenamientos
 import Order from './components/orders/Order';
+import OrderRatings from './components/orders/OrderRatings';
+
+//Search
 import SearchBar from './components/SearchBar';
 
 // Videogames
@@ -41,7 +46,10 @@ function App() {
         </Route>
         {/* ..... Ruta inicial ..... */}
         <Route exact path="/home">
-          <Order></Order>    
+          <h1>Ordenar por</h1>
+          <OrderRatings></OrderRatings>
+          <Order></Order>
+          <br />
           <Videogames></Videogames>
         </Route>
         {/* ..... Landing Route ..... */}

@@ -5,10 +5,10 @@ import axios from 'axios'
 export const FETCH_VIDEOGAMES = 'FETCH_VIDEOGAMES'
 export const SEARCH_VIDEOGAMES = 'SEARCH_VIDEOGAMES'
 export const SORT_VIDEOGAMES = 'SORT_VIDEOGAMES'
-
+export const SORT_RATING = 'SORT_RATING'
 // ----------------------------------------------------------------
 
-// Traer a los videojuegos
+// Traer a los videojuegos ..... ..... ..... ..... .....
 
 export function fetchVideogames(){
     return async function(dispatch){
@@ -25,7 +25,7 @@ export function fetchVideogames(){
     }
 }
 
-// Buscar videojuegos
+// Buscar videojuegos ..... ..... ..... ..... ..... .....
 
 export function searchVideogames(search, page = 1){
     return async function(dispatch){
@@ -42,11 +42,21 @@ export function searchVideogames(search, page = 1){
     }
 }
 
-// Ordenamientos
+// Ordenamientos ..... ..... ..... ..... ..... ..... .....
 
+// Alfabético
 export function sort(order){
     return {
         type : SORT_VIDEOGAMES,
+        payload : order
+        
+    }
+}
+
+// Rating ----- ----- ----- -----
+export function sortRating(order){
+    return {
+        type : SORT_RATING,
         payload : order
         
     }

@@ -2,28 +2,27 @@
 
 import { useDispatch } from "react-redux"
 import { ASCENDENTE, DESCENTE } from "../../constantes/sort"
-import { sort } from "../../store/actions"
+import { sortRating } from "../../store/actions"
 
 // Me gusta más esta opción debido a que me gustaría tener un sideBar
 
-export default function Order(){ // A-z -> Z-a
+export default function OrderRatings(){ // 5-1 -> 1-5
 
-    // Cajita de variables
+    // Cajita de variables -
 
-    // Variables para envíos
         let dispatch = useDispatch();
 
         // Con esta función captaremos los cambios
         function onSelectedChange(e){
             // Todos los eventos tienen target.value?
-            dispatch(sort(e.target.value))
+            dispatch(sortRating(e.target.value))
         }
 
 
     return(
         <select name="select" onChange={onSelectedChange}>
-            <option value={ASCENDENTE}>Acendente</option>
-            <option value={DESCENTE}>Descendente</option>
+            <option value={ASCENDENTE}>Menor Rating</option>
+            <option value={DESCENTE}>Mayor Rating</option>
         </select>
     )
 }
