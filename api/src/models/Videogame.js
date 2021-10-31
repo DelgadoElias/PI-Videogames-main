@@ -34,7 +34,7 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: true
     },
-  });
+  },{timestamps : false});
 };
 
 // TODO: Models videogame, genre Many to Many COMPLETE

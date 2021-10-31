@@ -1,7 +1,5 @@
 const { Router } = require('express');
 const { Genre } = require('../db.js');
-//UUID
-const { v4: uuidv4 } = require('uuid');
 
 
 
@@ -46,9 +44,8 @@ router.post('/',async(req,res,next) => {
     // Async Await
     try {
         const newGenre = await Genre.create({
-            name,
-            id: uuidv4() // Generado por default igual
-        })
+            name // Generado por default igual
+        });
         res.status(201).send(newGenre);
 
     }catch(e) {
@@ -89,7 +86,7 @@ router.delete('/:id',async(req,res,next) => {
 
     const { id } = req.params
         try {
-            const destryoedGenre = await Genre.destroy({where: {id: id}})
+            const destroyedGenre = await Genre.destroy({where: {id: id}})
             res.send(200)
         } catch (e) {
             next(e)

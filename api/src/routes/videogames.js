@@ -2,15 +2,16 @@ const { Router } = require("express");
 
 
 // Modelos requeridos
-const { Videogame, Genre } = require("../db.js");
+// cri cri
 
 // Sequelize
-const { Op } = require("sequelize");
 const router = Router();
 
 
 // Obtener datos de la API
 const getApiInfo = require("../utils/functions/getApiInfo")
+const getDataInfo = require("../utils/functions/getMyData")
+
 
 // Videogames..
 //--------------------------------------------------------------
@@ -34,20 +35,13 @@ router.get("/", async (req, res, next) => {
       // Si existe un name por ahora lo dejaremos igual
       instanceApi = await getApiInfo(name);
 
-      // Acá va lo de mi DB
-      instanceMine = Videogame.findAll({
-        include: Genre,
-        where: {
-          name: { [Op.iLike]: `%${name}%` },
-        },
-      });
+      // Claro.. Puedo hacerlo con arrays
+      instanceMine = await getDataInfo(name);
+
     } else { // Case No name
       
       instanceApi = await getApiInfo();
-      instanceMine = Videogame.findAll({
-        include: Genre,
-        raw: true,
-      });
+      instanceMine = await getDataInfo();
 
     }
 
@@ -61,9 +55,12 @@ router.get("/", async (req, res, next) => {
           name: x.name,
           released: x.released,
           image: x.background_image,
-          // platforms: x.platforms,
           rating: x.rating,
           description: x.slug,
+          // Ingenioso esto no? TODO: Hacer esto pero para mi db..
+          genres: x.genres.map((z) => z),
+          platforms: x.platforms.map((z) => z)
+          
         };
       });
 

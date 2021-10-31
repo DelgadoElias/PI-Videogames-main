@@ -1,15 +1,12 @@
-const { DataTypes , Sequelize } = require('sequelize');
+const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
     return sequelize.define('platform',{
-        // Tampoco es necesario ID acá
-        name: { // COMPLETE 
+        // No es necesario ID
+        name: {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true
-          },
-        image: {
-            type: DataTypes.STRING
-        }
-    })
+          }
+    },{timestamps : false});
 }
