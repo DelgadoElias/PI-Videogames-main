@@ -11,7 +11,7 @@ async function getApiInfo(name){
     let pageTwo = [];
     let pageThree = [];
 
-    if(!name){ // Si no existe name entro acá
+     // Si no existe name entro acá
         // 0 --> 40 ...........................................
         pageOne = await axios.get(
           `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`
@@ -30,14 +30,14 @@ async function getApiInfo(name){
         // ....................................................
         return[...pageOne, ...pageTwo,...pageThree];
         // ....................................................
-    }else{
-        // Case Name
-          pageOne = await axios.get( 
-            `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}&page_size=40&page=2`
-          );
+    // }else{
+    //     // Case Name
+    //       pageOne = await axios.get( 
+    //         `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}&page_size=40&page=2`
+    //       );
 
-          return [...pageOne.data.results];
-        // ....................................................
-    }
+    //       return [...pageOne.data.results];
+    //     // ....................................................
+    // }
 };
 module.exports = getApiInfo;

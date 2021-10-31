@@ -12,7 +12,7 @@ const setHeaders = require('./utils/middlewares/setHeaders');
 
 // Pruebas que por algún motivo pienso que saldrán bien..
 const generadorGenre = require('./utils/functions/genGenres.js')
-const generadorPlatform = require('./utils/functions/genPlatforms.js')
+const generadorPlatform = require('./utils/functions/genPlatforms.js');
 
 
 require('./db.js');

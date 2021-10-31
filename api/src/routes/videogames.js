@@ -2,7 +2,6 @@ const { Router } = require("express");
 
 
 // Modelos requeridos
-// cri cri
 
 // Sequelize
 const router = Router();

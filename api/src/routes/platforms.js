@@ -47,8 +47,7 @@ router.post('/',async(req,res,next) => {
     // Async Await
     try {
         const newPlatform = await Platform.create({
-            name,
-            id: uuidv4() // Generado por default igual
+            name, // No es necesario crear un idea
         })
         res.status(201).send(newPlatform);
 

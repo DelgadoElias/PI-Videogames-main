@@ -18,7 +18,7 @@ module.exports = (sequelize) => {
     },
     description: { //TODO:
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     released:{ //TODO:
       type: DataTypes.STRING,
@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
     rating:{
       type: DataTypes.INTEGER
     },
-    createdInDb: { //TODO:
+    createdInDb: { //TODO: Que debería hacer con esto
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
