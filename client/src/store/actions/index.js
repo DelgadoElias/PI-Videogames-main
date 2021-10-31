@@ -6,6 +6,9 @@ export const FETCH_VIDEOGAMES = 'FETCH_VIDEOGAMES'
 export const SEARCH_VIDEOGAMES = 'SEARCH_VIDEOGAMES'
 export const SORT_VIDEOGAMES = 'SORT_VIDEOGAMES'
 export const SORT_RATING = 'SORT_RATING'
+export const DB_FILTER = 'DB_FILTER'
+
+
 // ----------------------------------------------------------------
 
 // Traer a los videojuegos ..... ..... ..... ..... .....
@@ -59,5 +62,15 @@ export function sortRating(order){
         type : SORT_RATING,
         payload : order
         
+    }
+}
+
+
+// Filtering ..... ..... ..... ..... ..... ..... ..... ....
+// Only Db
+export function dbFilter(type){
+    return {
+        type : DB_FILTER,
+        payload : type
     }
 }

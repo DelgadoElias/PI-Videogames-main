@@ -1,5 +1,6 @@
-import { ASCENDENTE, DESCENTE } from "../../constantes/sort";
+import { ASCENDENTE } from "../../constantes/sort";
 import {
+  DB_FILTER,
   FETCH_VIDEOGAMES,
   SEARCH_VIDEOGAMES,
   SORT_RATING,
@@ -11,7 +12,9 @@ const initialState = {
   filteredVideogames: [],
   platforms: [],
   genres: [],
+  database: [],
 };
+
 // No es buena idea duplicar data front a back
 
 export default function reducer(state = initialState, action) {
@@ -59,6 +62,22 @@ export default function reducer(state = initialState, action) {
         ...state,
         filteredVideogames: [...orderedRatings],
       };
+    // -------------------------------------
+      case DB_FILTER:
+
+        if(action.payload === true){
+          let filteredItems = state.videogames.filter((x) => x.createdInDb === true)
+  
+          return {
+            ...state,
+            database : [...filteredItems]
+          }
+        }else{
+          return { // ¿Así sería?
+            ...state
+          }
+        }
+
     // -------------------------------------
     default:
       return state;

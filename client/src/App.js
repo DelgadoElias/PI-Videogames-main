@@ -10,6 +10,10 @@ import OrderRatings from './components/orders/OrderRatings';
 //Search
 import SearchBar from './components/SearchBar';
 
+// Filtros
+import FilterDb from './components/filters/FilterDb';
+
+
 // Videogames
 import AddVideogame from './components/crud-Videogames/addVideogame';
 import VideogameDetail from './components/videogame/VideogameDetail';
@@ -49,6 +53,7 @@ function App() {
           <h1>Ordenar por</h1>
           <OrderRatings></OrderRatings>
           <Order></Order>
+          <FilterDb></FilterDb>
           <br />
           <Videogames></Videogames>
         </Route>
