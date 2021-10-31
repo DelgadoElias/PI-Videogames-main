@@ -122,7 +122,7 @@ router.post('/',async(req,res, next) => {
         instancias.addGenres(genreDb);
         instancias.addPlatform(platformDb);
         // ..... ..... ..... ..... ..... .....
-        res.send(instancias);
+        res.send('Videojuego creado correctamente!' + instancias.name);
         // ..... ..... ..... ..... ..... .....
         
     }catch(error){next(error)}; 
@@ -150,33 +150,39 @@ router.post('/:videogameId/genre/:genreId', async function(req, res,next) {
 // PUT TODO:  COMPLETE
 router.put('/:id',async(req,res,next) => {
     
-       
     
     const { name, description, launched, platform, image } = req.body;
     const id = req.params.id; 
 
-    let videogame = {}
-    // Guardo todas las propiedades que me vengan del body para cambiar
-    // Ya que no me pueden venir todas, si es undefined no la agarro.
-    for(const property in req.body){
-        if(property !== undefined){
-            videogame[property] = req.body[property];
+    try {
+        
+        let videogame = {}
+        // Guardo todas las propiedades que me vengan del body para cambiar
+        // Ya que no me pueden venir todas, si es undefined no la agarro.
+        for(const property in req.body){
+            if(property !== undefined){
+                videogame[property] = req.body[property];
+            }
         }
+    
+            // TODO: Poder hacerlo en async await COMPLETE
+    
+                // Promise Mode
+                // return Videogame.update({...videogame},{ where: { id }}).then((x) => {res.send(x)});
+                // AyncAwait Mode
+                const updateGame = await Videogame.update({...videogame},{ where: {}})
+                res.send(updateGame);
+    } catch (e) {
+        next(e);
     }
 
-        // TODO: Poder hacerlo en async await COMPLETE
 
-            // Promise Mode
-            // return Videogame.update({...videogame},{ where: { id }}).then((x) => {res.send(x)});
-            // AyncAwait Mode
-            const updateGame = await Videogame.update({...videogame},{ where: {}})
-            res.send(updateGame);
 
 })
 // -------------------------------------------------------------
 // DELETE TODO: COMPLETE
 
-// Sicario, mata al del id
+// Sicario, mata al del id por una Henry Coin
 router.delete('/:id',async(req,res, next) => {
     
 

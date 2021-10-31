@@ -22,7 +22,6 @@ async function getMyData(name){
                 attributes : [],
               }
             },
-            raw: true,
           });
           return noNames
 
