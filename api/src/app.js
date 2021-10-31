@@ -43,7 +43,8 @@ server.use('/', routes);
 server.use(errorHandler);
 // -------------------------------------------------------------
 
-// Traer todo desde el inicio del servidor...
+// Traer todo desde el inicio del servidor... Conocido como
+// Precarga
 generadorGenre();
 generadorPlatform();
 

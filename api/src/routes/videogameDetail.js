@@ -2,7 +2,7 @@ const { Router } = require('express');
 // UUID
 const { v4: uuidv4 } = require('uuid');
 // Models
-const { Videogame } = require('../db.js')
+const { Videogame, Genre, Platform } = require('../db.js')
 const axios = require('axios');
 require('dotenv').config();
 
@@ -64,7 +64,7 @@ router.get('/:id',async(req,res,next) => {
 
 //Crea un videojuego COMPLETE
 router.post('/',async(req,res, next) => {
-    // Recibe los datos recolectados desde el formulario controlado de la ruta de reación de videojuego por body.. COMPLETE
+    
     
     /**
      * Formulario enviado por body...
@@ -80,24 +80,53 @@ router.post('/',async(req,res, next) => {
      * 
      * 
      */
-    
-    
-    // Conforme a los datos del formulario 'videogame'...
-    // Creamos un videojuego...
-    const videogame = req.body;
-    console.log(req.body);
+
+        // ..... ..... ..... ..... ..... .....
+
+    const { name, description, released, image, rating, platforms, genres } = req.body;
+
+        // ..... ..... ..... ..... ..... .....
+
+    /*
+    videogame = {
+        name,
+        description,
+        released,
+        image,
+        rating,
+        createdInDb,
+        platforms,
+        genres,
+    } */
     
     // Aquí vamos con las pruebas nuevas
     try {
         const instancias = await Videogame.create(
-            {...videogame,
-            id: uuidv4()});
+            {name,
+            description, 
+            released,
+            image,
+            rating,
+            createdInDb : true,
+            id: uuidv4()
+        }); 
+        // ..... ..... ..... ..... ..... .....
+        // Los géneros y plataformas ya los tengo, habrá que unirlos.
+        let genreDb = await Genre.findAll({
+            where: { name : genres}
+        });
+        let platformDb = await Platform.findAll({
+            where: { name : platforms}
+        });
+        // ..... ..... ..... ..... ..... .....
+        instancias.addGenres(genreDb);
+        instancias.addPlatform(platformDb);
+        // ..... ..... ..... ..... ..... .....
         res.send(instancias);
-
+        // ..... ..... ..... ..... ..... .....
+        
     }catch(error){next(error)}; 
-        // No findByPk --> UUID
 
-        // Bruto a optimizado, no al revés--
 });
 //Agrega géneros a un videojuego COMPLETE
 router.post('/:videogameId/genre/:genreId', async function(req, res,next) {
