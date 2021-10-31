@@ -1,15 +1,18 @@
 import { Route, Switch } from 'react-router';
 import './App.css';
-import AddVideogame from './components/crud-Videogames/addVideogame';
-import Order from './components/Order';
+
+// Functions
+import Order from './components/orders/Order';
 import SearchBar from './components/SearchBar';
+
+// Videogames
+import AddVideogame from './components/crud-Videogames/addVideogame';
 import VideogameDetail from './components/videogame/VideogameDetail';
 import Videogames from './components/videogame/Videogames';
+import LandingPage from './components/LandingPage';
 
 
 function App() {
-    
-  
   
   return (
     <div className="App">
@@ -22,7 +25,7 @@ function App() {
 
         {/* ..... CRUD de un videojuego ..... */}
         {/* TODO: Hacer funcionar todos los CRUD */}
-        <Route exact path="/add">
+        <Route exact path="/videogames/add">
           <AddVideogame></AddVideogame>
         </Route>
         <Route exact path="/remove">
@@ -33,15 +36,18 @@ function App() {
         </Route>
 
         {/* ..... Ruta para videogame Detail ..... */}
-        <Route exact path="/:id">
+        <Route exact path="/games/:id">
           <VideogameDetail />
         </Route>
         {/* ..... Ruta inicial ..... */}
-        <Route path="/">
+        <Route exact path="/home">
           <Order></Order>    
           <Videogames></Videogames>
         </Route>
-
+        {/* ..... Landing Route ..... */}
+        <Route path="/">    
+          <LandingPage></LandingPage>
+        </Route>
       </Switch>
     </div>
   );

@@ -1,13 +1,12 @@
 // Ordenamiento de los videojuegos de menor a mayor
 
-import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
-import { ASCENDENTE, DESCENTE } from "../constantes/sort"
-import { sort } from "../store/actions"
+import { ASCENDENTE, DESCENTE } from "../../constantes/sort"
+import { sort } from "../../store/actions"
 
 // Me gusta más esta opción debido a que me gustaría tener un sideBar
 
-export default function Order(){
+export default function Order(){ // A-z -> Z-a
 
     // Cajita de variables
 

@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 export default function VideogameDetail(props){
     
     // Componente presentacional
-    // FIXME: No funciona el enrutamiento del id. No puedo ver esto en la pantalla grande...
+    // Fixed: No funciona el enrutamiento del id. No puedo ver esto en la pantalla grande...
 
     const [videogame, setVideogame ] = useState(null)
 
@@ -14,7 +14,7 @@ export default function VideogameDetail(props){
 
     useEffect(() => {
 
-        // TODO: Se como pasarlo a async. Prefiero mostrarlo mitad y mitad
+        // Complete: Se como pasarlo a async. Prefiero mostrarlo mitad y mitad
         axios.get(`http://localhost:3001/videogame/${id}`).then((x) => {
             // ------------
             setVideogame(x.data);

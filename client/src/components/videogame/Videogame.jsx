@@ -8,7 +8,8 @@ export default function Videogame(props){
     //TODO: Decorarlo que está re feo - Está todo tirado así nomás
     return (<>
 
-    <Link to={`/${id}`}>
+    {/* ..... Redireccionamiento ..... */}
+    <Link to={`/games/${id}`}>
     
     <h1>{id}</h1>
 

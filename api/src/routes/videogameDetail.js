@@ -128,7 +128,7 @@ router.post('/',async(req,res, next) => {
 router.post('/:videogameId/genre/:genreId', async function(req, res,next) {
     try {
 
-        //TODO: Code here COMPLETE
+        
         const{ videogameId,genreId} = req.params;
 
         // Ligar los videojuegos con sus géneros
@@ -137,13 +137,13 @@ router.post('/:videogameId/genre/:genreId', async function(req, res,next) {
         res.send(200)
 
     } catch (e) {
-        //TODO: Error Here COMPLETE
+        
         next(e)
     }
 })
 
 // -------------------------------------------------------------
-// PUT TODO:  COMPLETE
+// PUT 
 router.put('/:id',async(req,res,next) => {
     
     
@@ -161,7 +161,7 @@ router.put('/:id',async(req,res,next) => {
             }
         }
     
-            // TODO: Poder hacerlo en async await COMPLETE
+            // Complete: Poder hacerlo en async await
     
                 // Promise Mode
                 // return Videogame.update({...videogame},{ where: { id }}).then((x) => {res.send(x)});
@@ -176,7 +176,7 @@ router.put('/:id',async(req,res,next) => {
 
 })
 // -------------------------------------------------------------
-// DELETE TODO: COMPLETE
+// DELETE: COMPLETE
 
 // Sicario, mata al del id por una Henry Coin
 router.delete('/:id',async(req,res, next) => {

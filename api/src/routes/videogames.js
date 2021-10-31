@@ -56,7 +56,7 @@ router.get("/", async (req, res, next) => {
           image: x.background_image,
           rating: x.rating,
           description: x.slug,
-          // Ingenioso esto no? TODO: Hacer esto pero para mi db..
+          // Ingenioso esto no?
           genres: x.genres.map((z) => z),
           platforms: x.platforms.map((z) => z)
           
@@ -71,7 +71,7 @@ router.get("/", async (req, res, next) => {
     next(e);
   }
 
-  // TODO: Hay alguna manera de combinar esto con async await? La descubrí, simplemente quería dejarlo en modo Promesas para mantener más diversidad de código
+  // Complete: Hay alguna manera de combinar esto con async await? La descubrí, simplemente quería dejarlo en modo Promesas para mantener más diversidad de código
 });
 
 //-----------------------------------------------------------

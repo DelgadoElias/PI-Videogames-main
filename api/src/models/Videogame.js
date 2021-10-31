@@ -16,11 +16,11 @@ module.exports = (sequelize) => {
       allowNull: false,
       unique: true
     },
-    description: { //TODO:
+    description: { 
       type: DataTypes.STRING,
       allowNull: true
     },
-    released:{ //TODO:
+    released:{ 
       type: DataTypes.STRING,
     },
     image: {
@@ -29,7 +29,7 @@ module.exports = (sequelize) => {
     rating:{
       type: DataTypes.INTEGER
     },
-    createdInDb: { //TODO: Que debería hacer con esto
+    createdInDb: { // Que debería hacer con esto
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: true
@@ -37,7 +37,7 @@ module.exports = (sequelize) => {
   },{timestamps : false});
 };
 
-// TODO: Models videogame, genre Many to Many COMPLETE
+// Models videogame, genre Many to Many COMPLETE
 
 
 /**

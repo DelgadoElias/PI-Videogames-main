@@ -56,7 +56,7 @@ router.post('/',async(req,res,next) => {
 })
 // -------------------------------------------------------------
 // PUT
-//Actualiza un género - TODO: COMPLETE
+//Actualiza un género - : COMPLETE
 router.put('/:id',async(req,res,next) => {
 
     /**
@@ -81,7 +81,7 @@ router.put('/:id',async(req,res,next) => {
      }
 })
 // -------------------------------------------------------------
-// DELETE - TODO: COMPLETE
+// DELETE - : COMPLETE
 router.delete('/:id',async(req,res,next) => {
 
     const { id } = req.params

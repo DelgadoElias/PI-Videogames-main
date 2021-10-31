@@ -17,9 +17,10 @@ export default function AddVideogame(){
         });
     }
 
-    function onSubmit(e){
+    async function onSubmit(e){
         e.preventDefault();
-        //TODO: Pasarlo a async await
+        //Uncomplete: ¿Creo que se como pero no entiendo?
+        
         axios.post('http://localhost:3001/videogame/',videogame).then(() => {
             history.push('/')
         }).catch((err) => {console.log(err);})

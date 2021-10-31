@@ -62,7 +62,7 @@ router.post('/',async(req,res,next) => {
 router.post('/:videogameId/platform/:platformId', async function(req, res,next) {
     try {
 
-        //TODO: Code here COMPLETE
+        
         const{ videogameId,platformId} = req.params;
 
         // Ligar los videojuegos con sus géneros
@@ -71,14 +71,14 @@ router.post('/:videogameId/platform/:platformId', async function(req, res,next) 
         res.send(200)
 
     } catch (e) {
-        //TODO: Error Here COMPLETE
+        
         next(e)
     }
 })
 
 // -------------------------------------------------------------
 // PUT
-//Actualiza un género - TODO: COMPLETE
+//Actualiza un género -  COMPLETE
 router.put('/:id',async(req,res,next) => {
 
     /**
@@ -103,7 +103,7 @@ router.put('/:id',async(req,res,next) => {
      }
 })
 // -------------------------------------------------------------
-// DELETE - TODO: COMPLETE
+// DELETE - : COMPLETE
 router.delete('/:id',async(req,res,next) => {
 
     const { id } = req.params

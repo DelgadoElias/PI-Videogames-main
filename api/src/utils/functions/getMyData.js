@@ -4,7 +4,7 @@
 const { Videogame, Genre, Platform } = require("../../db.js");
 const { Op } = require("sequelize");
 
-// TODO: Hacerlo funcionar con el platform  y el Genre a la vez.
+// Complete: Hacerlo funcionar con el platform  y el Genre a la vez.
 
 // Aquí viene la función
 async function getMyData(name){ 
