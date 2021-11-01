@@ -12,7 +12,7 @@ const initialState = {
   filteredVideogames: [],
   platforms: [],
   genres: [],
-  database: [],
+  backup: [],
 };
 
 // No es buena idea duplicar data front a back
@@ -64,19 +64,24 @@ export default function reducer(state = initialState, action) {
       };
     // -------------------------------------
       case DB_FILTER:
-
+        
         if(action.payload === true){
-          let filteredItems = state.videogames.filter((x) => x.createdInDb === true)
-  
+          let filteredItems = state.videogames.filter((x) => {return x.hasOwnProperty('createdInDb')}
+          );
+          console.log(state.filteredVideogames);
           return {
             ...state,
-            database : [...filteredItems]
+            backup : [...state.filteredVideogames],
+            filteredVideogames : [...filteredItems]
           }
         }else{
-          return { // ¿Así sería?
-            ...state
+          console.log(state.filteredVideogames);
+          return { // Si no es lo volvemos a setear
+            ...state,
+            filteredVideogames : [...state.backup]
           }
         }
+        // TODO: Si hacemos primero una búsqueda, el debe hacer que coincida con ambos, con la búsqueda y la DB
 
     // -------------------------------------
     default:
