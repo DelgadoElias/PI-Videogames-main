@@ -2,16 +2,26 @@
 import axios from 'axios'
 
 // ----------------------------------------------------------------
+// ..
 export const FETCH_VIDEOGAMES = 'FETCH_VIDEOGAMES'
+export const FETCH_GENRES = 'FETCH_GENRES'
+
+
+// ..
 export const SEARCH_VIDEOGAMES = 'SEARCH_VIDEOGAMES'
+
+// ..
 export const SORT_VIDEOGAMES = 'SORT_VIDEOGAMES'
 export const SORT_RATING = 'SORT_RATING'
+
+// ..
 export const DB_FILTER = 'DB_FILTER'
+export const GENRES_FILTER = 'GENRES_FILTER'
 
 
 // ----------------------------------------------------------------
 
-// Traer a los videojuegos ..... ..... ..... ..... .....
+// Fetch/gets ..... ..... ..... ..... .....
 
 export function fetchVideogames(){
     return async function(dispatch){
@@ -28,7 +38,22 @@ export function fetchVideogames(){
     }
 }
 
-// Buscar videojuegos ..... ..... ..... ..... ..... .....
+export function fetchGenres(){
+    return async function(dispatch) {
+        try {
+            let generos = await axios.get('http://localhost:3001/genres');
+            dispatch({
+            type: FETCH_GENRES,
+            payload: generos.data
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    }
+}
+
+
+// Searches ..... ..... ..... ..... ..... .....
 
 export function searchVideogames(search, page = 1){
     return async function(dispatch){
@@ -71,6 +96,14 @@ export function sortRating(order){
 export function dbFilter(type){
     return {
         type : DB_FILTER,
+        payload : type
+    }
+}
+
+// By genres.
+export function genresFilter(type){
+    return {
+        type : GENRES_FILTER,
         payload : type
     }
 }

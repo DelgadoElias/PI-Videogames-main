@@ -38,5 +38,5 @@ export default function SearchBar(){
             <input type="submit" value="Buscar" />
 
         </form>
-    </>)
+    </>);
 }

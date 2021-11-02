@@ -2,34 +2,41 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
-// Importaciones de mi aplicación
+// ...Importaciones de mi aplicación
 import { fetchVideogames } from '../../store/actions'
 import Videogame from "./Videogame"
 
-// React-router
+// ...React-router
 import { Link } from "react-router-dom"
 
-// Componente de lógica
+// --------------------------------------------------------------------
+// Logic Component
 export default function Videogames(){
 
+    // ..... Caja de variables .....
     let videogame = useSelector((state) => { return state.filteredVideogames}); // Toma las variables del store
     
     
     let dispatch = useDispatch() 
+    // ..... ..... ..... ..... .....
+        // TODO: Paginación.
+
     
-    
+
+
+    // ..... ..... ..... ..... .....
     /* Esto NO me trae las cosas, las guarda en la variable del store para que yo pueda usarlas */
     useEffect(() => {
         // --> mapDispatchToProps() 
         dispatch(fetchVideogames())
-    },[])
-    // Tip: Investigá las dependencias dle useEffect.
+    },[]);
+    // TODO: Investigá las dependencias dle useEffect.
 
 
-    // TODO: Botones para paginar los items y poner un onSelectChange. ¿Mapear los botones para trabajar la paginación?.
 
 
-    // Lo que vamos a pasarle al presentacional..
+
+    // ..... ..... ..... ..... .....
      return <div>  
 
         {/* Por ahora usamos esto hasta el sidebar */}
@@ -41,4 +48,6 @@ export default function Videogames(){
         {/* ..... ¿Botones? ..... */}
         
     </div>
+    // ..... ..... ..... ..... .....
+
 }

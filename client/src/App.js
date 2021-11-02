@@ -12,6 +12,7 @@ import SearchBar from './components/SearchBar';
 
 // Filtros
 import FilterDb from './components/filters/FilterDb';
+import FilterGenres from './components/filters/FilterGenres';
 
 
 // Videogames
@@ -54,6 +55,7 @@ function App() {
           <OrderRatings></OrderRatings>
           <Order></Order>
           <FilterDb></FilterDb>
+          <FilterGenres></FilterGenres>
           <br />
           <Videogames></Videogames>
         </Route>

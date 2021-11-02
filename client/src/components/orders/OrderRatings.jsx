@@ -15,12 +15,13 @@ export default function OrderRatings(){ // 5-1 -> 1-5
         // Con esta función captaremos los cambios
         function onSelectedChange(e){
             // Todos los eventos tienen target.value?
-            dispatch(sortRating(e.target.value))
+            dispatch(sortRating(e.target.value));
         }
 
 
     return(
         <select name="select" onChange={onSelectedChange}>
+            <option value="none">Seleccione...</option>
             <option value={ASCENDENTE}>Menor Rating</option>
             <option value={DESCENTE}>Mayor Rating</option>
         </select>

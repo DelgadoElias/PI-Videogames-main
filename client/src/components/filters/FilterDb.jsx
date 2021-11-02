@@ -9,9 +9,6 @@ export default function FilterDb(){ // A-z -> Z-a
 
 
 
-    // FIXME: No anda pos . El problema está acá
-    // TODO: Generar una ruta en mi dataBase donde solamente agarre las cosas de mi base de datos y las devuelvo en una dirección. Entonces no tengo que estar jodiendo con filtros ni nada por el estilo.
-
     let videogame = useSelector((state) => { return state.database});
 
 

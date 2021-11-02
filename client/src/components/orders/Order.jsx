@@ -22,6 +22,7 @@ export default function Order(){ // A-z -> Z-a
 
     return(
         <select name="select" onChange={onSelectedChange}>
+            <option value="none">Seleccione...</option>
             <option value={ASCENDENTE}>Acendente</option>
             <option value={DESCENTE}>Descendente</option>
         </select>

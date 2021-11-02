@@ -1,7 +1,10 @@
+import { NONE } from "../../constantes/filters";
 import { ASCENDENTE } from "../../constantes/sort";
 import {
   DB_FILTER,
+  FETCH_GENRES,
   FETCH_VIDEOGAMES,
+  GENRES_FILTER,
   SEARCH_VIDEOGAMES,
   SORT_RATING,
   SORT_VIDEOGAMES,
@@ -12,6 +15,7 @@ const initialState = {
   filteredVideogames: [],
   platforms: [],
   genres: [],
+  filteredGenres: [],
   backup: [],
 };
 
@@ -25,7 +29,15 @@ export default function reducer(state = initialState, action) {
         ...state,
         videogames: action.payload,
         filteredVideogames: action.payload,
+        backup : [...state.filteredVideogames]
       };
+    // -------------------------------------
+      case FETCH_GENRES:
+        return {
+          ...state,
+          genres: action.payload,
+          filteredGenres: action.payload
+        };
     // -------------------------------------
     case SEARCH_VIDEOGAMES:
       return {
@@ -66,24 +78,43 @@ export default function reducer(state = initialState, action) {
       case DB_FILTER:
         
         if(action.payload === true){
-          let filteredItems = state.videogames.filter((x) => {return x.hasOwnProperty('createdInDb')}
+          let filteredItems = state.filteredVideogames.filter((x) => {return x.hasOwnProperty('createdInDb')}
           );
-          console.log(state.filteredVideogames);
+          // ..... ..... ..... .....
           return {
             ...state,
             backup : [...state.filteredVideogames],
             filteredVideogames : [...filteredItems]
           }
-        }else{
-          console.log(state.filteredVideogames);
+        }else{ 
+          // ..... ..... ..... .....
           return { // Si no es lo volvemos a setear
             ...state,
             filteredVideogames : [...state.backup]
           }
         }
-        // TODO: Si hacemos primero una búsqueda, el debe hacer que coincida con ambos, con la búsqueda y la DB
+        // Complete: Si hacemos primero una búsqueda, el debe hacer que coincida con ambos, con la búsqueda y la DB
 
     // -------------------------------------
+        case GENRES_FILTER:
+          // TODO: Generar un array con los valores que coincidan
+          // TODO: Devolver el array correctamente
+          // TODO: Si toco DEFAULT no filtrará por géneros
+          if(action.payload === NONE){
+            // SI no coincide con ningúno, vamos a usar el videogames normal para devolver...
+            return {
+              ...state,
+            }
+          }else{ // Caso contrario, el valor está en un género.
+            let filterByGenre = state.filteredVideogames.filter((x) => {return x.genres.includes(action.payload)});
+
+            return {
+              filteredVideogames: [...filterByGenre]
+            }
+          }
+
+    // -------------------------------------
+    
     default:
       return state;
   }
