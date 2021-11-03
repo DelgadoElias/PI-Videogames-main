@@ -97,9 +97,9 @@ export default function reducer(state = initialState, action) {
 
     // -------------------------------------
         case GENRES_FILTER:
-          // TODO: Generar un array con los valores que coincidan
-          // TODO: Devolver el array correctamente
-          // TODO: Si toco DEFAULT no filtrará por géneros
+          // Complete: Generar un array con los valores que coincidan
+          // Complete: Devolver el array correctamente
+          // Complete: Si toco DEFAULT no filtrará por géneros
           if(action.payload === NONE){
             // SI no coincide con ningúno, vamos a usar el videogames normal para devolver...
             return {

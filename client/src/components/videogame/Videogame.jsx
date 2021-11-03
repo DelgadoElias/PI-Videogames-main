@@ -10,13 +10,10 @@ export default function Videogame(props){
 
     {/* ..... Redireccionamiento ..... */}
     <Link to={`/games/${id}`}>
-    
-    <h1>{id}</h1>
 
-    <p>{name}</p>
+    <h3>{name}</h3>
 
     <img src={image} alt={description} />
-    <p>descripción:{description}</p>
 
     <p>{rating}</p>
 
