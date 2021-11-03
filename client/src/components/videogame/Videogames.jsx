@@ -20,21 +20,19 @@ export default function Videogames(){
     
     let dispatch = useDispatch();
 
-            // Complete: ¿Hay una manera de modularizar esto?
     // ..... ..... ..... ..... ..... ..... .....
         // Complete: Paginación.
         // Estados locales para la paginación
         const [actualPage, setActualPage] = useState(1)
         const [videogamesPerPage, setVideogamesPerPage] = useState(15);
 
-            // .. Tomamos el último videojuego de la página
+            // .. last Videojuego --> page
         const lastVideogame = actualPage * videogamesPerPage;
-            // .. Tomamos el primer videojuego de la página
+            // .. primer Videojuego --> page
         const firstVideogame = lastVideogame - videogamesPerPage;
-            // .. Page1 : actual = firstV .... LastV 
+        
         const actualVideogames = videogame.slice(firstVideogame, lastVideogame);
 
-        // El paginado 
         const paginado = (page) => {
             return setActualPage(page);
         }
@@ -52,7 +50,7 @@ export default function Videogames(){
 
 
 
-
+    console.log(actualVideogames);
     // ..... ..... ..... ..... .....
      return <div>  
 
@@ -62,8 +60,10 @@ export default function Videogames(){
         
         <Pagination videogamesPerPage={videogamesPerPage} allvideogames={videogame.length} paginado={paginado}/>
 
+        {/* TODO: Pasarle los géneros también */}
+
         {actualVideogames.map((x) => {
-            return <Videogame id={x.id} name={x.name} released={x.released} image={x.image} rating={x.rating} description={x.description} ></Videogame>
+            return <Videogame id={x.id} name={x.name} released={x.released} image={x.image} rating={x.rating} description={x.description} genres={x.genres}></Videogame>
         })}
         {/* ..... ¿Botones? ..... */}
 

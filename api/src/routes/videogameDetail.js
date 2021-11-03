@@ -41,8 +41,19 @@ router.get('/:id',async(req,res,next) => {
 
         try {
             let instanceApi = await axios.get(`https://api.rawg.io/api/games/${id}?key=232664f6fc6541e2a787c5d2528caac5`)
+            // ..... ..... ..... ..... .....
+            instanceApi = instanceApi.data
+           let returnObj = {
+            background_image: instanceApi.background_image,
+            name : instanceApi.name,
+            genres: instanceApi.genres,
+            platforms : instanceApi.platforms,
+            rating: instanceApi.rating,
+            description_raw: instanceApi.description_raw,
+            released: instanceApi.released,
+           }
 
-            res.send(instanceApi.data)
+            res.send(returnObj)
 
         } catch (e) {
             next(e)

@@ -101,14 +101,27 @@ export default function reducer(state = initialState, action) {
           // Complete: Devolver el array correctamente
           // Complete: Si toco DEFAULT no filtrará por géneros
           if(action.payload === NONE){
-            // SI no coincide con ningúno, vamos a usar el videogames normal para devolver...
             return {
               ...state,
+              filteredVideogames : [...state.videogames]
             }
-          }else{ // Caso contrario, el valor está en un género.
-            let filterByGenre = state.filteredVideogames.filter((x) => {return x.genres.includes(action.payload)});
-
+          }else{ // Caso contrario, tenemos un género
+            let filterByGenre = state.videogames.filter((x) => {
+              
+              // Revisamos el array.
+              for(let i = 0; i < x.genres.length; i++) {
+                if(x.genres[i].name === action.payload){
+                  console.log('Soy verdadero');
+                  return true;
+                }
+              }
+              // Si no lo encontramos en el array no hay nada
+              return false; 
+              
+            });
+            
             return {
+              ...state,
               filteredVideogames: [...filterByGenre]
             }
           }

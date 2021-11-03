@@ -5,8 +5,10 @@ export default function Videogame(props){
     // Componente presentacional
 
     const { id, name, description, image, rating, released } = props;
+    // TODO: Deben llegar los géneros también
+
     //TODO: Decorarlo que está re feo - Está todo tirado así nomás
-    return (<>
+    return (<div>
 
     {/* ..... Redireccionamiento ..... */}
     <Link to={`/games/${id}`}>
@@ -21,5 +23,5 @@ export default function Videogame(props){
     
     </Link>
 
-    </>)
+    </div>)
 }

@@ -34,7 +34,7 @@ async function getApiInfo(name){
      }else{
          // Case Name
            pageOne = await axios.get( 
-             `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}&page_size=40&page=2`
+             `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}&page_size=15&page=2`
            );
 
            return [...pageOne.data.results];

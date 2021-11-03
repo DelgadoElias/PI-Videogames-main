@@ -45,7 +45,7 @@ export default function FilterGenres(){ // Según género
             
             // TODO: Filtrar por género de videojuego
             dispatch(genresFilter(e.target.value));
-
+            
             // Despacho la opción sabiendo ya el valor que necesito
         }
 
@@ -55,10 +55,9 @@ export default function FilterGenres(){ // Según género
     return(<>
         <label>Filtrar por género</label> 
         <select name="select" onChange={onSelectedChange}>
-            <option value={NONE}>Todos</option>
-            {genre.map((x) => { 
-                console.log(x.name);
-                return <option value={x.name}>{x.name}</option> })}
+            <option key={NONE} value={NONE}>Todos</option>
+            {genre?.map((x) => { 
+                return <option key={x.name} value={x.name}>{x.name}</option> })}
         </select>
     </>);
 }

@@ -30,21 +30,38 @@ export default function VideogameDetail(props){
 
 
     //TODO: Decorarlo que está re feo - Está todo tirado así nomás
+    console.log(videogame);
     return (<> 
 
         {/* Ocupamos un ternario según el valor del componente --> Si es null escribimos 'loading' - Si no es null escribimos los valores del componente */}
         { 
 
         videogame ? <>
-        <h1>{videogame.id}</h1>
+        {/* <h1>{videogame.id}</h1> */}
 
-        <p>{videogame.name}</p>
+        <h1>{videogame.name}</h1>
 
-        <img src={videogame.background_image} alt={videogame.description} />
-        <p>descripción:{videogame.description}</p>
+        <img src={videogame.background_image} alt={videogame.name} />
 
+        {/* TODO: Mostrarlo con expresiones regulares */}
+        <h3>Descripción</h3>
+        <p>{`${videogame.description_raw}`}</p>
+        
+        <h3>Rating:</h3>
         <p>{videogame.rating}</p>
 
+        <h3>Géneros</h3>
+        <ul>
+            {videogame.genres.map((x) => { return <li>{x.name}</li>})}
+        </ul>
+
+            {/* TODO: Esto se puede linkear a cada plataforma. Extra Credit... */}
+        <h3>Plataformas</h3>
+        <ul>
+            {videogame.platforms.map((x) => { return <li>{x.platform.name}</li>})}
+        </ul>
+
+        <h3>Lanzamiento:</h3>
         <p>{videogame.released}</p> 
                     </>  : <h1>Reloading</h1>
                     }
