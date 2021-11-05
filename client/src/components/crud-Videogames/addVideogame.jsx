@@ -33,7 +33,7 @@ export default function AddVideogame(){
         released: "",
         genres: [],
         platforms: [],
-    });
+    }); // Lo que necesita nuestro videojuego en el estado local
     
     // Comenzamos con la codificación ..... ..... ..... .....
     useEffect(() => {
@@ -41,13 +41,13 @@ export default function AddVideogame(){
         // Nos traemos los géneros y las plataformas por si acaso.
         dispatch(fetchGenres());
         dispatch(fetchPlatforms());
-    })
-    
+    },[]);
+    // NO TE OLVIDES EL MALDITO ARRAY DE DEPENDENCIAS
 
 
 
 
-    // Captame los cambios
+    // Captame los cambios del formulario
     function onInputChange(e){
         e.preventDefault();
         setVideogame({
@@ -56,6 +56,13 @@ export default function AddVideogame(){
         });
     }
 
+    // Captame los cambios del checkbox nomás
+    function handleCheckbox(e){
+
+    }
+
+
+    // ---------------------------------------------
     // ..... Levantamos las cosas .....
     async function onSubmit(e){
         e.preventDefault();
@@ -76,33 +83,65 @@ export default function AddVideogame(){
 
     <form onSubmit={onSubmit}>
 
+        <h1>Crear personaje</h1>
 
+        <ul>
+            <li>
         {/* ..... Nombre ..... */}
-        <label htmlFor="">Nombre</label>
+        <label htmlFor="">Nombre:</label>
         <input onChange={onInputChange} name="name" type="text" value={videogame.name}/>
-
+            </li>
+            <li>
         {/* ..... Descripción ..... */}
-        <label htmlFor="">Descripción</label>
+        <label htmlFor="">Descripción:</label>
         <input onChange={onInputChange} name="description" type="text" value={videogame.description} />
-
+            </li>
+            <li>
         {/* ..... Imágen URL ..... */}
-        <label htmlFor="">Imágen</label>
+        <label htmlFor="">Imágen:</label>
         <input onChange={onInputChange} name="image" type="text" value={videogame.image} />
-
+            </li>
+            <li>
         {/* ..... Rating ..... */}
-        <label htmlFor="">Rating</label>
-        <input onChange={onInputChange} name="rating" type="text" value={videogame.rating} />
-
+        <label htmlFor="">Rating:</label>
+        <input onChange={onInputChange} name="rating" type="number" value={videogame.rating} />
+            </li>
+            <li>
         {/* ..... Released ..... */}
-        <label htmlFor="">Lanzamiento</label>
+        <label htmlFor="">Lanzamiento:</label>
         <input onChange={onInputChange} name="released" type="text" value={videogame.released} />
+            </li>
 
+        <li>Géneros</li>
+
+        <li>
         {/* ..... Géneros ..... */}
-        
+        <label>Géneros:</label>
+        {generos?.map((x) => { 
+            return (<label><input type="checkbox" name="genres" value={x.name}></input>{x.name}</label>)
+        }
+            )}
+        </li>
+
+        <li>Plataformas</li>
+        <li>
+            <select>
+        {plataformas?.map((x) => {
+            
+            return (<option name="platforms" value={x.name}>{x.name}</option>)
+
+        }
+            )}
+            </select>
+        </li>
+
+        </ul>
+
 
 
         {/* Botón de envío */}
         <input type="submit" />
+
 
     </form>
     </>)   

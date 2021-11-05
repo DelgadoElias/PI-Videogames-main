@@ -16,7 +16,7 @@ export default function Videogame(props){
 
     <h3>{name}</h3>
 
-    <img src={image} alt={description} />
+    <img src={image} alt={description} width="500px" height="250px"/>
 
         <p>Géneros:</p>
         <ul>
