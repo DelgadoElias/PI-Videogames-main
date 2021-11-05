@@ -3,8 +3,10 @@ import { ASCENDENTE } from "../../constantes/sort";
 import {
   DB_FILTER,
   FETCH_GENRES,
+  FETCH_PLATFORMS,
   FETCH_VIDEOGAMES,
   GENRES_FILTER,
+  PLATFORMS_FILTER,
   SEARCH_VIDEOGAMES,
   SORT_RATING,
   SORT_VIDEOGAMES,
@@ -16,6 +18,7 @@ const initialState = {
   platforms: [],
   genres: [],
   filteredGenres: [],
+  filteredPlatforms: [],
   backup: [],
 };
 
@@ -23,6 +26,7 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    // **************************************************************************************************
     // -------------------------------------
     case FETCH_VIDEOGAMES:
       return {
@@ -38,12 +42,24 @@ export default function reducer(state = initialState, action) {
           genres: action.payload,
           filteredGenres: action.payload
         };
+
+    // -------------------------------------
+    case FETCH_PLATFORMS:
+      return {
+        ...state,
+        platforms: action.payload,
+        filteredPlatforms: action.payload
+      };
+
+    // **************************************************************************************************
     // -------------------------------------
     case SEARCH_VIDEOGAMES:
       return {
         ...state,
         filteredVideogames: action.payload,
       };
+
+    // **************************************************************************************************
     // -------------------------------------
     case SORT_VIDEOGAMES:
       let orderedVideogames = [...state.videogames];
@@ -74,6 +90,8 @@ export default function reducer(state = initialState, action) {
         ...state,
         filteredVideogames: [...orderedRatings],
       };
+
+    // **************************************************************************************************
     // -------------------------------------
       case DB_FILTER:
         
@@ -97,9 +115,7 @@ export default function reducer(state = initialState, action) {
 
     // -------------------------------------
         case GENRES_FILTER:
-          // Complete: Generar un array con los valores que coincidan
-          // Complete: Devolver el array correctamente
-          // Complete: Si toco DEFAULT no filtrará por géneros
+
           if(action.payload === NONE){
             return {
               ...state,
@@ -111,7 +127,6 @@ export default function reducer(state = initialState, action) {
               // Revisamos el array.
               for(let i = 0; i < x.genres.length; i++) {
                 if(x.genres[i].name === action.payload){
-                  console.log('Soy verdadero');
                   return true;
                 }
               }
@@ -119,13 +134,43 @@ export default function reducer(state = initialState, action) {
               return false; 
               
             });
-            
+            // ..... Finalización filter .....
             return {
               ...state,
               filteredVideogames: [...filterByGenre]
             }
           }
+          
+        // -------------------------------------
 
+          case PLATFORMS_FILTER:
+
+          if(action.payload === NONE){
+            return {
+              ...state,
+              filteredVideogames : [...state.videogames]
+            }
+          }else{ 
+            let filterByPlatform = state.videogames.filter((x) => {
+
+              // Revisamos el array.
+              for(let i = 0; i < x.platforms.length; i++) {
+                if(x.platforms[i].platform.name === action.payload){
+                  return true;
+                }
+              }
+              return false; 
+              
+            });
+            // ..... Finalización filter .....
+            return {
+              ...state,
+              filteredVideogames: [...filterByPlatform]
+            }
+          }
+
+    // **************************************************************************************************
+    // -------------------------------------
     // -------------------------------------
     
     default:

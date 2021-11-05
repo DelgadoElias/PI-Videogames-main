@@ -10,9 +10,14 @@ import Videogame from "./Videogame"
 import { Link } from "react-router-dom"
 import Pagination from "../Pagination"
 
+// ... Estilizaciones.
+
+
 // --------------------------------------------------------------------
 // Logic Component
 export default function Videogames(){
+
+
 
     // ..... Caja de variables .....
     let videogame = useSelector((state) => { return state.filteredVideogames}); // Toma las variables del store
@@ -43,6 +48,7 @@ export default function Videogames(){
     /* Esto NO me trae las cosas, las guarda en la variable del store para que yo pueda usarlas */
     useEffect(() => {
         // --> mapDispatchToProps() 
+        
         dispatch(fetchVideogames())
     },[]);
     // TODO: Investigá las dependencias dle useEffect.
@@ -50,7 +56,6 @@ export default function Videogames(){
 
 
 
-    console.log(actualVideogames);
     // ..... ..... ..... ..... .....
      return <div>  
 

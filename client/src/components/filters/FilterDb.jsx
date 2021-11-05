@@ -21,15 +21,12 @@ export default function FilterDb(){ // A-z -> Z-a
         
         // Con esta función captaremos los cambios
         function onClickChange(e){
-            console.log('Me cliquean');
-            console.log(e);
-
             if(tf === true){
                 tf = false;
-                texting = "Creados"
+                
             }else{
                 tf = true;
-                texting = "Todos"
+                
             }   
             // Todos los eventos tienen target.value?
             dispatch(dbFilter(tf))

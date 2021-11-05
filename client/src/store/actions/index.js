@@ -5,7 +5,7 @@ import axios from 'axios'
 // ..
 export const FETCH_VIDEOGAMES = 'FETCH_VIDEOGAMES'
 export const FETCH_GENRES = 'FETCH_GENRES'
-
+export const FETCH_PLATFORMS = 'FETCH_PLATFORMS'
 
 // ..
 export const SEARCH_VIDEOGAMES = 'SEARCH_VIDEOGAMES'
@@ -17,12 +17,17 @@ export const SORT_RATING = 'SORT_RATING'
 // ..
 export const DB_FILTER = 'DB_FILTER'
 export const GENRES_FILTER = 'GENRES_FILTER'
+export const PLATFORMS_FILTER = 'PLATFORMS_FILTER'
 
+
+// ..
+export const POST_VIDEOGAME = 'POST_VIDEOGAME'
 
 // ----------------------------------------------------------------
 
 // Fetch/gets ..... ..... ..... ..... .....
 
+// Videogames
 export function fetchVideogames(){
     return async function(dispatch){
         try {
@@ -38,6 +43,7 @@ export function fetchVideogames(){
     }
 }
 
+// Géneros
 export function fetchGenres(){
     return async function(dispatch) {
         try {
@@ -45,6 +51,21 @@ export function fetchGenres(){
             dispatch({
             type: FETCH_GENRES,
             payload: generos.data
+            })
+        } catch (e) {
+            console.log(e);
+        }
+    }
+}
+
+// Plataformas
+export function fetchPlatforms(){
+    return async function(dispatch) {
+        try {
+            let plataformas = await axios.get('http://localhost:3001/platforms');
+            dispatch({
+            type: FETCH_PLATFORMS,
+            payload: plataformas.data
             })
         } catch (e) {
             console.log(e);
@@ -107,3 +128,13 @@ export function genresFilter(type){
         payload : type
     }
 }
+
+// By platforms.
+export function platformsFilter(type){
+    return {
+        type : PLATFORMS_FILTER,
+        payload : type
+    }
+}
+
+// Posting ..... ..... ..... ..... ..... ..... ..... ..... 

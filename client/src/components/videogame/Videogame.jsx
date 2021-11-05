@@ -4,9 +4,10 @@ export default function Videogame(props){
     
     // Componente presentacional
 
-    const { id, name, description, image, rating, released } = props;
+    const { id, name, description, image, rating, released, genres } = props;
     // TODO: Deben llegar los géneros también
 
+    // Genres es un array de objetos
     //TODO: Decorarlo que está re feo - Está todo tirado así nomás
     return (<div>
 
@@ -17,9 +18,12 @@ export default function Videogame(props){
 
     <img src={image} alt={description} />
 
-    <p>{rating}</p>
-
-    <p>{released}</p>
+        <p>Géneros:</p>
+        <ul>
+            {genres?.map((x) => { return(
+                <li>{x.name}</li>)
+            })}
+        </ul>
     
     </Link>
 

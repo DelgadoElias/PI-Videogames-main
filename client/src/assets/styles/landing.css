@@ -1,0 +1,28 @@
+*{
+    --variable: url("https://i.pinimg.com/originals/0c/94/1d/0c941d8e13f5c6560d94b9d9a1b24094.jpg")  
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    /* background-color:  #0d272b; */
+    background-size: cover;
+    background-image: var(--variable);
+    height: 100%;
+    width: 100%;
+}
+
+.radius {
+    border-radius:20px;
+
+}
+
+.button {
+    padding:5px;
+    margin: 10px;
+    border-radius: 15px;
+    width: 50%;
+    background-color: #0893a8;
+    border-color: #0893a8 ;
+    color: #fff;
+}

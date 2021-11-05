@@ -13,7 +13,7 @@ import SearchBar from './components/SearchBar';
 // Filtros
 import FilterDb from './components/filters/FilterDb';
 import FilterGenres from './components/filters/FilterGenres';
-
+import FilterPlatforms from './components/filters/FilterPlatforms';
 
 // Videogames
 import AddVideogame from './components/crud-Videogames/addVideogame';
@@ -56,6 +56,7 @@ function App() {
           <Order></Order>
           <FilterDb></FilterDb>
           <FilterGenres></FilterGenres>
+          <FilterPlatforms></FilterPlatforms>
           <br />
           <Videogames></Videogames>
         </Route>
