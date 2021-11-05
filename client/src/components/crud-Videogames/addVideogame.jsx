@@ -56,7 +56,7 @@ export default function AddVideogame(){
         });
     }
 
-    // Captame los cambios del checkbox nomás
+    // TODO: Captame los cambios del checkbox nomás
     function handleCheckbox(e){
 
     }

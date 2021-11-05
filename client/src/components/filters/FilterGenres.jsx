@@ -15,7 +15,7 @@ import { fetchGenres, genresFilter } from "../../store/actions"
 // --------------------------------------------------------------------
 export default function FilterGenres(){ // Según género
 
-    // TODO: Filtrar elementos según sus géneros asociados.
+    // Complete: Filtrar elementos según sus géneros asociados.
 
     // Cajita de variables
 
@@ -43,14 +43,13 @@ export default function FilterGenres(){ // Según género
         function onSelectedChange(e){
             e.preventDefault();
             
-            // TODO: Filtrar por género de videojuego
+            // Complete: Filtrar por género de videojuego
             dispatch(genresFilter(e.target.value));
             
             // Despacho la opción sabiendo ya el valor que necesito
         }
 
-        // FIXME: Muestra bien el select, cuándo llega el momento de filtrar solamente saca un valor del select y el resto se borra y se vuelve undefined.
-    
+
     // ..... ..... ..... ..... ..... ..... ..... .....
     return(<>
         <label>Filtrar por género</label> 

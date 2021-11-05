@@ -51,7 +51,7 @@ export default function Videogames(){
         
         dispatch(fetchVideogames())
     },[]);
-    // TODO: Investigá las dependencias dle useEffect.
+    // Presentation: Investigá las dependencias dle useEffect.
 
 
 
@@ -65,7 +65,7 @@ export default function Videogames(){
         
         <Pagination videogamesPerPage={videogamesPerPage} allvideogames={videogame.length} paginado={paginado}/>
 
-        {/* TODO: Pasarle los géneros también */}
+        {/* Complete: Pasarle los géneros también */}
 
         {actualVideogames.map((x) => {
             return <Videogame id={x.id} name={x.name} released={x.released} image={x.image} rating={x.rating} description={x.description} genres={x.genres}></Videogame>

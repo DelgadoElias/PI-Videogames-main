@@ -13,4 +13,4 @@
 
 // TODO: Sidebar que pueda mostrarse y ocultarse
 
-// TODO: Responsive --> lateral(Pc) a inferior(Móvil)
+// EXTRA: Responsive --> lateral(Pc) a inferior(Móvil)

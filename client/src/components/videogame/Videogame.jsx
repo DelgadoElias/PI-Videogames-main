@@ -5,7 +5,7 @@ export default function Videogame(props){
     // Componente presentacional
 
     const { id, name, description, image, rating, released, genres } = props;
-    // TODO: Deben llegar los géneros también
+    // Complete: Deben llegar los géneros también
 
     // Genres es un array de objetos
     //TODO: Decorarlo que está re feo - Está todo tirado así nomás

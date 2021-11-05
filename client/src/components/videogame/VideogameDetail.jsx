@@ -43,7 +43,7 @@ export default function VideogameDetail(props){
 
         <img src={videogame.background_image} alt={videogame.name} />
 
-        {/* TODO: Mostrarlo con expresiones regulares */}
+        {/* Complete: Mostrarlo con expresiones regulares */}
         <h3>Descripción</h3>
         <p>{`${videogame.description_raw}`}</p>
         
@@ -55,7 +55,7 @@ export default function VideogameDetail(props){
             {videogame.genres.map((x) => { return <li>{x.name}</li>})}
         </ul>
 
-            {/* TODO: Esto se puede linkear a cada plataforma. Extra Credit... */}
+            {/* EXTRA: Esto se puede linkear a cada plataforma. Extra Credit... */}
         <h3>Plataformas</h3>
         <ul>
             {videogame.platforms.map((x) => { return <li>{x.platform.name}</li>})}
@@ -66,7 +66,7 @@ export default function VideogameDetail(props){
                     </>  : <h1>Reloading</h1>
                     }
 
-            {/* TODO: Botonera de Eliminar y actualizar el videogame.
+            {/* EXTRA: Botonera de Eliminar y actualizar el videogame.
             El get ya tenemos y el add va aparte. */}
     </>)
 }

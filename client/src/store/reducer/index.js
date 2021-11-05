@@ -64,7 +64,7 @@ export default function reducer(state = initialState, action) {
     case SORT_VIDEOGAMES:
       let orderedVideogames = [...state.videogames];
 
-      // TODO: Cambiarlo a función como hicimos en el M1
+      // Optional: Cambiarlo a función como hicimos en el M1
       orderedVideogames = state.videogames.sort((a, b) => {
         if (a.name < b.name) return action.payload === ASCENDENTE ? -1 : 1;
 
