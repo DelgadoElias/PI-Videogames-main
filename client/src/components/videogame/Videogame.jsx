@@ -4,8 +4,9 @@ export default function Videogame(props){
     
     // Componente presentacional
 
-    const { id, name, description, image, rating, released, genres } = props;
-    // Complete: Deben llegar los géneros también
+    const { id, name, image, genres } = props;
+
+    // description, rating, released, También vienen por si acaso.
 
     // Genres es un array de objetos
     //TODO: Decorarlo que está re feo - Está todo tirado así nomás
@@ -16,10 +17,11 @@ export default function Videogame(props){
 
     <h3>{name}</h3>
 
-    <img src={image} alt={description} width="500px" height="250px"/>
+    <img src={image} alt="Image not found" width="500px" height="250px"/>
 
         <p>Géneros:</p>
         <ul>
+            {/* Mostramos los géneros */}
             {genres?.map((x) => { return(
                 <li>{x.name}</li>)
             })}
