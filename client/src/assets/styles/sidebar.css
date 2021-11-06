@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+  }
+  
+  /* Nota: Esto SOLAMENTE se ocupa en el sidebar.. No es para modularizar, es solo para organizar */
+
+  .ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(28, 23, 54);
+  }
+  
+  .li {
+    float: left;
+  }
+
+  .lasti {
+    float: right;
+  }
+
+  .a {
+    display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  }
+
+  .a:hover {
+    background-color: rgb(33, 28, 70);
+}
+

@@ -21,10 +21,10 @@ export default function Order(){ // A-z -> Z-a
 
 
     return(
-        <select name="select" onChange={onSelectedChange}>
-            <option value="none">Seleccione...</option>
-            <option value={ASCENDENTE}>Acendente</option>
-            <option value={DESCENTE}>Descendente</option>
+        <select name="select" className="button" onChange={onSelectedChange}>
+            <option value="none">by alphabet...</option>
+            <option value={ASCENDENTE}>Upward</option>
+            <option value={DESCENTE}>Backward</option>
         </select>
     )
 }

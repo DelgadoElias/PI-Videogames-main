@@ -46,7 +46,7 @@ export default function LandingPage(){
         {/* Button */}
 
         <Link to="/home">
-            <button className="button"><h3>Come in</h3></button>
+            <button className="button-landing"><h3>Come in</h3></button>
         </Link>
     </div>
     );

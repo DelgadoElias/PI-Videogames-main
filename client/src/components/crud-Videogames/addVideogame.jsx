@@ -9,6 +9,10 @@ import { useDispatch, useSelector } from "react-redux";
 // Actions necesarias
 import { fetchGenres, fetchPlatforms } from "../../store/actions";
 
+//Estilizaciones
+import '../../assets/styles/add.css';
+
+
 // Enrutamiento
 import { Link } from "react-router-dom";
 
@@ -88,26 +92,30 @@ export default function AddVideogame() {
       });
   }
 
+
+
   return (
-    <>
+    <div className="container">
       {/* ..... Botón ..... */}
       <Link to="/home">
-        <button className="button">
-          <h3>Volver</h3>
+        <button className="input padder">
+          <h3>Back to Home</h3>
         </button>
       </Link>
 
       {/* ..... Formulario requerido ..... */}
       <form onSubmit={onSubmit}>
-        <div>
+        <div className="mini-container">
           <div>
-            <h1>Crear personaje</h1>
+            <h1 styles="text-align: left">¡Add new videogames!</h1>
           </div>
 
           {/* ..... Nombre ..... */}
           <div>
-            <label htmlFor="">Nombre:</label>
+            <label>Nombre:</label>
+            <br />
             <input
+            className="input"
               onChange={onInputChange}
               name="name"
               type="text"
@@ -119,18 +127,25 @@ export default function AddVideogame() {
           {/* ..... Descripción ..... */}
           <div>
             <label>Descripción:</label>
+            <br />
+
             <input
+            className="input"
               onChange={onInputChange}
               name="description"
               type="text"
               value={videogame.description}
+              required
             />
           </div>
 
           {/* ..... Imágen URL ..... */}
           <div>
             <label>Imágen:</label>
+            <br />
+
             <input
+            className="input"
               onChange={onInputChange}
               name="image"
               type="text"
@@ -141,7 +156,10 @@ export default function AddVideogame() {
           {/* ..... Rating ..... */}
           <div>
             <label>Rating:</label>
+            <br />
+
             <input
+            className="input"
               onChange={onInputChange}
               name="rating"
               type="number"
@@ -152,7 +170,10 @@ export default function AddVideogame() {
           {/* ..... Released ..... */}
           <div>
             <label>Lanzamiento:</label>
+            <br />
+
             <input
+            className="input"
               onChange={onInputChange}
               name="released"
               type="text"
@@ -161,13 +182,15 @@ export default function AddVideogame() {
           </div>
 
           {/* ..... Géneros ..... */}
-          <div>
             <h3>Géneros</h3>
-            <label>Géneros:</label>
+          <div className="grid-card-container">
+            <br />
+            <br />
+
             {generos?.map((x) => {
               return (
                 <label>
-                  <input onChange={(e) => handleCheckbox(e)} type="checkbox" name="genres" value={x.name}></input>
+                  <input className="button" onChange={(e) => handleCheckbox(e)} type="checkbox" name="genres" value={x.name}></input>
                   {x.name}
                 </label>
               );
@@ -177,8 +200,10 @@ export default function AddVideogame() {
           {/* ..... Plataformas ..... */}
 
           <div>
-            <h3>Plataformas</h3>
-            <select onChange={(e) => onSelect(e)}>
+            <h3>Platforms</h3>
+            <br />
+
+            <select className="input" onChange={(e) => onSelect(e)}>
               {plataformas?.map((x) => {
                 return (
                   <option name="platforms" value={x.name}>
@@ -190,7 +215,7 @@ export default function AddVideogame() {
           </div>
 
             <div>
-              <h3>Seleccionado:</h3>
+              <h3>Platforms selected:</h3>
               <ul>
                 {videogame.platforms?.map((x) => {
                   return (<li key={x} value={x}>{x}</li>)
@@ -199,9 +224,10 @@ export default function AddVideogame() {
             </div>
 
           {/* Botón de envío */}
-          <input type="submit" />
+          <input className="input padder" type="submit" />
+          <br />
         </div>
       </form>
-    </>
+    </div>
   );
 }

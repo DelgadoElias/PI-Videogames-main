@@ -155,7 +155,8 @@ export default function reducer(state = initialState, action) {
 
               // Revisamos el array.
               for(let i = 0; i < x.platforms.length; i++) {
-                if(x.platforms[i].platform.name === action.payload){
+                let consta = x.platforms[i].platform ? x.platforms[i].platform.name : x.platforms[i].name 
+                if(consta === action.payload){
                   return true;
                 }
               }

@@ -29,7 +29,21 @@ router.get('/:id',async(req,res,next) => {
     
     if(id.length > 8){
 
-        const videogame = await Videogame.findByPk(id)
+        const videogame = await Videogame.findByPk(id,{
+            include: [{
+                model :Genre,
+                attributes: ['name'],
+                through : {
+                  attributes : [],
+                }
+              },{ // ----
+                model :Platform,
+                attributes: ['name'],
+                through : {
+                  attributes : [],
+                }
+              }],
+        })
         res.send(videogame)
    
     }else{
@@ -129,7 +143,7 @@ router.post('/',async(req,res, next) => {
         instancias.addGenres(genreDb);
         instancias.addPlatform(platformDb);
         // ..... ..... ..... ..... ..... .....
-        res.send('Videojuego creado correctamente!' + instancias.name);
+        res.send('Videojuego creado correctamente!' + instancias.id);
         // ..... ..... ..... ..... ..... .....
         
     }catch(error){next(error)}; 

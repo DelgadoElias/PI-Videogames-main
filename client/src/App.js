@@ -1,40 +1,34 @@
 import { Route, Switch } from 'react-router';
 import './App.css';
 
-// Functions
-
-// Ordenamientos
-import Order from './components/orders/Order';
-import OrderRatings from './components/orders/OrderRatings';
-
-//Search
-import SearchBar from './components/SearchBar';
-
-// Filtros
-import FilterDb from './components/filters/FilterDb';
-import FilterGenres from './components/filters/FilterGenres';
-import FilterPlatforms from './components/filters/FilterPlatforms';
-
 // Videogames
 import AddVideogame from './components/crud-Videogames/addVideogame';
 import VideogameDetail from './components/videogame/VideogameDetail';
 import Videogames from './components/videogame/Videogames';
-import LandingPage from './components/LandingPage';
 
+
+// Extras
+import LandingPage from './components/LandingPage';
+import Sidebar from './components/Sidebar';
+import SpecialNavBar from './components/specialNavBar';
+import AboutCreatorPage from './components/About';
 
 function App() {
   
   return (
     <div className="App">
-      <h1>Game Store</h1>
 
-      {/* ..... Todavía no agregamos CSS ..... */}
-      <SearchBar></SearchBar>
+      {/* ..... Navbar ..... */}
+      <Sidebar></Sidebar>
       {/* ..... Enrutamiento completo ..... */}
       <Switch>
+      {/* ..... About page ..... */}
+      <Route exact path="/About/elias">    
+          <AboutCreatorPage></AboutCreatorPage>
+        </Route>
 
         {/* ..... CRUD de un videojuego ..... */}
-        {/* TODO: Hacer funcionar todos los CRUD */}
+        {/* Sprint2: Hacer funcionar todos los CRUD */}
         <Route exact path="/videogames/add">
           <AddVideogame></AddVideogame>
         </Route>
@@ -51,12 +45,7 @@ function App() {
         </Route>
         {/* ..... Ruta inicial ..... */}
         <Route exact path="/home">
-          <h1>Ordenar por</h1>
-          <OrderRatings></OrderRatings>
-          <Order></Order>
-          <FilterDb></FilterDb>
-          <FilterGenres></FilterGenres>
-          <FilterPlatforms></FilterPlatforms>
+          <SpecialNavBar></SpecialNavBar>
           <br />
           <Videogames></Videogames>
         </Route>
@@ -64,6 +53,7 @@ function App() {
         <Route path="/">    
           <LandingPage></LandingPage>
         </Route>
+
       </Switch>
       <br />
     </div>

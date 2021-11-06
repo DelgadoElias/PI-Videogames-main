@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
-
+import { Link } from 'react-router-dom';
 // Acciones
 import { searchVideogames } from '../store/actions';
 
@@ -34,8 +34,8 @@ export default function SearchBar(){
     // Formulario a usar para el navBar
     return(<>
         <form onSubmit={onSubmit}>
-            <input type="text" onChange={onInputChange} value={search}/>
-            <input type="submit" value="Buscar" />
+            <input className="text" type="text" onChange={onInputChange} value={search} placeholder="..."/>
+            <input type="submit" className="button search"value="Search" />
 
         </form>
     </>);

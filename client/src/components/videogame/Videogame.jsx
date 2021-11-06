@@ -29,7 +29,7 @@ export default function Videogame(props){
             })}
             
     <Link to={`/games/${id}`}>
-            <button className="button-card">Detalles</button>
+            <button className="button-card">Details</button>
     </Link>
 
     </div>)

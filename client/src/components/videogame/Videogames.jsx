@@ -12,6 +12,7 @@ import Pagination from "../Pagination"
 
 // ... Estilizaciones.
 import '../../assets/styles/videogame.css';
+import SearchBar from "../SearchBar"
 
 // --------------------------------------------------------------------
 // Logic Component
@@ -60,9 +61,6 @@ export default function Videogames(){
     return <>
     
     {/* Por ahora usamos esto hasta el sidebar */}
-    <Link to="/videogames/add"><button>Crear personaje</button></Link>
-
-
      <div className="grid-card-container">  
 
 

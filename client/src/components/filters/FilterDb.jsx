@@ -9,7 +9,7 @@ export default function FilterDb(){ // A-z -> Z-a
 
     // Cajita de variables
         let tf = false
-        let texting = "Creados"
+        let texting = "Created by"
     // Variables para envíos
         let dispatch = useDispatch();
 

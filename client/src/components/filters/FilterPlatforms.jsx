@@ -19,7 +19,7 @@ export default function FilterPlatforms(){ // Según plataforma
     let platforms = useSelector((state) => { return state.platforms });
     let dispatch = useDispatch();
 
-
+    
     useEffect(() => {
         dispatch(fetchPlatforms());
     },[]);
@@ -35,9 +35,9 @@ export default function FilterPlatforms(){ // Según plataforma
     
     // ..... ..... ..... ..... ..... ..... ..... .....
     return(<>
-        <label>Filtrar por Plataforma</label> 
+        <label>Filter by</label> 
         <select className="button" name="select" onChange={onSelectedChange}>
-            <option key={NONE} value={NONE}>Todos</option>
+            <option key={NONE} value={NONE}>Platforms</option>
             {platforms?.map((x) => { 
                 return <option key={x.name} value={x.name}>{x.name}</option> })}
         </select>

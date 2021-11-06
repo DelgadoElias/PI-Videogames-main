@@ -1,5 +1,6 @@
 *{
-    --variable: url("https://i.pinimg.com/originals/0c/94/1d/0c941d8e13f5c6560d94b9d9a1b24094.jpg")  
+    --variable: url("https://i.pinimg.com/originals/0c/94/1d/0c941d8e13f5c6560d94b9d9a1b24094.jpg");
+    --logo: "../../img/elias.jpg";  
 }
 
 body{
