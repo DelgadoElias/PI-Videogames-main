@@ -11,7 +11,7 @@ import { Link } from "react-router-dom"
 import Pagination from "../Pagination"
 
 // ... Estilizaciones.
-
+import '../../assets/styles/videogame.css';
 
 // --------------------------------------------------------------------
 // Logic Component
@@ -54,16 +54,19 @@ export default function Videogames(){
     // Presentation: Investigá las dependencias dle useEffect.
 
 
-
+    // TODO: Se me ocurrió una idea buenisima que capaz esté bastante linda implementarla pero rompería algo las reglas de presentación creo
 
     // ..... ..... ..... ..... .....
-     return <div>  
+    return <>
+    
+    {/* Por ahora usamos esto hasta el sidebar */}
+    <Link to="/videogames/add"><button>Crear personaje</button></Link>
 
-        {/* Por ahora usamos esto hasta el sidebar */}
-        <Link to="/videogames/add"><button>Crear personaje</button></Link>
+
+     <div className="grid-card-container">  
+
 
         
-        <Pagination videogamesPerPage={videogamesPerPage} allvideogames={videogame.length} paginado={paginado}/>
 
         {/* Complete: Pasarle los géneros también */}
 
@@ -77,6 +80,9 @@ export default function Videogames(){
 
 
     </div>
+    
+<Pagination videogamesPerPage={videogamesPerPage} allvideogames={videogame.length} paginado={paginado}/>
+    </>
     // ..... ..... ..... ..... .....
-
+    
 }

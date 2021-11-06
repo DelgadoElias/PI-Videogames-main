@@ -7,7 +7,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 //Actions
-import { fetchVideogames } from '../store/actions';
+
+import { fetchVideogames, fetchGenres, fetchPlatforms } from "../store/actions";
 
 
 // Estilización
@@ -28,7 +29,10 @@ export default function LandingPage(){
 
     useEffect(() => {
         // --> mapDispatchToProps() 
-        dispatch(fetchVideogames())
+        dispatch(fetchVideogames());
+        dispatch(fetchGenres());
+        dispatch(fetchPlatforms());
+        // Precarguemos todo wachin...
     },[]);
     
     

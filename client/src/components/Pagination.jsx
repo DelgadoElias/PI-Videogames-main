@@ -2,6 +2,9 @@
 
 import React from "react";
 
+// Estilización
+import '../assets/styles/pagination.css';
+
 
 // ------------------------------------------------
 
@@ -23,13 +26,15 @@ export default function Pagination({videogamesPerPage, allvideogames, paginado})
     // Componente que renderice los números de pagina en si
     return (
         <nav>
-            <ul>
-                { pageNumbers && pageNumbers.map( x => (
-                    <li key={x}>
-                        <a onClick={() => paginado(x)}>{x}</a>
-                    </li>
-                ))} 
-            </ul>
+
+            <div className="grid-container">
+            { pageNumbers && pageNumbers.map( x => (
+                    <button onClick={() => paginado(x)} className="items letters">
+                        {x}
+                    </button>
+                ))}
+            </div>
+
         </nav>
     );
 }

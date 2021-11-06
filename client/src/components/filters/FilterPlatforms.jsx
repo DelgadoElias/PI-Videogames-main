@@ -36,7 +36,7 @@ export default function FilterPlatforms(){ // Según plataforma
     // ..... ..... ..... ..... ..... ..... ..... .....
     return(<>
         <label>Filtrar por Plataforma</label> 
-        <select name="select" onChange={onSelectedChange}>
+        <select className="button" name="select" onChange={onSelectedChange}>
             <option key={NONE} value={NONE}>Todos</option>
             {platforms?.map((x) => { 
                 return <option key={x.name} value={x.name}>{x.name}</option> })}

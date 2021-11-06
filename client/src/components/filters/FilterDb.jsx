@@ -7,11 +7,6 @@ import { dbFilter } from "../../store/actions"
 
 export default function FilterDb(){ // A-z -> Z-a
 
-
-
-    let videogame = useSelector((state) => { return state.database});
-
-
     // Cajita de variables
         let tf = false
         let texting = "Creados"
@@ -34,6 +29,6 @@ export default function FilterDb(){ // A-z -> Z-a
 
 
     return(
-        <button onClick={onClickChange}>{texting}</button>
+        <button className="button"onClick={onClickChange}>{texting}</button>
     )
 }

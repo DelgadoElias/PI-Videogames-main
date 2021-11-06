@@ -1,5 +1,9 @@
 import { Link } from 'react-router-dom'
 
+// Estilizaciones
+import '../../assets/styles/videogame.css';
+
+
 export default function Videogame(props){
     
     // Componente presentacional
@@ -8,25 +12,24 @@ export default function Videogame(props){
 
     // description, rating, released, También vienen por si acaso.
 
+
     // Genres es un array de objetos
     //TODO: Decorarlo que está re feo - Está todo tirado así nomás
-    return (<div>
+    return (<div className="card-items">
 
     {/* ..... Redireccionamiento ..... */}
-    <Link to={`/games/${id}`}>
-
     <h3>{name}</h3>
 
-    <img src={image} alt="Image not found" width="500px" height="250px"/>
+    <img className="image" src={image} alt="Image not found"/>
 
         <p>Géneros:</p>
-        <ul>
             {/* Mostramos los géneros */}
             {genres?.map((x) => { return(
-                <li>{x.name}</li>)
+                <p>{x.name}</p>)
             })}
-        </ul>
-    
+            
+    <Link to={`/games/${id}`}>
+            <button className="button-card">Detalles</button>
     </Link>
 
     </div>)

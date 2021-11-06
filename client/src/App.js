@@ -26,7 +26,7 @@ function App() {
   
   return (
     <div className="App">
-      <h1>PI</h1>
+      <h1>Game Store</h1>
 
       {/* ..... Todavía no agregamos CSS ..... */}
       <SearchBar></SearchBar>
@@ -65,6 +65,7 @@ function App() {
           <LandingPage></LandingPage>
         </Route>
       </Switch>
+      <br />
     </div>
   );
 }

@@ -53,7 +53,7 @@ export default function FilterGenres(){ // Según género
     // ..... ..... ..... ..... ..... ..... ..... .....
     return(<>
         <label>Filtrar por género</label> 
-        <select name="select" onChange={onSelectedChange}>
+        <select className="button" name="select" onChange={onSelectedChange}>
             <option key={NONE} value={NONE}>Todos</option>
             {genre?.map((x) => { 
                 return <option key={x.name} value={x.name}>{x.name}</option> })}

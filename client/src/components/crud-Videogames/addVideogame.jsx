@@ -55,14 +55,18 @@ export default function AddVideogame() {
           ...videogame,
           genres : [e.target.value,...videogame.genres]
         });
+        // TODO: Esto es para el front, los géneros y plataformas no se van al back
+
       } // TODO: Y cuando no ¿que hacemos?
   }
 
   //Complete: Captame los cambios del selector nomás...
   function onSelect(e){
+    
+    console.log('Entre');
     setVideogame({
       ...videogame,
-      platforms : [e.target.value,...videogame.platforms]
+      platforms : [...videogame.platforms, e.target.value]
     });
     // TODO: Mostrar las plataformas seleccionadas para poder seleccionar una y eliminarla en el caso de que nos equivoquemos.
   }
@@ -108,6 +112,7 @@ export default function AddVideogame() {
               name="name"
               type="text"
               value={videogame.name}
+              required
             />
           </div>
 
@@ -173,10 +178,10 @@ export default function AddVideogame() {
 
           <div>
             <h3>Plataformas</h3>
-            <select>
+            <select onChange={(e) => onSelect(e)}>
               {plataformas?.map((x) => {
                 return (
-                  <option onChange={(e) => onSelect(e)} name="platforms" value={x.name}>
+                  <option name="platforms" value={x.name}>
                     {x.name}
                   </option>
                 );
@@ -187,8 +192,8 @@ export default function AddVideogame() {
             <div>
               <h3>Seleccionado:</h3>
               <ul>
-                {videogame.platforms.map((x) => {
-                  return (<li key={x.name} value={x.name}>{x.name}</li>)
+                {videogame.platforms?.map((x) => {
+                  return (<li key={x} value={x}>{x}</li>)
                 })}
               </ul> {/* TODO: Hacer la negación para esto */}
             </div>
