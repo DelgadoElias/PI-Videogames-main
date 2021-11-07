@@ -37,6 +37,7 @@ export default function GenreDetail() {
      // ..
     return (<div className="container">
 
+        {/*  */}
         {
         genre ? <div>
             <br />
