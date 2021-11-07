@@ -1,3 +1,4 @@
+const { default: axios } = require('axios');
 const { Router } = require('express');
 const { Genre } = require('../db.js');
 
@@ -26,7 +27,27 @@ router.get('/',async(req,res) => {
     }
     
 })
+
+// ..... Para mandar detalles de un género en específico .....
+router.get('/:id',async(req,res,next) => {
+
+    const id = req.params.id; 
+
+    /**
+     * Obtener un solo género en particular y datos específicos acerca del mismo.
+     */
+
+    try {
+        let instanciado = await axios.get(`https://api.rawg.io/api/genres/${id}?key=232664f6fc6541e2a787c5d2528caac5`)
+        res.send(instanciado.data);
+    } catch (e) {
+        next(e);
+    }
+    
+})
+
 // -------------------------------------------------------------
+
 // POST
 // Crea un nuevo género COMPLETE
 router.post('/',async(req,res,next) => {

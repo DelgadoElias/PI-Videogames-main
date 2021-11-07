@@ -23,6 +23,8 @@ export const PLATFORMS_FILTER = 'PLATFORMS_FILTER'
 // ..
 export const POST_VIDEOGAME = 'POST_VIDEOGAME'
 
+
+
 // ----------------------------------------------------------------
 
 // Fetch/gets ..... ..... ..... ..... .....
@@ -137,4 +139,4 @@ export function platformsFilter(type){
     }
 }
 
-// Posting ..... ..... ..... ..... ..... ..... ..... ..... 
+// Extras ..... ..... ..... ..... ..... ..... ..... ..... 

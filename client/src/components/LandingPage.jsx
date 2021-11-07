@@ -21,18 +21,20 @@ import '../assets/styles/landing.css';
 export default function LandingPage(){
     // Complete: Generar mi landingPage
     // ..... ..... ..... ..... ..... ..... ..... ..... .
-    // TODO: Landing page - debe tener una imágen o animación de inicio 
-    // Complete: Landing page - botón para direccionar al home...
+
     // ..... ..... ..... .....
 
     let dispatch = useDispatch();
+
+    // ..... ..... ..... .....
+
 
     useEffect(() => {
         // --> mapDispatchToProps() 
         dispatch(fetchVideogames());
         dispatch(fetchGenres());
         dispatch(fetchPlatforms());
-        // Precarguemos todo wachin...
+        // Precarguemos todo...
     },[]);
     
     
@@ -40,14 +42,16 @@ export default function LandingPage(){
     return (
     <div>
         <h1>Welcome, ¿wanna play a game?</h1>
-        {/* <img className="radius" src={videogame} alt="No funca" /> */}
         <br />
         
-        {/* Button */}
+        {/* ..... Button ..... */}
 
         <Link to="/home">
             <button className="button-landing"><h3>Come in</h3></button>
         </Link>
+
+        {/* ..... Final del Button ..... */}
+
     </div>
     );
 

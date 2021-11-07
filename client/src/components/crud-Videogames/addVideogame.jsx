@@ -17,7 +17,7 @@ import '../../assets/styles/add.css';
 import { Link } from "react-router-dom";
 
 export default function AddVideogame() {
-  // Cajita de variables
+  // ..... Cajita de variables .....
   const generos = useSelector((state) => state.genres);
   //.
   const plataformas = useSelector((state) => state.platforms);
@@ -34,16 +34,25 @@ export default function AddVideogame() {
     released: "",
     genres: [],
     platforms: [],
-  }); // Lo que necesita nuestro videojuego en el estado local
+  }); // Lo que necesita nuestro videojuego en el estado local para subirlo
+
+
+  /**
+   * ******************************************
+   * ******************************************
+   * OBSERVACIONES: Este es uno de los archivos menos modularizados que tengo.
+   * ******************************************}
+   * ******************************************
+   */
+
 
   // Comenzamos con la codificación ..... ..... ..... .....
   useEffect(() => {
     dispatch(fetchGenres());
     dispatch(fetchPlatforms());
   }, []);
-  // NO TE OLVIDES EL MALDITO ARRAY DE DEPENDENCIAS
 
-  // Captame los cambios del formulario
+  // ..... Cambios del formulario .....
   function onInputChange(e) {
     e.preventDefault();
     setVideogame({
@@ -52,22 +61,23 @@ export default function AddVideogame() {
     });
   }
 
-  // Complete: Captame los cambios del checkbox nomás
+  // ..... Cambios del checkbox nomás .....
   function handleCheckbox(e) {
       if(e.target.checked){ // Cuándo esté checkeado, subimelo
         setVideogame({
           ...videogame,
           genres : [e.target.value,...videogame.genres]
         });
-        // TODO: Esto es para el front, los géneros y plataformas no se van al back
 
-      } // TODO: Y cuando no ¿que hacemos?
+      }else{
+        
+
+      } // TODO: Y cuando no esté checkeado pero hay un cambio ¿que hacemos?
   }
 
-  //Complete: Captame los cambios del selector nomás...
+  // ..... Cambios del selector .....
   function onSelect(e){
     
-    console.log('Entre');
     setVideogame({
       ...videogame,
       platforms : [...videogame.platforms, e.target.value]
@@ -190,7 +200,7 @@ export default function AddVideogame() {
             {generos?.map((x) => {
               return (
                 <label>
-                  <input className="button" onChange={(e) => handleCheckbox(e)} type="checkbox" name="genres" value={x.name}></input>
+                  <input className="card-items leftier" onChange={(e) => handleCheckbox(e)} type="checkbox" name="genres" value={x.name}></input>
                   {x.name}
                 </label>
               );

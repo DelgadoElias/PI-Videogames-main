@@ -1,3 +1,5 @@
+/* Tres cards 3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣ */
+
 .grid-card-container {
     display: inline-grid;
     grid-template-columns: auto auto auto;
@@ -10,6 +12,26 @@
     height: 150px;
 }
 
+.spanning {
+    background-color: #4d5c7a;
+    margin :1px;
+    border-radius: 5px;
+}
+.spanning:hover {
+    background-color: #8d98ad;
+    margin :1px;
+    border-radius: 5px;
+}
+
+
+.Link {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+/* ..... Card Items ..... */
 
 .card-items {
     margin: 10px;
@@ -18,6 +40,16 @@
     border-radius: 9px;
 }
 
+/* Dame un sombreadito */
+div.card-items:hover {
+    margin: 10px;
+    background-color: rgba(25, 48, 78, 0.8);
+    text-align: center;
+    border-radius: 9px;
+    box-shadow: 0 4px 8px 0 rgba(233, 230, 230, 0.2), 0 4px 14px 0 rgba(247, 234, 234, 0.19);
+  }
+
+  /* ..... Cada card tiene un botón ..... */
 .button-card {
     bottom: 0;
     color:white;
@@ -27,7 +59,20 @@
     padding: 10px;
     background-color: #0893a8;
 }
+/* ..... Acción cuándo le pasamos por encima ..... */
+.button-card:hover {
+    bottom: 0;
+    color:white;
+    border-radius: 4px;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    background-color: #3dcce2;
+}
 
+/* Botones comúnes usados en otras partes del proyecto
+Esto podría modularizarse, voy a investigar más al respecto
+..... ..... ..... ..... ..... */
 .button {
     padding:5px;
     margin: 10px;
@@ -36,12 +81,24 @@
     border-color: #0893a8 ;
     color: #fff;
 }
+/* ..... Animaciones cuando pasamos por encima ..... */
+.button:hover {
+    padding:5px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #519eaa;
+    border-color: #519eaa;
+    color: #fff;
+}
 
+
+/* ..... Color y ancho para el specialNavBar ..... */
 .semi{
     width: 100%;
     background-color: #212c42;
 }
 
+/* ..... Inputs usan esto ..... */
 .text{
     width: 80%;
     padding:9px;
@@ -52,6 +109,7 @@
     color: #fff;
 }
 
+/* ..... Ocupamos esta cosa en el navbar para el botón nomás ..... */
 .search{
     width: 8%;
     padding:9px;
@@ -60,6 +118,7 @@
 
 /* Details card 🔻 */
 
+/* ..... Contenedor para mostrar ..... */
 .container {
     margin-left: 30%;
     margin-right: 30%;
@@ -68,27 +127,37 @@
 
 }
 
+/* Algo "modularizado" para justificar */
 .justifier {
     text-align: justify;
 }
 
+/* Algo "modularizado" para izquierda */
 .leftier {
-    text-align: justify;
+    text-align: left;
 }
 
 .container-image {
     width : 100%;
 }
 
+
+/* Container que se usa dentro del otro container */
 .mini-container {
     margin: 5%;
 }
 
-@media only screen and (max-width: 600px) {
+/* Esto es para como mostraré mi foto de perfil */
+
+
+
+/* Dos cards 2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣ */
+
+@media only screen and (max-width: 1000px){
     /* For tablets: */
     .grid-card-container {
         display: inline-grid;
-        grid-template-columns: auto;
+        grid-template-columns: auto auto;
         padding: 10px;
     }
     
@@ -99,8 +168,7 @@
     }
 
     .faces {
-        width: 100%;
-        height: 300px;
+        width: 30%;
     }
     
     
@@ -120,6 +188,15 @@
         padding: 10px;
         background-color: #0893a8;
     }
+    .button-card:hover {
+        bottom: 0;
+        color:white;
+        border-radius: 4px;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        background-color: #3dcce2;
+    }
     
     .button {
         padding:5px;
@@ -129,7 +206,17 @@
         border-color: #0893a8 ;
         color: #fff;
     }
-    
+    .button:hover {
+        padding:5px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: #519eaa;
+        border-color: #519eaa;
+        color: #fff;
+    }
+
+
+
     .semi{
         width: 100%;
         background-color: #212c42;
@@ -160,6 +247,144 @@
         text-align: justify;
         background-color: #21373b;
     
+    }
+
+    .spanning {
+        background-color: #4d5c7a;
+        margin :1px;
+        border-radius: 5px;
+    }
+    .spanning:hover {
+        background-color: #8d98ad;
+        margin :1px;
+        border-radius: 5px;
+    }
+    
+    
+    .Link {
+        text-decoration: none;
+        color: #fff;
+    }
+  }
+
+
+/* Una card 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣ */
+
+
+@media only screen and (max-width: 600px) {
+    /* For tablets: */
+    .grid-card-container {
+        display: inline-grid;
+        grid-template-columns: auto;
+        padding: 10px;
+    }
+    
+    .image {
+    
+        width: 300px;
+        height: 150px;
+    }
+
+    .faces {
+        width: 30%;
+    }
+    
+    
+    .card-items {
+        margin: 10px;
+        background-color: rgba(25, 48, 78, 0.8);
+        text-align: center;
+        border-radius: 9px;
+    }
+    
+    
+
+
+    .button-card {
+        bottom: 0;
+        color:white;
+        border-radius: 4px;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        background-color: #0893a8;
+    }
+    .button-card:hover {
+        bottom: 0;
+        color:white;
+        border-radius: 4px;
+        border: none;
+        width: 100%;
+        padding: 10px;
+        background-color: #3dcce2;
+    }
+    
+    .button {
+        padding:5px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: #0893a8;
+        border-color: #0893a8 ;
+        color: #fff;
+    }
+    .button:hover {
+        padding:5px;
+        margin: 10px;
+        border-radius: 15px;
+        background-color: #519eaa;
+        border-color: #519eaa;
+        color: #fff;
+    }
+
+
+
+    .semi{
+        width: 100%;
+        background-color: #212c42;
+    }
+    
+    .text{
+        width: 80%;
+        padding:9px;
+        margin: 10px;
+        border-radius: 5px;
+        background-color: #eaf0f1;
+        border-color: #0893a8 ;
+        color: #fff;
+    }
+    
+    .search{
+        width: 40%;
+        padding:9px;
+    
+    }
+    
+    /* Details card 🔻 */
+    
+    .container {
+        margin-left: 5%;
+        margin-right: 5%;
+        width : 90%;
+        text-align: justify;
+        background-color: #21373b;
+    
+    }
+
+    .spanning {
+        background-color: #4d5c7a;
+        margin :1px;
+        border-radius: 5px;
+    }
+    .spanning:hover {
+        background-color: #8d98ad;
+        margin :1px;
+        border-radius: 5px;
+    }
+    
+    
+    .Link {
+        text-decoration: none;
+        color: #fff;
     }
   }
 

@@ -7,10 +7,10 @@ export default function Sidebar(){
 
    return( <ul className="ul">
        <Link to="/home">
-  <li className="li"><a className="a" href="#home">Game Store</a></li>
+  <li className="li"><a className="a" href="#home">Games</a></li>
        </Link>
        <Link to="/videogames/add">
-  <li className="li"><a className="a">Add Videogame</a></li>
+  <li className="li"><a className="a">Add</a></li>
        </Link>
        <Link to="/About/elias">
   <li className="lasti"><a className="a">About</a></li>

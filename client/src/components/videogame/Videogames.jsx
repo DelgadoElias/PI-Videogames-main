@@ -7,13 +7,10 @@ import { fetchVideogames } from '../../store/actions'
 import Videogame from "./Videogame"
 
 // ...React-router
-import { Link } from "react-router-dom"
 import Pagination from "../Pagination"
 
 // ... Estilizaciones.
 import '../../assets/styles/videogame.css';
-import SearchBar from "../SearchBar"
-
 // --------------------------------------------------------------------
 // Logic Component
 export default function Videogames(){

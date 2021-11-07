@@ -12,6 +12,7 @@ import LandingPage from './components/LandingPage';
 import Sidebar from './components/Sidebar';
 import SpecialNavBar from './components/specialNavBar';
 import AboutCreatorPage from './components/About';
+import GenreDetail from './components/GenreDetail';
 
 function App() {
   
@@ -43,6 +44,12 @@ function App() {
         <Route exact path="/games/:id">
           <VideogameDetail />
         </Route>
+
+        {/* ..... Ruta para un género detail ..... */}
+        <Route exact path="/genres/:id">
+          <GenreDetail />
+        </Route>
+
         {/* ..... Ruta inicial ..... */}
         <Route exact path="/home">
           <SpecialNavBar></SpecialNavBar>
