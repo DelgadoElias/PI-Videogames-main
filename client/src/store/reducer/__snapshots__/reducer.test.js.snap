@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reducer Debería devolver el estado inicial 1`] = `
+Object {
+  "backup": Array [],
+  "filteredGenres": Array [],
+  "filteredPlatforms": Array [],
+  "filteredVideogames": Array [],
+  "genres": Array [],
+  "platforms": Array [],
+  "videogames": Array [],
+}
+`;
+
+exports[`reducer should return the initial state 1`] = `
+Object {
+  "backup": Array [],
+  "filteredGenres": Array [],
+  "filteredPlatforms": Array [],
+  "filteredVideogames": Array [],
+  "genres": Array [],
+  "platforms": Array [],
+  "videogames": Array [],
+}
+`;

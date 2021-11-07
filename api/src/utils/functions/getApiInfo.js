@@ -13,6 +13,7 @@ async function getApiInfo(name){
 
       if(!name){
      // Si no existe name entro acá
+        
         // 0 --> 40 ...........................................
         pageOne = await axios.get(
           `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`
@@ -28,6 +29,7 @@ async function getApiInfo(name){
           `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=2`
         );
         pageThree = [...pageThree.data.results]
+
         // ....................................................
         return[...pageOne, ...pageTwo,...pageThree];
         // ....................................................
