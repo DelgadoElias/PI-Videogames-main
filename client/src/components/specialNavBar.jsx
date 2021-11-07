@@ -4,6 +4,8 @@ import FilterPlatforms from "./filters/FilterPlatforms"
 import Order from "./orders/Order"
 import OrderRatings from "./orders/OrderRatings"
 import SearchBar from "./SearchBar"
+
+// --------------------------------------------
 // Modularización de los navBars
 export default function SpecialNavBar(){
     return(<div>
