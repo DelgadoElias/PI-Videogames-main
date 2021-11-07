@@ -1,6 +1,7 @@
 import elias from "../assets/img/elias.jpeg";
 
 import "../assets/styles/about.css";
+import { GitHub, Gmail, LinkedIn } from "../constantes/social";
 
 export default function AboutCreatorPage() {
   return (
@@ -28,11 +29,11 @@ export default function AboutCreatorPage() {
           <div className="card-about-items">
             <h3 className="leftier">Social Medias:</h3>
             <ul className="leftier">
-              <li><a className="Link" href="https://www.linkedin.com/in/elias-lautaro-delgado-7ba422210/">LinkedIn - Elías L. Delgado</a></li>
+              <li><a className="Link" href={ LinkedIn }>LinkedIn - Elías L. Delgado</a></li>
               <br />
-              <li><a className="Link" href="https://github.com/DelgadoElias">Github - /DelgadoElias</a></li>
+              <li><a className="Link" href={ GitHub }>Github - /DelgadoElias</a></li>
               <br />
-              <li>Gmail - eliaslautarodelgado@gmail.com</li>
+              <li>Gmail - { Gmail }</li>
             </ul>
           </div>
           <br />

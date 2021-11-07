@@ -4,13 +4,14 @@ import { useDispatch, useSelector } from "react-redux"
 import { dbFilter } from "../../store/actions"
 
 // Me gusta más esta opción debido a que me gustaría tener un sideBar
-
+        
+// -----------------------------------------------
 export default function FilterDb(){ // A-z -> Z-a
 
-    // Cajita de variables
+    // Cajita de variables .....
         let tf = false
         let texting = "Created by"
-    // Variables para envíos
+    // Variables para envíos .....
         let dispatch = useDispatch();
 
         
@@ -27,6 +28,7 @@ export default function FilterDb(){ // A-z -> Z-a
             dispatch(dbFilter(tf))
         }
 
+// -----------------------------------------------
 
     return(
         <button className="button"onClick={onClickChange}>{texting}</button>

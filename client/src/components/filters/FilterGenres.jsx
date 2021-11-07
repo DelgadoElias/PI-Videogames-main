@@ -15,28 +15,22 @@ import { fetchGenres, genresFilter } from "../../store/actions"
 // --------------------------------------------------------------------
 export default function FilterGenres(){ // Según género
 
-    // Complete: Filtrar elementos según sus géneros asociados.
+
 
     // Cajita de variables
 
-    // Variables para envíos
+    // -------------------------------
     let genre = useSelector((state) => { return state.genres });
+    // -------------------------------
     let dispatch = useDispatch();
-
+    // -------------------------------
     
-
+    // ------------------------------------------
     useEffect(() => {
         // --> mapDispatchToProps(). Levanto los géneros a la BD 
         dispatch(fetchGenres());
     },[]);
-
-
-
-
-
-
-
-
+    // ------------------------------------------
 
     // ..... ..... ..... ..... ..... ..... ..... .....
         // Captaremos cambios
