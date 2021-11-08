@@ -8,3 +8,5 @@ import { EnzymeAdapter } from 'enzyme';
 
 Enzyme.configure({ adapter: new EnzymeAdapter(),
                     disableLifecycleMethods: true });
+
+                    // Para los  testing, creamos un nuevo 'branch' en Github para destacarlos
