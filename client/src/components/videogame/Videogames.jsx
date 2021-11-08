@@ -52,8 +52,6 @@ export default function Videogames(){
     // Presentation: Investigá las dependencias dle useEffect.
 
 
-    // TODO: Se me ocurrió una idea buenisima que capaz esté bastante linda implementarla pero rompería algo las reglas de presentación creo
-
     // ..... ..... ..... ..... .....
     return <>
     

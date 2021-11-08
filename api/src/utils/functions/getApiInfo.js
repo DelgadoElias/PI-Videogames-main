@@ -13,7 +13,6 @@ async function getApiInfo(name){
 
       if(!name){
      // Si no existe name entro acá
-        // TODO: Averiguar el tema del next de la api y probarlo
         // 0 --> 40 ...........................................
         pageOne = await axios.get(
           `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`
@@ -34,7 +33,7 @@ async function getApiInfo(name){
         pageThree = [...pageThree.data.results];
 
 
-          // Si quitamos el flag de page_size nos traerá 20 items nomás, por lo tanto para llegar a 100 deberíamos crear más solicitudes
+          // Si quitamos el flag de page_size nos traerá 20 items nomás, por lo tanto para llegar a 100 deberíamos crear más solicitudes (5 Total)
 
         // ....................................................
         return[...pageOne, ...pageTwo,...pageThree];

@@ -9,7 +9,7 @@ import Videogames from './components/videogame/Videogames';
 
 // Extras
 import LandingPage from './components/LandingPage';
-import Sidebar from './components/Sidebar';
+import Navbar from './components/Navbar';
 import SpecialNavBar from './components/specialNavBar';
 import AboutCreatorPage from './components/About';
 import GenreDetail from './components/GenreDetail';
@@ -19,39 +19,38 @@ function App() {
   return (
     <div className="App">
 
-      {/* ..... Navbar ..... */}
-      <Sidebar></Sidebar>
+      {/* ..... Navbar va en cada componente ..... */}
+      
       {/* ..... Enrutamiento completo ..... */}
       <Switch>
       {/* ..... About page ..... */}
-        <Route exact path="/About/elias">    
+        <Route exact path="/About/elias">
+        <Navbar></Navbar>  
           <AboutCreatorPage></AboutCreatorPage>
         </Route>
 
         {/* ..... CRUD de un videojuego ..... */}
         {/* Sprint2: Hacer funcionar todos los CRUD */}
         <Route exact path="/videogames/add">
-          <AddVideogame></AddVideogame>
-        </Route>
-        <Route exact path="/remove">
-          <AddVideogame></AddVideogame>
-        </Route>
-        <Route exact path="/update">
+        <Navbar></Navbar>
           <AddVideogame></AddVideogame>
         </Route>
 
         {/* ..... Ruta para videogame Detail ..... */}
         <Route exact path="/games/:id">
+        <Navbar></Navbar>
           <VideogameDetail />
         </Route>
 
         {/* ..... Ruta para un género detail ..... */}
         <Route exact path="/genres/:id">
+        <Navbar></Navbar>
           <GenreDetail />
         </Route>
 
         {/* ..... Ruta inicial ..... */}
         <Route exact path="/home">
+        <Navbar></Navbar>
           <SpecialNavBar></SpecialNavBar>
           <br />
           <Videogames></Videogames>
