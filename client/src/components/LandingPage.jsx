@@ -40,7 +40,8 @@ export default function LandingPage(){
     
     // ..... ..... ..... .....
     return (
-    <div>
+        // ... Prueba de testing ...
+    <div className="landingPageComponent">
         <h1>Welcome, ¿wanna play a game?</h1>
         <br />
         
