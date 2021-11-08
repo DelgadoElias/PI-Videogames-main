@@ -24,7 +24,7 @@ function App() {
       {/* ..... Enrutamiento completo ..... */}
       <Switch>
       {/* ..... About page ..... */}
-      <Route exact path="/About/elias">    
+        <Route exact path="/About/elias">    
           <AboutCreatorPage></AboutCreatorPage>
         </Route>
 

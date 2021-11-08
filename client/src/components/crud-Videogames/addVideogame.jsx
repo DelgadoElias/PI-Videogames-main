@@ -70,9 +70,13 @@ export default function AddVideogame() {
         });
 
       }else{
-        
+        let filteredGenres = videogame.genres.filter((x) => { return x !== e.target.value; });
+        setVideogame({
+          ...videogame,
+          genres : [...filteredGenres]
+        });
 
-      } // TODO: Y cuando no esté checkeado pero hay un cambio ¿que hacemos?
+      } 
   }
 
   // ..... Cambios del selector .....
@@ -82,7 +86,19 @@ export default function AddVideogame() {
       ...videogame,
       platforms : [...videogame.platforms, e.target.value]
     });
-    // TODO: Mostrar las plataformas seleccionadas para poder seleccionar una y eliminarla en el caso de que nos equivoquemos.
+
+  }
+  // Eliminar las plataformas cuando nos arrepentimos
+  function onDeSelect(e){
+    let filtraciones = videogame.platforms.filter((x) => { 
+      console.log(e);
+      return x !== e; }); 
+    
+    setVideogame({
+      ...videogame,
+      platforms : [...filtraciones]
+    });
+    console.log(videogame.platforms);
   }
 
 
@@ -228,9 +244,9 @@ export default function AddVideogame() {
               <h3>Platforms selected:</h3>
               <ul>
                 {videogame.platforms?.map((x) => {
-                  return (<li key={x} value={x}>{x}</li>)
+                  return (<h4 value={x} onClick={(e) => onDeSelect(x)}>{x}</h4>)
                 })}
-              </ul> {/* TODO: Hacer la negación para esto */}
+              </ul>
             </div>
 
           {/* Botón de envío */}

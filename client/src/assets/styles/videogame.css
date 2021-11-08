@@ -99,6 +99,16 @@ Esto podría modularizarse, voy a investigar más al respecto
 }
 
 /* ..... Inputs usan esto ..... */
+.search-text{
+    width: 80%;
+    padding:9px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #eaf0f1;
+    border-color: #0893a8 ;
+    color: rgb(0, 0, 0);
+}
+
 .text{
     width: 80%;
     padding:9px;

@@ -65,6 +65,11 @@ router.get("/", async (req, res, next) => {
 
       let allVideogames = [...instanceMine, ...filterCharacters];
       // Envío
+
+      if(allVideogames.length === 0){
+        res.send("No encontrado").status(404);
+      }
+
       res.send(allVideogames);
     });
   } catch (e) {

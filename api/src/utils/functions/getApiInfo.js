@@ -13,22 +13,28 @@ async function getApiInfo(name){
 
       if(!name){
      // Si no existe name entro acá
-        
+        // TODO: Averiguar el tema del next de la api y probarlo
         // 0 --> 40 ...........................................
         pageOne = await axios.get(
           `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40`
         );
+        let uri = pageOne.data.next
         pageOne = [...pageOne.data.results];
         // 40 --> 80 ..........................................
         pageTwo = await axios.get( 
-          `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=2`
+          uri
         );
-        pageTwo = [...pageTwo.data.results]
+        uri = pageTwo.data.next
+
+        pageTwo = [...pageTwo.data.results];
         // 80 --> 120 .........................................
         pageThree = await axios.get( 
-          `https://api.rawg.io/api/games?key=${API_KEY}&page_size=40&page=2`
+          uri
         );
-        pageThree = [...pageThree.data.results]
+        pageThree = [...pageThree.data.results];
+
+
+          // Si quitamos el flag de page_size nos traerá 20 items nomás, por lo tanto para llegar a 100 deberíamos crear más solicitudes
 
         // ....................................................
         return[...pageOne, ...pageTwo,...pageThree];
@@ -36,7 +42,7 @@ async function getApiInfo(name){
      }else{
          // Case Name
            pageOne = await axios.get( 
-             `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}&page_size=15&page=2`
+             `https://api.rawg.io/api/games?key=${API_KEY}&search=${name}&page_size=15`
            );
 
            return [...pageOne.data.results];

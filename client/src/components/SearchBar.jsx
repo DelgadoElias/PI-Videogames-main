@@ -6,17 +6,16 @@ import {useDispatch} from 'react-redux'
 import { searchVideogames } from '../store/actions';
 
 
-
 // --------------------------------------------
 export default function SearchBar(){
 
     // --------------------------------------------
     // Funciones de react para actualizar el estado de la aplicación
-    let [search, setSearch] = useState('')
+    let [search, setSearch] = useState('');
     // Envío de la información
-    let dispatch = useDispatch()
+    let dispatch = useDispatch();
     // --------------------------------------------
-
+    //TODO: Si me trae más de 15 juegos lo voy a filtrar
     // --------------------------------------------
     // onSubmit -->  Carga la palabra que buscamos al action function para obtener la info del reducer
     function onSubmit(e){
@@ -39,7 +38,7 @@ export default function SearchBar(){
     // Formulario a usar para el navBar
     return(<>
         <form onSubmit={onSubmit}>
-            <input className="text" type="text" onChange={onInputChange} value={search} placeholder="..."/>
+            <input className="search-text" type="text" onChange={onInputChange} value={search} placeholder="..."/>
             <input type="submit" className="button search"value="Search" />
 
         </form>

@@ -13,6 +13,7 @@ export default function Pagination({videogamesPerPage, allvideogames, paginado})
     // Caja de variables
     const pageNumbers = []; // Arreglo vacío
 
+    //TODO: Si tiene menos de 15 juegos no mostrar directamente esto
 
     // ..... ..... ..... ..... ..... .....
 
