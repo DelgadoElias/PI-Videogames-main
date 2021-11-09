@@ -14,9 +14,6 @@ import { fetchVideogames, fetchGenres, fetchPlatforms } from "../store/actions";
 // Estilización
 import '../assets/styles/landing.css';
 
-// Probando
-
-
 // ..... ..... ..... ..... ..... ..... ..... ..... .....
 export default function LandingPage(){
     // Complete: Generar mi landingPage

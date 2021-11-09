@@ -7,12 +7,12 @@ import Videogame from "../videogame/Videogame";
 // Toma un número al azar y lo devuelve
 export default function PickEm(){
 
+    // Caja de variables
     const trigger = useSelector((state) => state.pickEm)
-
     const [poder, setPoder] = useState({});
-
     let dispatch = useDispatch();
 
+    // ..... .....
     // Si se recarga la page tengo que cargar desde acá todo
     useEffect(() =>{
         setPoder({...trigger})
@@ -21,6 +21,10 @@ export default function PickEm(){
         dispatch(fetchPlatforms())
         dispatch(gameRandom())
     },[dispatch]);
+    
+    
+    
+    // ..... .....
     // Vamos a tirar games al azar
     function onRandomGame(){
         // Guardamos en el pickEm un número al azar
