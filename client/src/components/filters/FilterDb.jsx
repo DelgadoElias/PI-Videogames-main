@@ -1,9 +1,7 @@
 // Ordenamiento de los videojuegos de menor a mayor
 
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { dbFilter } from "../../store/actions"
-
-// Me gusta más esta opción debido a que me gustaría tener un sideBar
         
 // -----------------------------------------------
 export default function FilterDb(){ // A-z -> Z-a
@@ -16,7 +14,7 @@ export default function FilterDb(){ // A-z -> Z-a
 
         
         // Con esta función captaremos los cambios
-        function onClickChange(e){
+        function onClickChange(){
             if(tf === true){
                 tf = false;
                 

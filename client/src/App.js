@@ -13,6 +13,8 @@ import Navbar from './components/Navbar';
 import SpecialNavBar from './components/specialNavBar';
 import AboutCreatorPage from './components/About';
 import GenreDetail from './components/GenreDetail';
+import PickEm from './components/Others/PickEm';
+
 
 function App() {
   
@@ -23,6 +25,13 @@ function App() {
       
       {/* ..... Enrutamiento completo ..... */}
       <Switch>
+
+      {/* ..... Extra: Game Random ..... */}
+      <Route exact path="/pickem">
+      <Navbar></Navbar>
+          <PickEm></PickEm>
+        </Route>
+
       {/* ..... About page ..... */}
         <Route exact path="/About/elias">
         <Navbar></Navbar>  

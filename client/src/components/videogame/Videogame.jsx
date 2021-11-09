@@ -7,7 +7,7 @@ import "../../assets/styles/videogame.css";
 export default function Videogame(props) {
   // ..... Componente presentacional .....
 
-  let { id, name, image, genres, released } = props;
+  let { id, name, image, genres, released, extra } = props;
   // description, rating, released, También vienen por si acaso.
 
   // ..... Como mostraré los géneros .....
@@ -26,11 +26,11 @@ export default function Videogame(props) {
       <h3>{prueba[0]}</h3>
       <h5>{prueba[1] ? prueba[1] : released }</h5>
       {/* Título completo, si sobra espacio mostramos la fecha */}
-      <Link to={`/games/${id}`}>
+      { extra=== true ? <img className="image" src={image} alt="Image not found" /> : <Link to={`/games/${id}`}>
       <img className="image" src={image} alt="Image not found" />
-      </Link>
+      </Link>}
 
-      <p>Genres:</p>
+      { extra === true ? "" : <p>Genres:</p>}
       {/* ..... Mostramos los géneros ..... */}
       <p>
         {genres?.map((x) => {
@@ -45,9 +45,10 @@ export default function Videogame(props) {
       {/* ------------------------------------------- */}
 
       {/* ..... Vamos al videogameDetail ..... */}
-      <Link to={`/games/${id}`}>
+      {/* ..... Si tiene la propiedad extra marcada en true entonces no mostrará los links de detalles ..... */}
+      {extra === true ? <div><h1>Please wait</h1><br /></div> : <Link to={`/games/${id}`}>
         <button className="button-card">Details</button>
-      </Link>
+      </Link>}
     </div>
   );
 }

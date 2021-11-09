@@ -17,6 +17,10 @@ export default function Navbar(){
        <Link to="/About/elias">
   <li className="lasti"><a className="a">About</a></li>
        </Link>
+       <Link to="/pickem">
+  <li className="lasti"><a className="a">PickEm</a></li>
+       </Link>
+
   
 </ul>)
 }

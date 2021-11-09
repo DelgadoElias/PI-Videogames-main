@@ -8,6 +8,8 @@ import { render } from "../../../api/src/app";
 
 configure({ adapter: new Adapter() });
 
+
+
 describe("<Landing />", () => {
   let wrapper;
   beforeEach(() => {

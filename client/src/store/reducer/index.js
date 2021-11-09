@@ -1,10 +1,12 @@
 import { NONE } from "../../constantes/filters";
 import { ASCENDENTE } from "../../constantes/sort";
 import {
+  API_FILTER,
   DB_FILTER,
   FETCH_GENRES,
   FETCH_PLATFORMS,
   FETCH_VIDEOGAMES,
+  GAME_RANDOM,
   GENRES_FILTER,
   PLATFORMS_FILTER,
   SEARCH_VIDEOGAMES,
@@ -20,7 +22,9 @@ const initialState = {
   filteredGenres: [],
   filteredPlatforms: [],
   backup: [],
+  pickEm: {},
 };
+
 
 // No es buena idea duplicar data front a back
 
@@ -29,6 +33,7 @@ export default function reducer(state = initialState, action) {
     // **************************************************************************************************
     // -------------------------------------
     case FETCH_VIDEOGAMES:
+      console.log('Ya entregamos');
       return {
         ...state,
         videogames: action.payload,
@@ -101,7 +106,9 @@ export default function reducer(state = initialState, action) {
       case DB_FILTER:
         
         if(action.payload === true){
-          let filteredItems = state.filteredVideogames.filter((x) => {return x.hasOwnProperty('createdInDb')}
+          let filteredItems = state.filteredVideogames.filter((x) => {
+            // Miremos la propiedad especial
+            return x.hasOwnProperty('createdInDb')}
           );
           // ..... ..... ..... .....
           return {
@@ -116,7 +123,29 @@ export default function reducer(state = initialState, action) {
             filteredVideogames : [...state.backup]
           }
         }
-        // Complete: Si hacemos primero una búsqueda, el debe hacer que coincida con ambos, con la búsqueda y la DB
+
+    // -------------------------------------
+    case API_FILTER:
+        console.log('Entre');
+        if(action.payload === true){
+          let filteredItems = state.filteredVideogames.filter((x) => {
+            // Miremos el tamaño del id
+            let superId = x.id.toString();
+            return superId.length < 8 }
+          );
+          // ..... ..... ..... .....
+          return {
+            ...state,
+            backup : [...state.filteredVideogames],
+            filteredVideogames : [...filteredItems]
+          }
+        }else{ 
+          // ..... ..... ..... .....
+          return { // Si no es lo volvemos a setear
+            ...state,
+            filteredVideogames : [...state.backup]
+          }
+        }    
 
     // -------------------------------------
         case GENRES_FILTER:
@@ -168,6 +197,7 @@ export default function reducer(state = initialState, action) {
               return false; 
               
             });
+
             // ..... Finalización filter .....
             return {
               ...state,
@@ -177,6 +207,15 @@ export default function reducer(state = initialState, action) {
 
     // **************************************************************************************************
     // -------------------------------------
+          case GAME_RANDOM:
+            console.log('Llegue al reducer');
+            let one = Math.floor(Math.random() * (state.videogames.length ));
+            console.log(one);
+          return {
+            ...state,
+            pickEm: state.videogames[one]
+          }
+
     // -------------------------------------
     
     default:

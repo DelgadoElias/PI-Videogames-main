@@ -16,6 +16,7 @@ export const SORT_RATING = 'SORT_RATING'
 
 // ..
 export const DB_FILTER = 'DB_FILTER'
+export const API_FILTER = 'API_FILTER'
 export const GENRES_FILTER = 'GENRES_FILTER'
 export const PLATFORMS_FILTER = 'PLATFORMS_FILTER'
 
@@ -23,6 +24,8 @@ export const PLATFORMS_FILTER = 'PLATFORMS_FILTER'
 // ..
 export const POST_VIDEOGAME = 'POST_VIDEOGAME'
 
+// ----------------------------------------------------------------
+export const GAME_RANDOM = 'GAME_RANDOM'
 
 
 // ----------------------------------------------------------------
@@ -139,4 +142,20 @@ export function platformsFilter(type){
     }
 }
 
+// By API
+export function apiFilter(type){
+    return {
+        type: API_FILTER,
+        payload : type
+    }
+}
+
 // Extras ..... ..... ..... ..... ..... ..... ..... ..... 
+
+// Pick a random game and render in the page
+export function gameRandom(){
+    return {
+        type: GAME_RANDOM,
+        payload: "none"
+    }
+}
