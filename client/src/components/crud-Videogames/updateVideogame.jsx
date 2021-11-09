@@ -1,6 +1,6 @@
 export default function updateVideogame(props){
     
-    // TODO: Componente que se usara para actualizar los datos de un item de nuestra BDD. Este componente se accionará mediante un botón mostrado en el componente de detalle junto a un panel de botones.
+    // Sprint2: Componente que se usara para actualizar los datos de un item de nuestra BDD. Este componente se accionará mediante un botón mostrado en el componente de detalle junto a un panel de botones.
     
 
     /**

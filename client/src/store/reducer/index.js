@@ -54,15 +54,21 @@ export default function reducer(state = initialState, action) {
     // **************************************************************************************************
     // -------------------------------------
     case SEARCH_VIDEOGAMES:
-      return {
-        ...state,
-        filteredVideogames: action.payload,
-      };
+      if(typeof action.payload === 'string'){
+        console.log('Error: ' + action.payload);
+        return {
+          ...state,
+        }
+      }else{
+        return {
+          ...state,
+          filteredVideogames: action.payload,
+        };
+      }
 
     // **************************************************************************************************
     // -------------------------------------
     case SORT_VIDEOGAMES:
-      console.log('Entre');
       // Optional: Cambiarlo a función como hicimos en el M1
       let orderedVideogames = state.videogames.sort((a, b) => {
         if (a.name < b.name) return action.payload === ASCENDENTE ? -1 : 1;

@@ -15,7 +15,7 @@ export default function SearchBar(){
     // Envío de la información
     let dispatch = useDispatch();
     // --------------------------------------------
-    //TODO: Si me trae más de 15 juegos lo voy a filtrar
+
     // --------------------------------------------
     // onSubmit -->  Carga la palabra que buscamos al action function para obtener la info del reducer
     function onSubmit(e){

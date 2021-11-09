@@ -1,11 +1,10 @@
 const { Router } = require("express");
-
+const { v4: uuidv4 } = require('uuid');
 
 // Modelos requeridos
 
 // Sequelize
 const router = Router();
-
 
 // Obtener datos de la API
 const getApiInfo = require("../utils/functions/getApiInfo")
@@ -66,8 +65,21 @@ router.get("/", async (req, res, next) => {
       let allVideogames = [...instanceMine, ...filterCharacters];
       // Envío
 
+      // Si no encuentro nada, devolveré un array con solo un objeto preparado
       if(allVideogames.length === 0){
-        res.send("No encontrado").status(404);
+
+
+        let obj = {
+          id: uuidv4(),
+          name: "Not Found",
+          released: "00-00-0000",
+          image: "https://pandagila.com/wp-content/uploads/2020/08/error-404-not-found.jpg",
+          rating: 0,
+          description: "The game has 0 results",
+          genres: [],
+          platforms: [],
+        };
+        return res.send([obj]).status(404);
       }
 
       res.send(allVideogames);

@@ -13,7 +13,7 @@ const router = Router();
 
 // Hubo una vez una necesidad de API_KEY por aquí
 
-// GET
+// GET..
 
 // Devuelve del detalle de un videojuego en particular COMPLETE
 router.get('/:id',async(req,res,next) => {

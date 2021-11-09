@@ -7,13 +7,17 @@ import "../../assets/styles/videogame.css";
 export default function Videogame(props) {
   // ..... Componente presentacional .....
 
-  const { id, name, image, genres, released } = props;
+  let { id, name, image, genres, released } = props;
   // description, rating, released, También vienen por si acaso.
 
   // ..... Como mostraré los géneros .....
 
     // Acortemos el título para que entre mejor.
     let prueba = name.split(':');
+
+    if(!released){
+      released = "Unknown - ???"
+    }
 
   // -------------------------------------------------------------
   return (
