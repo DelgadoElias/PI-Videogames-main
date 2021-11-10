@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 // Estilizaciones
@@ -6,6 +7,8 @@ import "../../assets/styles/videogame.css";
 // --------------------------------------------
 export default function Videogame(props) {
   // ..... Componente presentacional .....
+
+  let generos = useSelector((state) => { return state.genres})
 
   let { id, name, image, genres, released, extra } = props;
   // description, rating, released, También vienen por si acaso.
@@ -19,7 +22,18 @@ export default function Videogame(props) {
       released = "Unknown - ???"
     }
 
-  // -------------------------------------------------------------
+    // Conseguimos el id (Se hacía con un find antes pero cambie por motivos no convencionales)
+    function onDemand(name){
+      console.log(name);
+      if(!genres.id){
+        let generazo = generos.filter((x) => {
+        console.log(x.name, x.id, name);
+        return x.name === name} )
+        console.log(generazo);
+        return generazo[0].id // Jajajaj
+      }
+    }
+ // -------------------------------------------------------------
   return (
     <div className="card-items">
       {/* ..... Redireccionamiento ..... */}
@@ -36,7 +50,7 @@ export default function Videogame(props) {
         {genres?.map((x) => {
             let genreSplited = x.name.split(' ');
             return (
-            <Link className="Link" to={`/genres/${x.id}`}>
+            <Link className="Link" to={`/genres/${x.id ? x.id : onDemand(x.name) }`}>
               <span className="spanning"> {genreSplited[1] ? "MMO" : genreSplited[0]} </span>
             </Link>
           );

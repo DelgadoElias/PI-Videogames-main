@@ -33,7 +33,6 @@ export default function reducer(state = initialState, action) {
     // **************************************************************************************************
     // -------------------------------------
     case FETCH_VIDEOGAMES:
-      console.log('Ya entregamos');
       return {
         ...state,
         videogames: action.payload,
@@ -126,7 +125,6 @@ export default function reducer(state = initialState, action) {
 
     // -------------------------------------
     case API_FILTER:
-        console.log('Entre');
         if(action.payload === true){
           let filteredItems = state.filteredVideogames.filter((x) => {
             // Miremos el tamaño del id
@@ -208,9 +206,8 @@ export default function reducer(state = initialState, action) {
     // **************************************************************************************************
     // -------------------------------------
           case GAME_RANDOM:
-            console.log('Llegue al reducer');
+            
             let one = Math.floor(Math.random() * (state.videogames.length ));
-            console.log(one);
           return {
             ...state,
             pickEm: state.videogames[one]

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 // ...Importaciones de mi aplicación
-import { fetchGenres, fetchPlatforms, fetchVideogames } from '../../store/actions'
+import { fetchGenres, fetchPlatforms, fetchVideogames, gameRandom } from '../../store/actions'
 import Videogame from "./Videogame"
 
 // ...React-router
@@ -46,6 +46,7 @@ export default function Videogames(){
     /* Esto NO me trae las cosas, las guarda en la variable del store para que yo pueda usarlas */
     useEffect(() => {
         // --> mapDispatchToProps() 
+        dispatch(gameRandom())
         dispatch(fetchGenres())
         dispatch(fetchPlatforms())
         dispatch(fetchVideogames())
@@ -60,9 +61,6 @@ export default function Videogames(){
      <div className="grid-card-container">  
 
         {/* Complete: Pasarle los géneros también */}
-        {
-            
-        }
         { actualVideogames.length === 0 ? <h1>Reloading</h1> : actualVideogames.map((x) => {
             return <Videogame id={x.id} name={x.name} released={x.released} image={x.image} rating={x.rating} description={x.description} genres={x.genres}></Videogame>
         })}
@@ -70,7 +68,7 @@ export default function Videogames(){
 
     </div>
     
-<Pagination videogamesPerPage={videogamesPerPage} allvideogames={videogame.length} paginado={paginado}/>
+{<Pagination videogamesPerPage={videogamesPerPage} allvideogames={videogame.length} paginado={paginado} actualPage={actualPage}/>}
     </>
     // ..... ..... ..... ..... .....
     

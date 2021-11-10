@@ -20,7 +20,6 @@ export default function GenreDetail() {
 
     // ..... Comencemos del inicio .....
     useEffect(() => {
-
         // ..
         axios.get(`http://localhost:3001/genres/${id}`).then((x) => {
             // ------------
@@ -47,14 +46,14 @@ export default function GenreDetail() {
         </button>
       </Link>
 
-      <h1>{genre.name}</h1>
+      <h1>{genre.name ? genre.name : "404 - Not Found"}</h1>
 
       <img className="container-image" src={genre.image_background} alt="imgNotFound" />
 
             <div className="mini-container">
-     <h3>Games count:  {genre.games_count}</h3>
+     <h3>Games count:  {genre.games_count ? genre.games_count : 0}</h3>
 
-     <p>{genre.description}</p>
+     <p className="justifier">{genre.description ? genre.description : "Genre detail not found in database"}</p>
      
      </div>
         </div> : <h1>Reloading</h1>

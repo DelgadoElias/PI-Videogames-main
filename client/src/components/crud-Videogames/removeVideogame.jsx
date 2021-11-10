@@ -2,7 +2,7 @@
 
 export default function RemoveVideogame({id}){
     
-    // TODO: Función que se tome como un botón de eliminar de la BDD nuestra, esto se mostrará en el detalle de la aplicación...
+    // Sprint2: Función que se tome como un botón de eliminar de la BDD nuestra, esto se mostrará en el detalle de la aplicación...
     /**
      * Cuándo el usuario aprete el botón : -->
      * 

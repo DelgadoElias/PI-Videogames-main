@@ -91,14 +91,12 @@ export default function AddVideogame() {
   // Eliminar las plataformas cuando nos arrepentimos
   function onDeSelect(e){
     let filtraciones = videogame.platforms.filter((x) => { 
-      console.log(e);
       return x !== e; }); 
     
     setVideogame({
       ...videogame,
       platforms : [...filtraciones]
     });
-    console.log(videogame.platforms);
   }
 
 
@@ -213,6 +211,7 @@ export default function AddVideogame() {
             <br />
             <br />
 
+            {/* ..... Checkbox para los géneros seleccionados ..... */}
             {generos?.map((x) => {
               return (
                 <label>
@@ -241,6 +240,7 @@ export default function AddVideogame() {
           </div>
 
             <div>
+              {/* ..... Plataformas Seleccionadas ..... */}
               <h3>Platforms selected:</h3>
               <ul>
                 {videogame.platforms?.map((x) => {

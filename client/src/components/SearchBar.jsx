@@ -38,7 +38,7 @@ export default function SearchBar(){
     // Formulario a usar para el navBar
     return(<>
         <form onSubmit={onSubmit}>
-            <input className="search-text" type="text" onChange={onInputChange} value={search} placeholder="..."/>
+            <input className="search-text" type="text" onChange={onInputChange} value={search} placeholder="...Search Here"/>
             <input type="submit" className="button search"value="Search" />
 
         </form>

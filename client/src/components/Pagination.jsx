@@ -8,7 +8,7 @@ import '../assets/styles/pagination.css';
 
 // ------------------------------------------------
 
-export default function Pagination({videogamesPerPage, allvideogames, paginado}){
+export default function Pagination({videogamesPerPage, allvideogames, paginado, actualPage}){
 
     // Caja de variables
     const pageNumbers = []; // Arreglo vacío
@@ -30,7 +30,7 @@ export default function Pagination({videogamesPerPage, allvideogames, paginado})
 
             <div className="grid-container">
             { pageNumbers && pageNumbers.map( x => (
-                    <button onClick={() => paginado(x)} className="items letters">
+                    <button onClick={() => paginado(x)} className={actualPage === x ? "active items letters" : "items letters" }>
                         {x}
                     </button>
                 ))}
