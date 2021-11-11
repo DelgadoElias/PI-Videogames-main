@@ -53,7 +53,11 @@ export default function GenreDetail() {
             <div className="mini-container">
      <h3>Games count:  {genre.games_count ? genre.games_count : 0}</h3>
 
-     <p className="justifier">{genre.description ? genre.description : "Genre detail not found in database"}</p>
+     {genre.description ? 
+        <p className="justifier" dangerouslySetInnerHTML={{ __html: genre.description }}></p>
+        :     
+        <p>"Genre detail not found in database"</p>
+        }
      
      </div>
         </div> : <h1>Reloading</h1>
