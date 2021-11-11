@@ -40,11 +40,6 @@ export default function Videogames(){
             return setActualPage(page);
         }
 
-        function onlyPage(){
-            setActualPage(1);
-            return ""
-        }
-
     // ..... ..... ..... ..... ..... ..... .....
 
     /* Esto NO me trae las cosas, las guarda en la variable del store para que yo pueda usarlas */

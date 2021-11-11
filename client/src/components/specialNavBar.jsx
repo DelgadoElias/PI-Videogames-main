@@ -4,8 +4,8 @@ import FilterGenres from "./filters/FilterGenres"
 import FilterPlatforms from "./filters/FilterPlatforms"
 import Order from "./orders/Order"
 import OrderRatings from "./orders/OrderRatings"
+import ResetVideogames from "./resetVideogames"
 import SearchBar from "./SearchBar"
-
 
 // --------------------------------------------
 // Modularización de los navBars
@@ -21,14 +21,17 @@ export default function SpecialNavBar(){
         </div>
         <br />
         {/* ..... Filtros ..... */}
-        {<FilterDb></FilterDb>}
         {<FilterGenres></FilterGenres>}
         {<FilterPlatforms></FilterPlatforms>}
         <br />
-        {<FilterAPI></FilterAPI>}
         {/* ..... Ordenamientos ..... */}
         {<OrderRatings></OrderRatings>}
         {<Order></Order>}
+        <br />
+        {/* ..... Resets ..... */}
+        {<FilterAPI></FilterAPI>}
+        {<FilterDb></FilterDb>}
+        <ResetVideogames></ResetVideogames>
 
     </div>)
 }

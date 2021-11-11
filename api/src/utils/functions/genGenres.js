@@ -7,7 +7,7 @@ async function generateGenres(){
     // Con esto creamos todos los géneros que hay en la DB creo.
     apiData.forEach((x) => {
         Genre.findOrCreate({
-            where: { name : x.name}
+            where: { name : x.name, id : x.id}
         });
     } );
 

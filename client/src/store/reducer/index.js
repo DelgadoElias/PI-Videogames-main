@@ -9,6 +9,8 @@ import {
   GAME_RANDOM,
   GENRES_FILTER,
   PLATFORMS_FILTER,
+  resetGames,
+  RESET_GAMES,
   SEARCH_VIDEOGAMES,
   SORT_RATING,
   SORT_VIDEOGAMES,
@@ -212,7 +214,13 @@ export default function reducer(state = initialState, action) {
             ...state,
             pickEm: state.videogames[one]
           }
+    // -------------------------------------
 
+          case RESET_GAMES:
+            return {
+              ...state,
+              filteredVideogames: [...state.videogames]
+            }
     // -------------------------------------
     
     default:

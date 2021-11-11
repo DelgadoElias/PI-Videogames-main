@@ -26,6 +26,7 @@ export const POST_VIDEOGAME = 'POST_VIDEOGAME'
 
 // ----------------------------------------------------------------
 export const GAME_RANDOM = 'GAME_RANDOM'
+export const RESET_GAMES = 'RESET_GAMES'
 
 
 // ----------------------------------------------------------------
@@ -156,6 +157,15 @@ export function apiFilter(type){
 export function gameRandom(){
     return {
         type: GAME_RANDOM,
+        payload: "none"
+    }
+}
+
+// Reset videogame cards
+
+export function resetGames(){
+    return {
+        type: RESET_GAMES,
         payload: "none"
     }
 }

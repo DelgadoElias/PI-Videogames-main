@@ -22,14 +22,11 @@ export default function Videogame(props) {
       released = "Unknown - ???"
     }
 
-    // Conseguimos el id (Se hacía con un find antes pero cambie por motivos no convencionales)
+    // EN CASO DE ERRORES, Esto buscará por nombre parecido y le asignará un id al género
     function onDemand(name){
-      console.log(name);
       if(!genres.id){
         let generazo = generos.filter((x) => {
-        console.log(x.name, x.id, name);
         return x.name === name} )
-        console.log(generazo);
         return generazo[0].id // Jajajaj
       }
     }
