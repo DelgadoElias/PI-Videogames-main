@@ -40,6 +40,10 @@ export default function Videogames(){
             return setActualPage(page);
         }
 
+        function onlyPage(){
+            setActualPage(1);
+            return ""
+        }
 
     // ..... ..... ..... ..... ..... ..... .....
 

@@ -29,7 +29,8 @@ export default function Pagination({videogamesPerPage, allvideogames, paginado, 
         <nav>
 
             <div className="grid-container">
-            { pageNumbers && pageNumbers.map( x => (
+                {/* ..... La paginación no se va a ver si no hay más de 15 items ..... */}
+            { allvideogames < 15 ? <div>{paginado(1)}</div> : pageNumbers && pageNumbers.map( x => (
                     <button onClick={() => paginado(x)} className={actualPage === x ? "active items letters" : "items letters" }>
                         {x}
                     </button>
