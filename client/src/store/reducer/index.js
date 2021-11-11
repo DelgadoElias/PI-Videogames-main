@@ -76,7 +76,7 @@ export default function reducer(state = initialState, action) {
     // -------------------------------------
     case SORT_VIDEOGAMES:
       // Optional: Cambiarlo a función como hicimos en el M1
-      let orderedVideogames = state.videogames.sort((a, b) => {
+      let orderedVideogames = state.filteredVideogames.sort((a, b) => {
         if (a.name < b.name) return action.payload === ASCENDENTE ? -1 : 1;
 
         if (a.name > b.name) return action.payload === ASCENDENTE ? 1 : -1;
@@ -91,7 +91,7 @@ export default function reducer(state = initialState, action) {
       let orderedRatings = [...state.videogames];
 
       // Este lo dejamos así nomás, demostramos usar todos los métodos
-      orderedRatings = state.videogames.sort((a, b) => {
+      orderedRatings = state.filteredVideogames.sort((a, b) => {
         if (a.rating < b.rating) return action.payload === ASCENDENTE ? -1 : 1;
 
         if (a.rating > b.rating) return action.payload === ASCENDENTE ? 1 : -1;
@@ -107,7 +107,7 @@ export default function reducer(state = initialState, action) {
       case DB_FILTER:
         
         if(action.payload === true){
-          let filteredItems = state.filteredVideogames.filter((x) => {
+          let filteredItems = state.videogames.filter((x) => {
             // Miremos la propiedad especial
             return x.hasOwnProperty('createdInDb')}
           );
@@ -128,7 +128,7 @@ export default function reducer(state = initialState, action) {
     // -------------------------------------
     case API_FILTER:
         if(action.payload === true){
-          let filteredItems = state.filteredVideogames.filter((x) => {
+          let filteredItems = state.videogames.filter((x) => {
             // Miremos el tamaño del id
             let superId = x.id.toString();
             return superId.length < 8 }

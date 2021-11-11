@@ -8,7 +8,7 @@ module.exports = (sequelize) => {
     return sequelize.define('genre', {
         // Ahora que lo pienso, no es necesario un ID. Si total vamos a pasar los géneros por ID
         
-        // Name del género
+        // Name del género.
         name: { //COMPLETE
             // Nombre de nuestro genero
             type: DataTypes.STRING,
