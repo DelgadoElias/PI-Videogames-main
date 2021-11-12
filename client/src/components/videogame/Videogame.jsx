@@ -36,6 +36,8 @@ export default function Videogame(props) {
       { extra=== true ? <img className={vStyles.Image} src={image} alt="Image not found" /> : <Link to={`/games/${id}`}>
       <img className={vStyles.Image} src={image} alt="Image not found" />
       </Link>}
+
+
       <h3>{prueba[0]}</h3>
       <h5>{prueba[1] ? prueba[1] : released }</h5>
       {/* Título completo, si sobra espacio mostramos la fecha */}
@@ -46,8 +48,7 @@ export default function Videogame(props) {
         {genres?.map((x) => {
             let genreSplited = x.name.split(' ');
             return (
-            <Link className={vStyles.Link} to={`/genres/${x.id ? x.id : onDemand(x.name) }`}>
-              <span className={vStyles.spanning}> {genreSplited[1] ? "MMO" : genreSplited[0]} </span>
+            <Link className={vStyles.Link} to={`/genres/${x.id ? x.id : onDemand(x.name) }`}><span className={vStyles.spanning}> {genreSplited[1] ? "MMO" : genreSplited[0]}</span>
             </Link>
           );
         })}
