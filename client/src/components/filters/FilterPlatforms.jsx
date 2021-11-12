@@ -10,8 +10,8 @@ import { NONE } from "../../constantes/filters";
 // ...Actions 
 import { fetchPlatforms, platformsFilter } from "../../store/actions"
 
-
-
+// ..
+import vStyles from "../../assets/styles/sNavbar.module.css"
 // --------------------------------------------------------------------
 export default function FilterPlatforms(){ // Según plataforma
 
@@ -35,7 +35,7 @@ export default function FilterPlatforms(){ // Según plataforma
     
     // ..... ..... ..... ..... ..... ..... ..... .....
     return(<> 
-        <select className="button" name="select" onChange={onSelectedChange}>
+        <select className={vStyles.filter} name="select" onChange={onSelectedChange}>
             <option key={NONE} value={NONE}>Filter by Platforms</option>
             {platforms?.map((x) => { 
                 return <option key={x.name} value={x.name}>{x.name}</option> })}

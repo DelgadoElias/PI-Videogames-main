@@ -2,8 +2,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 // Estilizaciones
-import "../../assets/styles/videogame.css";
-
+import vStyles from '../../assets/styles/videogame.module.css';
 // --------------------------------------------
 export default function Videogame(props) {
   // ..... Componente presentacional .....
@@ -32,14 +31,14 @@ export default function Videogame(props) {
     }
  // -------------------------------------------------------------
   return (
-    <div className="card-items">
+    <div className={vStyles.CardItems}>
       {/* ..... Redireccionamiento ..... */}
+      { extra=== true ? <img className={vStyles.Image} src={image} alt="Image not found" /> : <Link to={`/games/${id}`}>
+      <img className={vStyles.Image} src={image} alt="Image not found" />
+      </Link>}
       <h3>{prueba[0]}</h3>
       <h5>{prueba[1] ? prueba[1] : released }</h5>
       {/* Título completo, si sobra espacio mostramos la fecha */}
-      { extra=== true ? <img className="image" src={image} alt="Image not found" /> : <Link to={`/games/${id}`}>
-      <img className="image" src={image} alt="Image not found" />
-      </Link>}
 
       { extra === true ? "" : <p>Genres:</p>}
       {/* ..... Mostramos los géneros ..... */}
@@ -47,8 +46,8 @@ export default function Videogame(props) {
         {genres?.map((x) => {
             let genreSplited = x.name.split(' ');
             return (
-            <Link className="Link" to={`/genres/${x.id ? x.id : onDemand(x.name) }`}>
-              <span className="spanning"> {genreSplited[1] ? "MMO" : genreSplited[0]} </span>
+            <Link className={vStyles.Link} to={`/genres/${x.id ? x.id : onDemand(x.name) }`}>
+              <span className={vStyles.spanning}> {genreSplited[1] ? "MMO" : genreSplited[0]} </span>
             </Link>
           );
         })}
@@ -58,7 +57,7 @@ export default function Videogame(props) {
       {/* ..... Vamos al videogameDetail ..... */}
       {/* ..... Si tiene la propiedad extra marcada en true entonces no mostrará los links de detalles ..... */}
       {extra === true ? <div><h1>Please wait</h1><br /></div> : <Link to={`/games/${id}`}>
-        <button className="button-card">Details</button>
+        <button className={vStyles.button}>Details</button>
       </Link>}
     </div>
   );

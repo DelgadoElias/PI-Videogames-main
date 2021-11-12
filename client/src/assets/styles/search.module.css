@@ -1,0 +1,54 @@
+.searchText{
+    width: 80%;
+    padding:9px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #eaf0f1;
+    border-color: #0893a8 ;
+    color: rgb(0, 0, 0);
+}
+
+.search{
+    width: 10%;
+    padding:10px;
+
+}
+
+.button {
+    padding:10px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #0893a8;
+    border-color: #0893a8 ;
+    color: #fff;
+}
+/* ..... Animaciones cuando pasamos por encima ..... */
+.button:hover {
+    background-color: #519eaa;
+    border-color: #519eaa;
+}
+
+@media only screen and (max-width: 1000px){
+    /* For tablets: */
+    .search{
+        width: 50%;
+        padding:10px;
+    
+    }
+    
+  }
+
+
+/* Una card 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣ */
+
+
+@media only screen and (max-width: 600px) {
+    /* For tablets: */
+    
+    .search{
+        width: 50%;
+        padding:10px;
+    
+    }
+    
+  }

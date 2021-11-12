@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
+
+import vStyles from '../../assets/styles/videogameDetail.module.css';
+
 export default function VideogameDetail() {
   // Componente presentacional
 
@@ -29,24 +32,20 @@ export default function VideogameDetail() {
   }, []);
   // ----------------------------------------
 
-  return (
-    <div className="container">
+  return (<div className="">
+
+    <div className={vStyles.container}>
       {/* Ternario para problemas entre mi API y la del RAWG */}
       {/* ----------------------------------- */}
       {videogame ? (
         <div className="">
           <br />
-          <Link to="/home">
-            <button className="input padder">
-              <h3>Back to Home</h3>
-            </button>
-          </Link>
           {/* <h1>{videogame.id}</h1> */}
 
           <h1>{videogame.name}</h1>
 
           <img
-            className="container-image"
+            className={vStyles.containerImage}
             src={
               videogame.background_image
                 ? videogame.background_image
@@ -55,7 +54,7 @@ export default function VideogameDetail() {
             alt="imgNotFound"
           />
             {/* ..... ..... ..... */}
-          <div className="mini-container justifier">
+          <div className={`${vStyles.miniContainer} ${vStyles.justifier}`}>
             <h3>Description</h3>
             <p>{`${
               videogame.description_raw
@@ -99,5 +98,13 @@ export default function VideogameDetail() {
 
       {/* EXTRA: Botonera de Eliminar y actualizar el videogame. */}
     </div>
-  );
+
+    <br />
+    <Link to="/home">
+            <button className={`${vStyles.input} ${vStyles.padder}`}>
+              <h3>Back to Home</h3>
+            </button>
+          </Link>
+
+    </div>);
 }

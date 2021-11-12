@@ -4,6 +4,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchVideogames, resetGames } from '../store/actions';
 
+// ..
+import vStyles from "../assets/styles/videogame.module.css"
 // --------------------------------------------------
 export default function ResetVideogames(){
 
@@ -17,7 +19,7 @@ export default function ResetVideogames(){
     }
 
     // .....
-    return (<button onClick={onClickChange} className="button">
+    return (<button onClick={onClickChange} className={vStyles.button}>
         Reset
     </button>)
 }

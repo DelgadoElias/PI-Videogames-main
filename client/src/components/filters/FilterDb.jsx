@@ -3,6 +3,8 @@
 import { useDispatch } from "react-redux"
 import { dbFilter } from "../../store/actions"
         
+
+import vStyles from "../../assets/styles/videogame.module.css"
 // -----------------------------------------------
 export default function FilterDb(){ // A-z -> Z-a
 
@@ -29,6 +31,6 @@ export default function FilterDb(){ // A-z -> Z-a
 // -----------------------------------------------
 
     return(
-        <button className="button"onClick={onClickChange}>{texting}</button>
+        <button className={vStyles.button}onClick={onClickChange}>{texting}</button>
     )
 }

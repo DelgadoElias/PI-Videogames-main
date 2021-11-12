@@ -1,0 +1,129 @@
+/* Esto es para como mostraré mi foto de perfil */
+.faces {
+    width: 100%;
+    border-radius: 10px;
+    float: left;
+}
+
+.leftier {
+    align-items: left;
+}
+
+/* Sistema  de columnas para los about-containers */
+.gridAboutContainer {
+    align-self: center;
+    display: inline-grid;
+    column-count: 2;
+    grid-template-columns: 30% auto;
+    column-gap: 3%;
+}
+
+
+/* Colorinche para links */
+.Link {
+    text-decoration: none;
+    color: #fff;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0f4650;
+    width: 100%;
+
+}
+
+/* ..... Card Items ..... */
+
+.cardAboutItems {
+    margin: 13%;
+    text-align: center;
+    border-radius: 9px;
+}
+
+.flipCard {
+    border-radius: 30px;
+    background-color: transparent;
+    width: 300px;
+    height: 500px;
+    perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  }
+  
+  /* This container is needed to position the front and back side */
+  .flipCardInner {
+    border-radius: 30px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  /* Do an horizontal flip when you move the mouse over the flip box container */
+  .flipCard:hover .flipCardInner {
+    transform: rotateY(180deg);
+  }
+  
+  /* Position the front and back side */
+  .flipCardfront, .flipCardback {
+    border-radius: 30px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+  }
+  
+  /* Style the front side (fallback if image is missing) */
+  .flipCardfront {
+    background-color: #bbb;
+    color: black;
+  }
+  
+  /* Style the back side */
+  .flipCardback {
+    background-color: rgb(63, 111, 158);
+    color: white;
+    transform: rotateY(180deg);
+  }
+
+  .flipImage {
+    width:300px;
+    height:500px;
+    border-radius: 30px;
+  }
+
+  .icon{
+    margin: 1%;
+    width:80px;
+    height:80px;
+    border-radius: 80px;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .gridAboutContainer {
+        align-self: center;
+        display: inline-grid;
+        column-count: 2;
+        grid-template-columns: auto;
+        column-gap: 30px;
+        padding: 10px;
+    }
+
+    .flipCard {
+        border-radius: 30px;
+        background-color: transparent;
+        width: 250px;
+        height: 450px;
+        perspective: 1000px; /* Remove this if you don't want the 3D effect */
+      }
+
+    .flipImage {
+        width:250px;
+        height:450px;
+        border-radius: 30px;
+      }
+
+  }

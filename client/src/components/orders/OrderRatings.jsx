@@ -4,7 +4,8 @@ import { useDispatch } from "react-redux"
 import { ASCENDENTE, DESCENTE } from "../../constantes/sort"
 import { sortRating } from "../../store/actions"
 
-
+// ..
+import vStyles from "../../assets/styles/sNavbar.module.css"
 // ------------------------------------------
 export default function OrderRatings(){ // 5-1 -> 1-5
 
@@ -23,7 +24,7 @@ export default function OrderRatings(){ // 5-1 -> 1-5
 // ------------------------------------------
 
     return(
-        <select name="select" className="button" onChange={onSelectedChange}>
+        <select name="select" className={vStyles.button} onChange={onSelectedChange}>
             <option value="none">By rating...</option>
             <option value={ASCENDENTE}>Less Rating</option>
             <option value={DESCENTE}>More Rating</option>

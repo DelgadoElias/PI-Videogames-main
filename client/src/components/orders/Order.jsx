@@ -6,6 +6,8 @@ import { sort } from "../../store/actions"
 
 // Me gusta más esta opción debido a que me gustaría tener un sideBar
 
+import vStyles from "../../assets/styles/sNavbar.module.css"
+
 // ------------------------------------------
 export default function Order(){ // A-z -> Z-a
 
@@ -22,7 +24,7 @@ export default function Order(){ // A-z -> Z-a
         // --------------------------------
 // ------------------------------------------
     return(
-        <select name="select" className="button" onChange={onSelectedChange}>
+        <select name="select" className={vStyles.button} onChange={onSelectedChange}>
             <option value="none">by alphabet...</option>
             <option value={ASCENDENTE}>Upward</option>
             <option value={DESCENTE}>Backward</option>

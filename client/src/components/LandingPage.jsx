@@ -12,7 +12,7 @@ import { fetchVideogames, fetchGenres, fetchPlatforms } from "../store/actions";
 
 
 // Estilización
-import '../assets/styles/landing.css';
+import StylingCSS from '../assets/styles/landing.module.css';
 
 // ..... ..... ..... ..... ..... ..... ..... ..... .....
 export default function LandingPage(){
@@ -37,14 +37,14 @@ export default function LandingPage(){
     
     // ..... ..... ..... .....
     return (
-    <div className="landingPage">
-        <h1>Welcome, ¿wanna play a game?</h1>
+    <div className={StylingCSS.container}>
+        <h1>Welcome to my Individual Project</h1>
         <br />
         
         {/* ..... Button ..... */}
 
         <Link to="/home">
-            <button className="button-landing"><h3>Come in</h3></button>
+            <button className={StylingCSS.buttonLanding}><h3>Come in</h3></button>
         </Link>
 
         {/* ..... Final del Button ..... */}

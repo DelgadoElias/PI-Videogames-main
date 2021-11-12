@@ -1,11 +1,9 @@
-*{ /* Agregamos ciertas imágenes a css como variables*/
-    --variable: url("https://i.pinimg.com/originals/0c/94/1d/0c941d8e13f5c6560d94b9d9a1b24094.jpg");
-    --logo: "../../img/elias.jpg";  
-}
+
 /* ------------------------------------------ */
 
 
 body{
+    
     padding: 0;
     margin: 0;
     /* background-color:  #0d272b; */
@@ -16,17 +14,25 @@ body{
     width: 100%;
 }
 
+.container{
+    margin-top: 15%;
+}
+
 .radius {
     border-radius:20px;
 
 }
 
-.button-landing {
+.buttonLanding {
     padding:5px;
     margin: 10px;
-    border-radius: 15px;
+    border-radius: 30px;
     width: 50%;
     background-color: #0893a8;
     border-color: #0893a8 ;
     color: #fff;
+}
+.buttonLanding:hover{
+    background-color: #23c4dd;
+
 }

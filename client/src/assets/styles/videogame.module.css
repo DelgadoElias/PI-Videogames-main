@@ -1,0 +1,188 @@
+/* Tres cards 3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣3️⃣ */
+
+.gridCardContainer {
+    display: inline-grid;
+    grid-template-columns: auto auto auto;
+    padding: 10px;
+}
+
+.Image {
+    border-radius: 30px 30px 0 0;
+    width: 300px;
+    height: 150px;
+}
+
+.spanning {
+    background-color: #4d5c7a;
+    margin :1px;
+    padding: 3px;
+    border-radius: 10px;
+}
+.spanning:hover {
+    background-color: #8d98ad;
+    margin :1px;
+    border-radius: 5px;
+}
+
+
+.Link {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+
+/* ..... Card Items ..... */
+
+.CardItems {
+    margin: 10px;
+    background-color: rgba(38, 45, 54, 0.8);
+    text-align: center;
+    border-radius: 30px;
+}
+
+/* Dame un sombreadito */
+div.CardItems:hover {
+    background-color: rgba(25, 48, 78, 0.8);
+    box-shadow: 0 4px 8px 0 rgba(233, 230, 230, 0.2), 0 4px 14px 0 rgba(247, 234, 234, 0.19);
+  }
+
+  /* ..... Cada card tiene un botón ..... */
+.buttonCard {
+    bottom: 0;
+    color:white;
+    border-radius: 14px;
+    border: none;
+    width: 100%;
+    padding: 10px;
+    background-color: #0893a8;
+}
+/* ..... Acción cuándo le pasamos por encima ..... */
+.buttonCard:hover {
+    background-color: #3dcce2;
+}
+
+/* Botones comúnes usados en otras partes del proyecto
+Esto podría modularizarse, voy a investigar más al respecto
+..... ..... ..... ..... ..... */
+.button {
+    padding:5px;
+    margin: 10px;
+    border-radius: 15px;
+    background-color: #0893a8;
+    border-color: #0893a8 ;
+    color: #fff;
+}
+/* ..... Animaciones cuando pasamos por encima ..... */
+.button:hover {
+    background-color: #519eaa;
+    border-color: #519eaa;
+}
+
+
+/* ..... Color y ancho para el specialNavBar ..... */
+
+
+/* ..... Inputs usan esto ..... */
+.search-text{
+    width: 80%;
+    padding:9px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #eaf0f1;
+    border-color: #0893a8 ;
+    color: rgb(0, 0, 0);
+}
+
+.text{
+    width: 80%;
+    padding:9px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #eaf0f1;
+    border-color: #0893a8 ;
+    color: #fff;
+}
+
+/* ..... Ocupamos esta cosa en el navbar para el botón nomás ..... */
+
+
+/* Details card 🔻 */
+
+/* Algo "modularizado" para izquierda */
+.leftier {
+    text-align: left;
+}
+
+
+
+
+.spanning {
+    background-color: #4d5c7a;
+    margin :1px;
+    border-radius: 20px;
+}
+.spanning:hover {
+    background-color: #8d98ad;
+    margin :1px;
+    border-radius: 20px;
+}
+
+/* Dos cards 2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣2️⃣ */
+
+@media only screen and (max-width: 1000px){
+    /* For tablets: */
+    .gridCardContainer {
+        display: inline-grid;
+        grid-template-columns: auto auto;
+        padding: 10px;
+    }
+
+    .faces {
+        width: 30%;
+    }
+    
+    .search{
+        width: 40%;
+        padding:9px;
+    
+    }
+    
+  }
+
+
+/* Una card 1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣1️⃣ */
+
+
+@media only screen and (max-width: 600px) {
+    /* For tablets: */
+    .gridCardContainer {
+        display: inline-grid;
+        grid-template-columns: auto;
+        padding: 10px;
+    }
+    
+
+    .faces {
+        width: 30%;
+    }
+
+    
+    .text{
+        width: 80%;
+        padding:9px;
+        margin: 10px;
+        border-radius: 5px;
+        background-color: #eaf0f1;
+        border-color: #0893a8 ;
+        color: #fff;
+    }
+    
+    .search{
+        width: 50%;
+        padding:9px;
+    
+    }
+    
+  }
+

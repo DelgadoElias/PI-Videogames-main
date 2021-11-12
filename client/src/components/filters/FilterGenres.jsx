@@ -10,7 +10,8 @@ import { NONE } from "../../constantes/filters";
 // ...Actions 
 import { fetchGenres, genresFilter } from "../../store/actions"
 
-
+// ..
+import vStyles from "../../assets/styles/sNavbar.module.css"
 
 // --------------------------------------------------------------------
 export default function FilterGenres(){ // Según género
@@ -46,7 +47,7 @@ export default function FilterGenres(){ // Según género
 
     // ..... ..... ..... ..... ..... ..... ..... .....
     return(<>
-        <select className="button" name="select" onChange={onSelectedChange}>
+        <select className={vStyles.filter} name="select" onChange={onSelectedChange}>
             <option key={NONE} value={NONE}>Filter by Genres</option>
             {genre?.map((x) => { 
                 return <option key={x.name} value={x.name}>{x.name}</option> })}

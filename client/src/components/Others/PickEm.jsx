@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGenres, fetchPlatforms, fetchVideogames, gameRandom } from "../../store/actions";
 import Videogame from "../videogame/Videogame";
 
+// ..
+import vStyles from "../../assets/styles/videogame.module.css"
+
 // ---------------------------------------------
 // Toma un número al azar y lo devuelve
 export default function PickEm(){
@@ -35,7 +38,8 @@ export default function PickEm(){
 
     return (<div className="grid-container">
         <br />
-        <button className="button" onClick={onRandomGame}>Pick Random Game</button>
+        <button className={vStyles.button} onClick={onRandomGame}>Pick Random Game</button>
+        <br />
         { 
         trigger ? 
         <div className="">

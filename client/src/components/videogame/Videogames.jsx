@@ -10,12 +10,10 @@ import Videogame from "./Videogame"
 import Pagination from "../Pagination"
 
 // ... Estilizaciones.
-import '../../assets/styles/videogame.css';
+import vStyles from '../../assets/styles/videogame.module.css';
 // --------------------------------------------------------------------
 // Logic Component
 export default function Videogames(){
-
-
 
     // ..... Caja de variables .....
     let videogame = useSelector((state) => { return state.filteredVideogames}); // Toma las variables del store
@@ -57,7 +55,7 @@ export default function Videogames(){
     return <>
     
     {/* Por ahora usamos esto hasta el sidebar */}
-     <div className="grid-card-container">  
+     <div className={vStyles.gridCardContainer}>  
 
         {/* Complete: Pasarle los géneros también */}
         { actualVideogames.length === 0 ? <h1>Reloading</h1> : actualVideogames.map((x) => {
