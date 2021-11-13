@@ -39,12 +39,12 @@ export default function Videogame(props) {
 
 
       <h3>{prueba[0]}</h3>
-      <h5>{prueba[1] ? prueba[1] : released }</h5>
+      <p>{prueba[1] ? prueba[1] : released }</p>
       {/* Título completo, si sobra espacio mostramos la fecha */}
 
       { extra === true ? "" : <p>Genres:</p>}
       {/* ..... Mostramos los géneros ..... */}
-      <p>
+      <div className={vStyles.gridCardContainer}>
         {genres?.map((x) => {
             let genreSplited = x.name.split(' ');
             return (
@@ -52,14 +52,16 @@ export default function Videogame(props) {
             </Link>
           );
         })}
-      </p>
+      </div>
       {/* ------------------------------------------- */}
 
       {/* ..... Vamos al videogameDetail ..... */}
       {/* ..... Si tiene la propiedad extra marcada en true entonces no mostrará los links de detalles ..... */}
+      <div>
       {extra === true ? <div><h1>Please wait</h1><br /></div> : <Link to={`/games/${id}`}>
         <button className={vStyles.button}>Details</button>
       </Link>}
+      </div>
     </div>
   );
 }

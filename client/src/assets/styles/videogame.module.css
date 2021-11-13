@@ -45,9 +45,10 @@
 }
 
 .spanning {
+    display: inline-block;
     background-color: #4d5c7a;
     margin :1px;
-    padding: 3px;
+    padding: 2px;
     border-radius: 10px;
 }
 .spanning:hover {

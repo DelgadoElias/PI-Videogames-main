@@ -5,7 +5,7 @@ import vStyles from "../assets/styles/about.module.css";
 import { GitHub, LinkedIn } from "../constantes/social";
 export default function AboutCreatorPage() {
   return (
-    <div className={vStyles.container}>
+    <div className={`${vStyles.container} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}>
 
         {/* ..... Grilla para columnas ..... */}
         <div className={vStyles.gridAboutContainer}>
