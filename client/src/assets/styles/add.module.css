@@ -1,0 +1,123 @@
+/* CSS para agregar ciertos temas extras en todos lados. Sin embargo, se usa en el addVideogame */
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  .fast {
+    -webkit-animation-duration: 0.4s;
+    animation-duration: 0.4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+
+
+
+
+.label{
+    width: 90px;
+    align-items: center;
+}
+
+.input{
+    padding: 10px;
+    width: 80%;
+    border:2px solid rgb(20, 98, 126);
+    background-color: rgb(45, 45, 51);
+    border-radius: 2px;
+    color: white;
+}
+.input:hover{
+    background-color: rgb(100, 100, 100);
+}
+
+
+.padder {
+    
+    border-radius: 30px;
+    font-size: 120%;
+    padding: 20px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.padder:hover {
+    background-color: rgb(84, 84, 94);
+}
+
+.button {
+    border:0px solid rgb(20, 98, 126);
+    width: 100%;
+    font-size: 140%;
+    padding: 10px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.button:hover {
+    background-color: rgb(84, 84, 94);
+    border:0px solid rgb(20, 98, 126);
+}
+
+.container{
+    background-color: rgb(32, 52, 90);
+    display: inline-block;
+    width: 80%;
+}
+
+.containerMini {
+    display: inline-block;
+    width: 80%;
+    background-color: rgb(73, 92, 128);
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+
+
+.father {
+    width: 70%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    text-align: left;
+  }
+
+
+.hijo {
+    width: 55%;
+}
+
+@media only screen and (max-width: 1140px){
+    .father {
+        width: 70%;
+        display: grid;
+        grid-template-columns: auto auto;
+        text-align: left;
+      }
+}
+
+@media only screen and (max-width: 800px){
+    .father {
+        width: 70%;
+        display: grid;
+        grid-template-columns: auto;
+        text-align: left;
+      }
+}

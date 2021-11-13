@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGenres, fetchPlatforms } from "../../store/actions";
 
 //Estilizaciones
-import '../../assets/styles/add.css';
+import vStyles from '../../assets/styles/add.module.css';
 
 
 // Enrutamiento
@@ -119,19 +119,20 @@ export default function AddVideogame() {
 
 
   return (
-    <div className="container">
+    <div className={`${vStyles.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}>
       {/* ..... Botón ..... */}
       <Link to="/home">
-        <button className="input padder">
+        <button className={`${vStyles.input} ${vStyles.button}`}>
           <h3>Back to Home</h3>
         </button>
       </Link>
 
       {/* ..... Formulario requerido ..... */}
       <form onSubmit={onSubmit}>
-        <div className="mini-container">
+        <div>
           <div>
             <h1 styles="text-align: left">¡Add new videogames!</h1>
+            <br />
           </div>
 
           {/* ..... Nombre ..... */}
@@ -139,7 +140,7 @@ export default function AddVideogame() {
             <label>Nombre:</label>
             <br />
             <input
-            className="input"
+            className={vStyles.input}
               onChange={onInputChange}
               name="name"
               type="text"
@@ -154,7 +155,7 @@ export default function AddVideogame() {
             <br />
 
             <input
-            className="input"
+            className={vStyles.input}
               onChange={onInputChange}
               name="description"
               type="text"
@@ -169,7 +170,7 @@ export default function AddVideogame() {
             <br />
 
             <input
-            className="input"
+            className={vStyles.input}
               onChange={onInputChange}
               name="image"
               type="text"
@@ -183,7 +184,7 @@ export default function AddVideogame() {
             <br />
 
             <input
-            className="input"
+            className={vStyles.input}
               onChange={onInputChange}
               name="rating"
               type="number"
@@ -197,7 +198,7 @@ export default function AddVideogame() {
             <br />
 
             <input
-            className="input"
+            className={vStyles.input}
               onChange={onInputChange}
               name="released"
               type="text"
@@ -207,16 +208,17 @@ export default function AddVideogame() {
 
           {/* ..... Géneros ..... */}
             <h3>Géneros</h3>
-          <div className="grid-card-container">
+          <div className={vStyles.father}>
             <br />
             <br />
 
             {/* ..... Checkbox para los géneros seleccionados ..... */}
             {generos?.map((x) => {
+              let genreSplited = x.name.split(' ');
               return (
                 <label>
-                  <input className="card-items leftier" onChange={(e) => handleCheckbox(e)} type="checkbox" name="genres" value={x.name}></input>
-                  {x.name}
+                  <input className={vStyles.hijo} onChange={(e) => handleCheckbox(e)} type="checkbox" name="genres" value={x.name}></input>
+                  {genreSplited[1] ? "MMO" : genreSplited[0]}
                 </label>
               );
             })}
@@ -224,11 +226,11 @@ export default function AddVideogame() {
 
           {/* ..... Plataformas ..... */}
 
-          <div>
+          <div className={vStyles.containerMini}>
             <h3>Platforms</h3>
             <br />
 
-            <select className="input" onChange={(e) => onSelect(e)}>
+            <select className={vStyles.input}onChange={(e) => onSelect(e)}>
               {plataformas?.map((x) => {
                 return (
                   <option name="platforms" value={x.name}>
@@ -237,8 +239,7 @@ export default function AddVideogame() {
                 );
               })}
             </select>
-          </div>
-
+          
             <div>
               {/* ..... Plataformas Seleccionadas ..... */}
               <h3>Platforms selected:</h3>
@@ -248,9 +249,11 @@ export default function AddVideogame() {
                 })}
               </ul>
             </div>
+            </div>
 
+                <hr />
           {/* Botón de envío */}
-          <input className="input padder" type="submit" />
+          <input className={`${vStyles.input} ${vStyles.padder}`} type="submit" />
           <br />
         </div>
       </form>

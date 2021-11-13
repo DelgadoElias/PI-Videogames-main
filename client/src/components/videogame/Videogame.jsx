@@ -31,7 +31,7 @@ export default function Videogame(props) {
     }
  // -------------------------------------------------------------
   return (
-    <div className={vStyles.CardItems}>
+    <div className={`${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}>
       {/* ..... Redireccionamiento ..... */}
       { extra=== true ? <img className={vStyles.Image} src={image} alt="Image not found" /> : <Link to={`/games/${id}`}>
       <img className={vStyles.Image} src={image} alt="Image not found" />
