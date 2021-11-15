@@ -10,13 +10,7 @@
 .containerImage {
     border-radius: 35px;
     text-align: center;
-    width : 40%;
-}
-.containerImage:hover {
-    background-color: transparent;
-  width: 300px;
-  height: 200px;
-  border: 1px solid #f1f1f1;
+    width : 70%;
 }
 
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
@@ -24,10 +18,11 @@
 
 /* Container que se usa dentro del otro container */
 .miniContainer {
-    margin: 5%;
+    margin: 2%;
 }
 
 .justifier {
+    padding: 3%;
     text-align: justify;
 }
 
@@ -39,9 +34,9 @@
     color: white;
 }
 
-.padder {
-    padding: 10px;
-    margin-bottom: 20px;
+.title {
+    font-size: 300%;
+    margin-bottom: 3%;
 }
 
 /* Dame un sombreadito */

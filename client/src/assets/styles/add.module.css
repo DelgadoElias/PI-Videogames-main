@@ -48,9 +48,12 @@
     background-color: rgb(100, 100, 100);
 }
 
+.x {
+    color: red;
+}
 
 .padder {
-    
+
     border-radius: 30px;
     font-size: 120%;
     padding: 20px;

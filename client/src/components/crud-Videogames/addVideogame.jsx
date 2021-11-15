@@ -245,7 +245,7 @@ export default function AddVideogame() {
               <h3>Platforms selected:</h3>
               <ul>
                 {videogame.platforms?.map((x) => {
-                  return (<h4 value={x} onClick={(e) => onDeSelect(x)}>{x}</h4>)
+                  return (<h4 value={x} onClick={(e) => onDeSelect(x)}>{x} - <span className={vStyles.x}>X</span></h4>)
                 })}
               </ul>
             </div>

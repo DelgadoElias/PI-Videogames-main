@@ -3,7 +3,9 @@ import axios from "axios";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-import vStyles from '../../assets/styles/videogameDetail.module.css';
+import vStyles from '../../assets/styles/add.module.css';
+import vStylesV from '../../assets/styles/videogameDetail.module.css';
+
 
 export default function VideogameDetail() {
   // Componente presentacional
@@ -32,9 +34,9 @@ export default function VideogameDetail() {
   }, []);
   // ----------------------------------------
 
-  return (<div className="">
+  return (<div className={`${vStyles.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}>
 
-    <div className={vStyles.container}>
+    <div>
       {/* Ternario para problemas entre mi API y la del RAWG */}
       {/* ----------------------------------- */}
       {videogame ? (
@@ -42,10 +44,10 @@ export default function VideogameDetail() {
           <br />
           {/* <h1>{videogame.id}</h1> */}
 
-          <h1>{videogame.name}</h1>
+          <h1 className={`${vStylesV.title} `}>{videogame.name}</h1>
 
           <img
-            className={vStyles.containerImage}
+            className={`${vStyles.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast} ${vStylesV.containerImage}`}
             src={
               videogame.background_image
                 ? videogame.background_image
@@ -54,7 +56,7 @@ export default function VideogameDetail() {
             alt="imgNotFound"
           />
             {/* ..... ..... ..... */}
-          <div className={`${vStyles.miniContainer} ${vStyles.justifier}`}>
+          <div className={`${vStylesV.miniContainer} ${vStylesV.justifier}`}>
             <h3>Description</h3>
             <p>{`${
               videogame.description_raw
