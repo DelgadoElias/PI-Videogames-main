@@ -32,31 +32,35 @@ export default function VideogameDetail() {
       setVideogame(null);
     };
   }, []);
+
+  function showMore(description){
+    let desc = description.split('.');
+    return ``
+  }
   // ----------------------------------------
 
-  return (<div className={`${vStyles.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}>
+  return (<div className={`${vStylesV.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}>
 
     <div>
       {/* Ternario para problemas entre mi API y la del RAWG */}
       {/* ----------------------------------- */}
       {videogame ? (
-        <div className="">
-          <br />
+        <div>
           {/* <h1>{videogame.id}</h1> */}
 
-          <h1 className={`${vStylesV.title} `}>{videogame.name}</h1>
 
           <img
-            className={`${vStyles.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast} ${vStylesV.containerImage}`}
+            className={`${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast} ${vStylesV.containerImage}`}
             src={
               videogame.background_image
-                ? videogame.background_image
-                : videogame.image
+              ? videogame.background_image
+              : videogame.image
             }
             alt="imgNotFound"
           />
             {/* ..... ..... ..... */}
-          <div className={`${vStylesV.miniContainer} ${vStylesV.justifier}`}>
+            <h1 className={`${vStylesV.title} `}>{videogame.name}</h1>
+          <div className={` ${vStylesV.justifier}`}>
             <h3>Description</h3>
             <p>{`${
               videogame.description_raw

@@ -1,25 +1,15 @@
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #3f5a5f;
-    width: 30%;
-
-}
-
 .containerImage {
-    border-radius: 35px;
-    text-align: center;
-    width : 70%;
+    width : 100%;
 }
 
+.container{
+    margin-top: 30px;
+    background-color: rgb(32, 52, 90);
+    display: inline-block;
+    width: 60%;
+}
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 
-
-/* Container que se usa dentro del otro container */
-.miniContainer {
-    margin: 2%;
-}
 
 .justifier {
     padding: 3%;

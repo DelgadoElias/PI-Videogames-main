@@ -9,6 +9,10 @@ import { useEffect } from "react";
 import { useParams } from "react-router"
 import { Link } from "react-router-dom";
 
+// ..
+import vStyles from '../assets/styles/add.module.css';
+import vStylesV from '../assets/styles/videogameDetail.module.css';
+
 // ................................................
 export default function GenreDetail() {
 
@@ -34,27 +38,20 @@ export default function GenreDetail() {
      // -------------------------------------------
 
      // ..
-    return (<div className="container">
+    return (<div className={vStylesV.container}>
 
-        {/*  */}
         {
         genre ? <div>
-            <br />
-            <Link to="/home">
-        <button className="input padder">
-          <h3>Back to Home</h3>
-        </button>
-      </Link>
 
-      <h1>{genre.name ? genre.name : "404 - Not Found"}</h1>
+      <img className={vStylesV.containerImage} src={genre.image_background} alt="imgNotFound" />
 
-      <img className="container-image" src={genre.image_background} alt="imgNotFound" />
+      <h1 className={vStylesV.title}>{genre.name ? genre.name : "404 - Not Found"}</h1>
 
             <div className="mini-container">
      <h3>Games count:  {genre.games_count ? genre.games_count : 0}</h3>
 
      {genre.description ? 
-        <p className="justifier" dangerouslySetInnerHTML={{ __html: genre.description }}></p>
+        <p className={vStylesV.justifier} dangerouslySetInnerHTML={{ __html: genre.description }}></p>
         :     
         <p>"Genre detail not found in database"</p>
         }
@@ -63,6 +60,12 @@ export default function GenreDetail() {
         </div> : <h1>Reloading</h1>
         }
 
+        <Link to="/home">
+        <button className={vStylesV.input}>
+          <h3>Back to Home</h3>
+        </button>
+      </Link>
+      <br />
         <br />
 
     </div>)
