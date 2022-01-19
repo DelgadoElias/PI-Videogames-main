@@ -18,10 +18,10 @@ const router = Router();
 //--------------------------------------------------------------
 
 // Conexión de las rutas COMPLETE
-router.use('/videogame',videogameDetailRoutes);
-router.use('/videogames',videogamesRoutes);
-router.use('/genres',genresRoutes);
-router.use('/platforms',platformsRoutes);
+router.use('/videogame', videogameDetailRoutes);
+router.use('/videogames', videogamesRoutes);
+router.use('/genres', genresRoutes);
+router.use('/platforms', platformsRoutes);
 
 
 //--------------------------------------------------------------
