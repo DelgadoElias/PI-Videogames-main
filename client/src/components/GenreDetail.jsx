@@ -10,7 +10,6 @@ import { useParams } from "react-router"
 import { Link } from "react-router-dom";
 
 // ..
-import vStyles from '../assets/styles/add.module.css';
 import vStylesV from '../assets/styles/videogameDetail.module.css';
 
 // ................................................

@@ -10,10 +10,10 @@ import Videogames from './components/videogame/Videogames';
 // Extras
 import LandingPage from './components/LandingPage';
 import Navbar from './components/Navbar';
-import SpecialNavBar from './components/specialNavBar';
 import AboutCreatorPage from './components/About';
 import GenreDetail from './components/GenreDetail';
 import PickEm from './components/Others/PickEm';
+import CollapseBarComponent from './components/CollpaseBar/CollapseBar';
 
 
 function App() {
@@ -59,13 +59,12 @@ function App() {
 
         {/* ..... Ruta inicial ..... */}
         <Route exact path="/home">
-        <Navbar></Navbar>
-          <SpecialNavBar></SpecialNavBar>
+        <CollapseBarComponent></CollapseBarComponent>
           <br />
           <Videogames></Videogames>
         </Route>
         {/* ..... Landing Route ..... */}
-        <Route path="/">    
+        <Route path="/">
           <LandingPage></LandingPage>
         </Route>
 

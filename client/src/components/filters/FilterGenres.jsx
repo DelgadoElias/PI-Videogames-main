@@ -30,6 +30,7 @@ export default function FilterGenres(){ // Según género
     useEffect(() => {
         // --> mapDispatchToProps(). Levanto los géneros a la BD 
         dispatch(fetchGenres());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
     // ------------------------------------------
 

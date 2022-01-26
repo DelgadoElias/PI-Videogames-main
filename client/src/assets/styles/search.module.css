@@ -1,27 +1,31 @@
-.searchText{
-    width: 80%;
-    padding:9px;
-    margin: 10px;
-    border-radius: 5px;
-    background-color: #eaf0f1;
-    border-color: #0893a8 ;
-    color: rgb(0, 0, 0);
+.searchFormContainer{
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.search{
-    width: 10%;
-    padding:10px;
+.searchInputContainer{
+    display: flex;
+}
 
+.searchText{
+    padding:15px;
+    border-radius: 15px 0px 0px 15px;
+    color: rgb(0, 0, 0);
+    border: none;
 }
 
 .button {
-    padding:10px;
-    margin: 10px;
-    border-radius: 15px;
-    background-color: #0893a8;
-    border-color: #0893a8 ;
-    color: #fff;
+    display: none;
 }
+
+.searchButtonSvg{
+    padding:10px;
+    border-radius: 0px 15px 15px 0px;
+    background-color: #2e92a1;
+}
+
 /* ..... Animaciones cuando pasamos por encima ..... */
 .button:hover {
     background-color: #519eaa;
@@ -30,11 +34,6 @@
 
 @media only screen and (max-width: 1000px){
     /* For tablets: */
-    .search{
-        width: 50%;
-        padding:10px;
-    
-    }
     
   }
 
@@ -45,10 +44,5 @@
 @media only screen and (max-width: 600px) {
     /* For tablets: */
     
-    .search{
-        width: 50%;
-        padding:10px;
-    
-    }
     
   }

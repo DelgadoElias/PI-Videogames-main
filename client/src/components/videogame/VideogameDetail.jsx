@@ -32,11 +32,6 @@ export default function VideogameDetail() {
       setVideogame(null);
     };
   }, []);
-
-  function showMore(description){
-    let desc = description.split('.');
-    return ``
-  }
   // ----------------------------------------
 
   return (<div className={`${vStylesV.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}>

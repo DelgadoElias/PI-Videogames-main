@@ -13,9 +13,8 @@
 }
 
 .filter {
-    width: 40%;
-    padding:5px;
-    margin: 10px;
+    width: 90%;
+    padding:10px;
     border-radius: 15px;
     background-color: #0893a8;
     border-color: #0893a8 ;
@@ -38,6 +37,6 @@
         width: 90%;
     }
     .filter {
-        width: 40%;
+        width: 90%;
     }
   }
