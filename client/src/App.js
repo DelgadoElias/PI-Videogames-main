@@ -6,7 +6,6 @@ import AddVideogame from './components/crud-Videogames/addVideogame';
 import VideogameDetail from './components/videogame/VideogameDetail';
 import Videogames from './components/videogame/Videogames';
 
-
 // Extras
 import LandingPage from './components/LandingPage';
 import Navbar from './components/Navbar';

@@ -19,7 +19,7 @@ export default function VideogameDetail() {
   useEffect(() => {
     // Creo que se como pasarlo a async. Prefiero mostrarlo mitad y mitad
     axios
-      .get(`http://localhost:3001/videogame/${id}`)
+      .get(`http://localhost:3009/videogame/${id}`)
       .then((x) => {
         // ------------
         setVideogame(x.data);

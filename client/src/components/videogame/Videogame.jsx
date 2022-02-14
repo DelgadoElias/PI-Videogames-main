@@ -26,7 +26,7 @@ export default function Videogame(props) {
       if(!genres.id){
         let generazo = generos.filter((x) => {
         return x.name === name} )
-        return generazo[0].id // Jajajaj
+        return generazo[0].id 
       }
     }
  // -------------------------------------------------------------
@@ -38,7 +38,7 @@ export default function Videogame(props) {
       </Link>}
 
 
-      <h3>{prueba[0]}</h3>
+      <h3 className={vStyles.textHeader}>{prueba[0]}</h3>
       <p>{prueba[1] ? prueba[1] : released }</p>
       {/* Título completo, si sobra espacio mostramos la fecha */}
 

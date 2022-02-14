@@ -37,7 +37,7 @@ export const RESET_GAMES = 'RESET_GAMES'
 export function fetchVideogames(){
     return async function(dispatch){
         try {
-            let poder = await axios.get('http://localhost:3001/videogames') // Hacemos al backEnd nuestro
+            let poder = await axios.get('http://localhost:3009/videogames') // Hacemos al backEnd nuestro
             dispatch({
             type: FETCH_VIDEOGAMES,
             payload: poder.data
@@ -53,7 +53,7 @@ export function fetchVideogames(){
 export function fetchGenres(){
     return async function(dispatch) {
         try {
-            let generos = await axios.get('http://localhost:3001/genres');
+            let generos = await axios.get('http://localhost:3009/genres');
             dispatch({
             type: FETCH_GENRES,
             payload: generos.data
@@ -68,7 +68,7 @@ export function fetchGenres(){
 export function fetchPlatforms(){
     return async function(dispatch) {
         try {
-            let plataformas = await axios.get('http://localhost:3001/platforms');
+            let plataformas = await axios.get('http://localhost:3009/platforms');
             dispatch({
             type: FETCH_PLATFORMS,
             payload: plataformas.data
@@ -85,7 +85,7 @@ export function fetchPlatforms(){
 export function searchVideogames(search, page = 1){
     return async function(dispatch){
         try {
-            let poder = await axios.get(`http://localhost:3001/videogames?name=${search}&page=${page}`) // Hacemos al backEnd nuestro
+            let poder = await axios.get(`http://localhost:3009/videogames?name=${search}&page=${page}`) // Hacemos al backEnd nuestro
             dispatch({
             type: SEARCH_VIDEOGAMES,
             payload: poder.data

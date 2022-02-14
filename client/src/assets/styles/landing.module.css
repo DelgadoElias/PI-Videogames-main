@@ -9,6 +9,7 @@ body{
     /* background-color:  #0d272b; */
     background-size: cover;
     background-color: #141c1d;
+    background-image: url('./../PI.svg');
 
     height: 100%;
     width: 100%;

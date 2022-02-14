@@ -24,12 +24,12 @@ export default function GenreDetail() {
     // ..... Comencemos del inicio .....
     useEffect(() => {
         // ..
-        axios.get(`http://localhost:3001/genres/${id}`).then((x) => {
+        axios.get(`http://localhost:3009/genres/${id}`).then((x) => {
             // ------------
-            setGenre(x.data);
             console.log(x.data);
+            setGenre(x.data);
             // ------------
-        }).catch(e => console.log(e));
+        }).catch(e => console.log('ERORR', e));
         // Se limpia después
         return () => { setGenre(null); }
      }, []);

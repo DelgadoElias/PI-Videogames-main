@@ -2,12 +2,12 @@
 import { Link } from 'react-router-dom';
 import '../assets/styles/sidebar.css';
 
-
 export default function Navbar(){
 
      // Navbar 
 
-   return( <ul className="ul">
+   return( <>
+   <ul className="ul">
        <Link to="/home">
   <li className="li"><a className="a" href="#home">Games</a></li>
        </Link>
@@ -22,5 +22,5 @@ export default function Navbar(){
        </Link>
 
   
-</ul>)
+</ul></>)
 }
