@@ -1,25 +1,13 @@
 const { Router } = require('express');
 const { Platform, Videogame } = require('../db.js');
-//UUID
-const { v4: uuidv4 } = require('uuid');
-
-
 
 const router = Router();
 
-// -------------------------------------------------------------
-// genres..
 
-
+/**
+ * Get all the platforms
+ */
 router.get('/',async(req,res) => {
-
-    /**
-     * Obtener todos los tipos de géneros de videojuegos 
-     * posibles.
-     * 
-     * En una primera instancia debemos traerlos desde rawg y 
-     * guardarlos en us propia BDD y ya usarlos desde allí.
-     */
 
     try {
         const instancias = await Platform.findAll();
@@ -29,43 +17,36 @@ router.get('/',async(req,res) => {
     }
     
 })
-// -------------------------------------------------------------
-// POST
-// Crea un nuevo género COMPLETE
-router.post('/',async(req,res,next) => {
 
-    /**
-     * Obtener todos los tipos de géneros de videojuegos 
-     * posibles.
-     * 
-     * En una primera instancia debemos traerlos desde rawg y 
-     * guardarlos en us propia BDD y ya usarlos desde allí.
-     */
+/**
+ * Post a new platform
+ * @description post a new platform with the data sent in body params
+ */
+router.post('/',async(req,res,next) => {
 
     const { name } = req.body;
 
-    // Async Await
     try {
         const newPlatform = await Platform.create({
-            name, // No es necesario crear un idea
+            name,
         })
         res.status(201).send(newPlatform);
 
     }catch(e) {
         next(e);
     }
-    //return Genre.create({name, id:uuid.v4}).then((x) => {res.send(x)})
 
 })
 
-
+/**
+ * Bind an existing platform to a existing game
+ * @description Binds the given platform to a videogame
+ */
 router.post('/:videogameId/platform/:platformId', async function(req, res,next) {
     try {
-
         
         const{ videogameId,platformId} = req.params;
 
-        // Ligar los videojuegos con sus géneros
         const videogame = await Videogame.findByPk(videogameId)
         await videogame.addPlatform(platformId)
         res.send(200)
@@ -76,22 +57,13 @@ router.post('/:videogameId/platform/:platformId', async function(req, res,next) 
     }
 })
 
-// -------------------------------------------------------------
-// PUT
-//Actualiza un género -  COMPLETE
+/**
+ * Update an existing platform
+ */
 router.put('/:id',async(req,res,next) => {
 
-    /**
-     * Obtener todos los tipos de géneros de videojuegos 
-     * posibles.
-     * 
-     * En una primera instancia debemos traerlos desde rawg y 
-     * guardarlos en us propia BDD y ya usarlos desde allí.
-     */
      const { name } = req.body;
      const id = req.params.id; 
-        console.log(req.body);
-    //  return Genre.update(genre,{ where: { id }}).then((x) => {res.send(x)});
 
      try {                                  
         const updated = await Platform.update({name},{
@@ -102,8 +74,11 @@ router.put('/:id',async(req,res,next) => {
          next(e);
      }
 })
-// -------------------------------------------------------------
-// DELETE - : COMPLETE
+
+/**
+ * Destroy a platform from the db
+ * @params {String} id - The id of the platform to destroy
+ */
 router.delete('/:id',async(req,res,next) => {
 
     const { id } = req.params
@@ -114,7 +89,6 @@ router.delete('/:id',async(req,res,next) => {
             next(e)
         }
     
-        //  return Genre.destroy(genre,{ where: { id }}).then((x) => {res.send(x)}).catch((e) => {res.send(e)});
 })
 
 
