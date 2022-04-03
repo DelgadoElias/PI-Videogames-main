@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchVideogames, resetGames } from '../store/actions';
+import { resetGames } from '../store/actions';
 
 // ..
 import vStyles from "../assets/styles/videogame.module.css"

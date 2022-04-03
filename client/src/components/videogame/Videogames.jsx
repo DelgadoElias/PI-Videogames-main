@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 // ...Importaciones de mi aplicación
 import { fetchGenres, fetchPlatforms, fetchVideogames, gameRandom } from '../../store/actions'
-import Videogame from "./Videogame"
+import Videogame from "../../routes/videogames/Videogame"
 
 // ...React-router
 import Pagination from "../Pagination"

@@ -10,11 +10,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchGenres, fetchPlatforms } from "../../store/actions";
 
 //Estilizaciones
-import vStyles from '../../assets/styles/add.module.css';
-
+import vStyles from "../../assets/styles/add.module.css";
 
 // Enrutamiento
 import { Link } from "react-router-dom";
+import MainLayout from "../Layouts/mainLayout";
 
 export default function AddVideogame() {
   // ..... Cajita de variables .....
@@ -36,7 +36,6 @@ export default function AddVideogame() {
     platforms: [],
   }); // Lo que necesita nuestro videojuego en el estado local para subirlo
 
-
   /**
    * ******************************************
    * ******************************************
@@ -44,7 +43,6 @@ export default function AddVideogame() {
    * ******************************************}
    * ******************************************
    */
-
 
   // Comenzamos con la codificación ..... ..... ..... .....
   useEffect(() => {
@@ -63,42 +61,41 @@ export default function AddVideogame() {
 
   // ..... Cambios del checkbox nomás .....
   function handleCheckbox(e) {
-      if(e.target.checked){ // Cuándo esté checkeado, subimelo
-        setVideogame({
-          ...videogame,
-          genres : [e.target.value,...videogame.genres]
-        });
-
-      }else{
-        let filteredGenres = videogame.genres.filter((x) => { return x !== e.target.value; });
-        setVideogame({
-          ...videogame,
-          genres : [...filteredGenres]
-        });
-
-      } 
+    if (e.target.checked) {
+      // Cuándo esté checkeado, subimelo
+      setVideogame({
+        ...videogame,
+        genres: [e.target.value, ...videogame.genres],
+      });
+    } else {
+      let filteredGenres = videogame.genres.filter((x) => {
+        return x !== e.target.value;
+      });
+      setVideogame({
+        ...videogame,
+        genres: [...filteredGenres],
+      });
+    }
   }
 
   // ..... Cambios del selector .....
-  function onSelect(e){
-    
+  function onSelect(e) {
     setVideogame({
       ...videogame,
-      platforms : [...videogame.platforms, e.target.value]
+      platforms: [...videogame.platforms, e.target.value],
     });
-
   }
   // Eliminar las plataformas cuando nos arrepentimos
-  function onDeSelect(e){
-    let filtraciones = videogame.platforms.filter((x) => { 
-      return x !== e; }); 
-    
+  function onDeSelect(e) {
+    let filtraciones = videogame.platforms.filter((x) => {
+      return x !== e;
+    });
+
     setVideogame({
       ...videogame,
-      platforms : [...filtraciones]
+      platforms: [...filtraciones],
     });
   }
-
 
   // ---------------------------------------------
   // ..... Levantamos las cosas .....
@@ -116,147 +113,162 @@ export default function AddVideogame() {
       });
   }
 
-
-
   return (
-    <div className={`${vStyles.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}>
-      {/* ..... Botón ..... */}
-      <Link to="/home">
-        <button className={`${vStyles.input} ${vStyles.button}`}>
-          <h3>Back to Home</h3>
-        </button>
-      </Link>
+    <MainLayout>
+      <div
+        className={`${vStyles.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}
+      >
+        {/* ..... Botón ..... */}
+        <Link to="/home">
+          <button className={`${vStyles.input} ${vStyles.button}`}>
+            <h3>Back to Home</h3>
+          </button>
+        </Link>
 
-      {/* ..... Formulario requerido ..... */}
-      <form onSubmit={onSubmit}>
-        <div>
+        {/* ..... Formulario requerido ..... */}
+        <form onSubmit={onSubmit}>
           <div>
-            <h1 styles="text-align: left">¡Add new videogames!</h1>
-            <br />
-          </div>
+            <div>
+              <h1 styles="text-align: left">¡Add new videogames!</h1>
+              <br />
+            </div>
 
-          {/* ..... Nombre ..... */}
-          <div>
-            <label>Nombre:</label>
-            <br />
-            <input
-            className={vStyles.input}
-              onChange={onInputChange}
-              name="name"
-              type="text"
-              value={videogame.name}
-              required
-            />
-          </div>
+            {/* ..... Nombre ..... */}
+            <div>
+              <label>Nombre:</label>
+              <br />
+              <input
+                className={vStyles.input}
+                onChange={onInputChange}
+                name="name"
+                type="text"
+                value={videogame.name}
+                required
+              />
+            </div>
 
-          {/* ..... Descripción ..... */}
-          <div>
-            <label>Descripción:</label>
-            <br />
+            {/* ..... Descripción ..... */}
+            <div>
+              <label>Descripción:</label>
+              <br />
 
-            <input
-            className={vStyles.input}
-              onChange={onInputChange}
-              name="description"
-              type="text"
-              value={videogame.description}
-              required
-            />
-          </div>
+              <input
+                className={vStyles.input}
+                onChange={onInputChange}
+                name="description"
+                type="text"
+                value={videogame.description}
+                required
+              />
+            </div>
 
-          {/* ..... Imágen URL ..... */}
-          <div>
-            <label>Imágen:</label>
-            <br />
+            {/* ..... Imágen URL ..... */}
+            <div>
+              <label>Imágen:</label>
+              <br />
 
-            <input
-            className={vStyles.input}
-              onChange={onInputChange}
-              name="image"
-              type="text"
-              value={videogame.image}
-            />
-          </div>
+              <input
+                className={vStyles.input}
+                onChange={onInputChange}
+                name="image"
+                type="text"
+                value={videogame.image}
+              />
+            </div>
 
-          {/* ..... Rating ..... */}
-          <div>
-            <label>Rating:</label>
-            <br />
+            {/* ..... Rating ..... */}
+            <div>
+              <label>Rating:</label>
+              <br />
 
-            <input
-            className={vStyles.input}
-              onChange={onInputChange}
-              name="rating"
-              type="number"
-              value={videogame.rating}
-            />
-          </div>
+              <input
+                className={vStyles.input}
+                onChange={onInputChange}
+                name="rating"
+                type="number"
+                value={videogame.rating}
+              />
+            </div>
 
-          {/* ..... Released ..... */}
-          <div>
-            <label>Lanzamiento:</label>
-            <br />
+            {/* ..... Released ..... */}
+            <div>
+              <label>Lanzamiento:</label>
+              <br />
 
-            <input
-            className={vStyles.input}
-              onChange={onInputChange}
-              name="released"
-              type="text"
-              value={videogame.released}
-            />
-          </div>
+              <input
+                className={vStyles.input}
+                onChange={onInputChange}
+                name="released"
+                type="text"
+                value={videogame.released}
+              />
+            </div>
 
-          {/* ..... Géneros ..... */}
+            {/* ..... Géneros ..... */}
             <h3>Géneros</h3>
-          <div className={vStyles.father}>
-            <br />
-            <br />
+            <div className={vStyles.father}>
+              <br />
+              <br />
 
-            {/* ..... Checkbox para los géneros seleccionados ..... */}
-            {generos?.map((x) => {
-              let genreSplited = x.name.split(' ');
-              return (
-                <label>
-                  <input className={vStyles.hijo} onChange={(e) => handleCheckbox(e)} type="checkbox" name="genres" value={x.name}></input>
-                  {genreSplited[1] ? "MMO" : genreSplited[0]}
-                </label>
-              );
-            })}
-          </div>
-
-          {/* ..... Plataformas ..... */}
-
-          <div className={vStyles.containerMini}>
-            <h3>Platforms</h3>
-            <br />
-
-            <select className={vStyles.input}onChange={(e) => onSelect(e)}>
-              {plataformas?.map((x) => {
+              {/* ..... Checkbox para los géneros seleccionados ..... */}
+              {generos?.map((x) => {
+                let genreSplited = x.name.split(" ");
                 return (
-                  <option name="platforms" value={x.name}>
-                    {x.name}
-                  </option>
+                  <label>
+                    <input
+                      className={vStyles.hijo}
+                      onChange={(e) => handleCheckbox(e)}
+                      type="checkbox"
+                      name="genres"
+                      value={x.name}
+                    ></input>
+                    {genreSplited[1] ? "MMO" : genreSplited[0]}
+                  </label>
                 );
               })}
-            </select>
-          
-            <div>
-              {/* ..... Plataformas Seleccionadas ..... */}
-              <h3>Platforms selected:</h3>
-              <ul>
-                {videogame.platforms?.map((x) => {
-                  return (<h4 value={x} onClick={(e) => onDeSelect(x)}>{x} - <span className={vStyles.x}>X</span></h4>)
-                })}
-              </ul>
-            </div>
             </div>
 
-                <hr />
-          {/* Botón de envío */}
-          <input className={`${vStyles.input} ${vStyles.padder}`} type="submit" />
-          <br />
-        </div>
-      </form>
-    </div>
+            {/* ..... Plataformas ..... */}
+
+            <div className={vStyles.containerMini}>
+              <h3>Platforms</h3>
+              <br />
+
+              <select className={vStyles.input} onChange={(e) => onSelect(e)}>
+                {plataformas?.map((x) => {
+                  return (
+                    <option name="platforms" value={x.name}>
+                      {x.name}
+                    </option>
+                  );
+                })}
+              </select>
+
+              <div>
+                {/* ..... Plataformas Seleccionadas ..... */}
+                <h3>Platforms selected:</h3>
+                <ul>
+                  {videogame.platforms?.map((x) => {
+                    return (
+                      <h4 value={x} onClick={(e) => onDeSelect(x)}>
+                        {x} - <span className={vStyles.x}>X</span>
+                      </h4>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+
+            <hr />
+            {/* Botón de envío */}
+            <input
+              className={`${vStyles.input} ${vStyles.padder}`}
+              type="submit"
+            />
+            <br />
+          </div>
+        </form>
+      </div>
+    </MainLayout>
   );
 }

@@ -28,12 +28,12 @@ export default function CollapseBarComponent() {
           
 
             <div>
-            <Link className={cStyles.nolink} to="/videogames/add">
+            <Link className={cStyles.nolink} to="/videogames/actions/add">
             Add a videogame
             </Link>
             </div>
             <div>
-            <Link className={cStyles.nolink} to="/About/elias">
+            <Link className={cStyles.nolink} to="/About">
             About author
             </Link>
             </div>
