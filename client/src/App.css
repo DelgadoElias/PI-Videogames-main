@@ -2,3 +2,10 @@
   text-align: center;
   color: #fff;  
 }
+
+.no-link{
+  text-decoration: none;
+}
+.white-color{
+  color: #fff;
+}

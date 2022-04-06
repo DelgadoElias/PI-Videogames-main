@@ -1,7 +1,10 @@
 import React from "react";
 import MainLayout from "../components/Layouts/mainLayout";
-import Videogames from "../components/videogame/Videogames";
+import Videogames from "./videogames/Videogames";
 
+/**
+ * Home Route - Shows the videogames in cards
+ */
 export default function Home() {
   return (
     <div>

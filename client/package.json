@@ -5,8 +5,10 @@
   "dependencies": {
     "@testing-library/user-event": "^12.2.2",
     "axios": "^0.24.0",
+    "better-docs": "^2.7.2",
     "dotenv": "^10.0.0",
     "jest-cli": "^27.3.1",
+    "jsdoc": "^3.6.10",
     "msw": "^0.35.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -24,7 +26,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "docs": "jsdoc -c jsdoc.conf.json"
   },
   "eslintConfig": {
     "extends": [

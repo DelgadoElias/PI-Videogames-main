@@ -1,45 +1,32 @@
-// Back to Front
 import axios from "axios";
-
-// Importaciones REACT
-import { useState } from "react";
-import { useEffect } from "react";
-
-// Routing
+import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
-// ..
 import vStylesV from "../assets/styles/videogameDetail.module.css";
 import MainLayout from "./Layouts/mainLayout";
 
-// ................................................
+/**
+ * Shows the details of an specific genre
+ * @param {String} id - route identifier to use in the genre API call
+ */
 export default function GenreDetail() {
-  const [genre, setGenre] = useState({});
+  const [genre, setGenre] = useState(null);
 
   let { id } = useParams();
 
-  // ..... Comencemos del inicio .....
   useEffect(() => {
-    // ..
     axios
       .get(`http://localhost:3009/genres/${id}`)
       .then((x) => {
-        // ------------
-        console.log(x.data);
         setGenre(x.data);
-        // ------------
       })
       .catch((e) => console.log("ERORR", e));
-    // Se limpia después
     return () => {
       setGenre(null);
     };
-  }, []);
+  }, [id]);
 
-  // -------------------------------------------
-
-  // ..
   return (
     <MainLayout>
       <div className={vStylesV.container}>

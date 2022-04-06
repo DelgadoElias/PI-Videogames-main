@@ -27,12 +27,14 @@ export default function SearchBar(){
     // --------------------------------------------
 
     // --------------------------------------------
-    // onInputChange --> Controla los cambios accionados
+    /**
+     * onInputChange
+     * @param {Event} e - Event Handler on HTML Events
+     * @description Controls the search input and preventDefault to not reload the page when we seach
+     */
     function onInputChange(e){
         e.preventDefault();
-        // useState del search?
-        setSearch(e.target.value);
-        
+        setSearch(e.target.value);        
     }
     // --------------------------------------------
 

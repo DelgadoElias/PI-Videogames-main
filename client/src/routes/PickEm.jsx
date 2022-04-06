@@ -1,42 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchGenres,
-  fetchPlatforms,
-  fetchVideogames,
-  gameRandom,
-} from "../store/actions";
-import Videogame from "./videogames/Videogame";
+import { gameRandom } from "../store/actions";
 
-// ..
 import vStyles from "../assets/styles/videogame.module.css";
 import MainLayout from "../components/Layouts/mainLayout";
+import CardJelly from "../components/cards/CardJelly";
 
-// ---------------------------------------------
-// Toma un número al azar y lo devuelve
+/**
+ * PickEm route - Picks a random videogame and returns it in a card
+ */
 export default function PickEm() {
-  // Caja de variables
   const trigger = useSelector((state) => state.pickEm);
-  const [poder, setPoder] = useState({});
+  const [videogame, setVideogame] = useState({});
+
   let dispatch = useDispatch();
 
-  // ..... .....
-  // Si se recarga la page tengo que cargar desde acá todo
   useEffect(() => {
-    setPoder({ ...trigger });
-    dispatch(fetchVideogames());
-    dispatch(fetchGenres());
-    dispatch(fetchPlatforms());
+    setVideogame({ ...trigger });
     dispatch(gameRandom());
   }, [dispatch, trigger]);
 
-  // ..... .....
-  // Vamos a tirar games al azar
+  /**
+   * onRandomGame - Returns a new random game to show on.
+   * @description Dispatch the 'gameRandom' function to get a new random game from the store
+   * The new game will be stored in redux store in state.pickEm
+   */
   function onRandomGame() {
-    // Guardamos en el pickEm un número al azar
     dispatch(gameRandom());
-    setPoder({ ...trigger });
-    //console.log(trigger.id);
+    setVideogame({ ...trigger });
   }
 
   return (
@@ -49,24 +40,11 @@ export default function PickEm() {
         <br />
         {trigger ? (
           <div className="">
-            <Videogame
-              id={poder.id ? poder.id : "Unknown"}
-              name={poder.name ? poder.name : "Press Button"}
-              released={poder.released}
-              image={
-                poder.image
-                  ? poder.image
-                  : "https://msbarrons.com/wp-content/uploads/2017/06/maxresdefault.jpg"
-              }
-              rating={poder.rating}
-              description={
-                poder.description
-                  ? poder.description
-                  : "Press Pick Random Game to select a random game from the database"
-              }
-              genres={poder.genres}
-              extra={poder.id ? false : true}
-            ></Videogame>
+            <CardJelly
+            id={videogame.id}
+            name={videogame.name}
+            image={videogame.image}
+            genres={videogame.genres}></CardJelly>
           </div>
         ) : (
           <h1>Reloading</h1>
@@ -76,8 +54,6 @@ export default function PickEm() {
   );
 }
 
-/*
-
-        
-
-*/
+/**
+ * TODO: Review this component. It should show when we loading, we need to pick a diff game and when we have a game
+ */

@@ -3,13 +3,17 @@ import elias from "../assets/img/elias.jpeg";
 import vStyles from "../assets/styles/about.module.css";
 import MainLayout from "../components/Layouts/mainLayout";
 import { GitHub, LinkedIn } from "../constantes/social";
+
+/**
+ * About route - Shows the about section of the page
+ * TODO: Refactor this component to more visibility
+ */
 export default function About() {
   return (
     <MainLayout>
       <div
         className={`${vStyles.container} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}
       >
-        {/* ..... Grilla para columnas ..... */}
         <div className={vStyles.gridAboutContainer}>
           <div className={vStyles.cardAboutItems}>
             <div class={vStyles.flipCard}>
@@ -38,7 +42,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* ..... Redes sociales ..... */}
           <div className={vStyles.cardAboutItems}>
             <h2 className={vStyles.leftier}>Technologies:</h2>
             <p>
@@ -113,8 +116,6 @@ export default function About() {
           <br />
         </div>
 
-        {/* -------------------------------------- */}
-        {/* .....  ..... */}
       </div>
     </MainLayout>
   );

@@ -34,6 +34,9 @@ export default App;
 /**
  * In this section we save the TODO list
  * TODO: Delete the fucking comments and use JSDoc
+ * TODO: Create centralized store reload
+ * TODO: Create a function that calls the API and get the different routes as params
+ * TODO: Upgrade imports to the components
  * complete: Create Layout component to provide the navbar or collapseBar
  * Complete: Clean routes
  * TODO: Check videogame Detail route to modify

@@ -1,55 +1,27 @@
-// Aquí dentro se encontrará mi landingPage
-// ----------------------------------------
-
-// Importaciones necesarias
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
-//Actions
-
-import { fetchVideogames, fetchGenres, fetchPlatforms } from "../store/actions";
+import React from "react";
+import { Link } from "react-router-dom";
 
 
-// Estilización
-import StylingCSS from '../assets/styles/landing.module.css';
+import StylingCSS from "../assets/styles/landing.module.css";
+import MainLayout from "../components/Layouts/mainLayout";
 
-// ..... ..... ..... ..... ..... ..... ..... ..... .....
-export default function LandingPage(){
-    // Complete: Generar mi landingPage
-    // ..... ..... ..... ..... ..... ..... ..... ..... .
+/**
+ * Landing page route - Shows the lander or welcome page
+ */
+export default function LandingPage() {
 
-    // ..... ..... ..... .....
-
-    let dispatch = useDispatch();
-
-    // ..... ..... ..... .....
-
-
-    useEffect(() => {
-        // --> mapDispatchToProps() 
-        dispatch(fetchVideogames());
-        dispatch(fetchGenres());
-        dispatch(fetchPlatforms());
-        // Precarguemos todo...
-    },[]);
-    
-    
-    // ..... ..... ..... .....
-    return (
+  return (
+    <MainLayout noBars={true}>
     <div className={StylingCSS.container}>
-        <h1>Welcome to my Individual Project</h1>
-        <br />
-        
-        {/* ..... Button ..... */}
+      <h1>Welcome to my Individual Project</h1>
+      <br />
 
-        <Link to="/home">
-            <button className={StylingCSS.buttonLanding}><h3>Come in</h3></button>
-        </Link>
-
-        {/* ..... Final del Button ..... */}
-
+      <Link to="/home">
+        <button className={StylingCSS.buttonLanding}>
+          <h3>Come in</h3>
+        </button>
+      </Link>
     </div>
-    );
-
+    </MainLayout>
+  );
 }
