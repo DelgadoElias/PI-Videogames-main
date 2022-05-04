@@ -33,15 +33,15 @@ import { Link } from "react-router-dom";
 export const CardJelly = ({ id, name, image, genres }) => {
   return (
     <article>
-      <div class="">
-        <div class="card">
+      <div>
+        <div className="card">
           <img src={image} alt="Videogame" />
-          <div class="info">
+          <div className="info">
             <h1>{name || "Text-name"}</h1>
             <p>
               {genres !== undefined ? genres.map((genre) => {
                 return (
-                  <Link className="white-color" to={`/genres/${genre.id}`}>
+                  <Link  key={genre.id} className="white-color" to={`/genres/${genre.id}`}>
                     <span>{genre.name}</span>
                   </Link>
                 );
@@ -53,8 +53,8 @@ export const CardJelly = ({ id, name, image, genres }) => {
           </div>
         </div>
       </div>
-              
-      <style jsx>{`
+              {/* jsx */}
+      <style>{`
 
         span {
             transition: 0.4s;

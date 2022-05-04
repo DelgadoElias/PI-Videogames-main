@@ -7,6 +7,8 @@ import MainLayout from "../components/Layouts/mainLayout";
 
 /**
  * Landing page route - Shows the lander or welcome page
+ * @component
+ * @description uses MainLayout component
  */
 export default function LandingPage() {
 

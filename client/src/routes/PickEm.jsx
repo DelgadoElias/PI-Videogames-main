@@ -8,12 +8,13 @@ import CardJelly from "../components/cards/CardJelly";
 
 /**
  * PickEm route - Picks a random videogame and returns it in a card
+ * @component
+ * @description use MainLayout
  */
 export default function PickEm() {
   const trigger = useSelector((state) => state.pickEm);
   const [videogame, setVideogame] = useState({});
-
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setVideogame({ ...trigger });

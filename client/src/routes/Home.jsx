@@ -4,6 +4,7 @@ import Videogames from "./videogames/Videogames";
 
 /**
  * Home Route - Shows the videogames in cards
+ * @description uses MainLayout component
  */
 export default function Home() {
   return (

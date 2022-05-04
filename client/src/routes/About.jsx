@@ -6,7 +6,8 @@ import { GitHub, LinkedIn } from "../constantes/social";
 
 /**
  * About route - Shows the about section of the page
- * TODO: Refactor this component to more visibility
+ * @description Uses MainLayout Component to show the navbar
+ * InP: Refactor this component to more visibility
  */
 export default function About() {
   return (

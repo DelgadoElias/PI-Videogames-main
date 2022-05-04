@@ -1,31 +1,20 @@
-// Cambiable
 import axios from "axios";
-
-// Importaciones
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useHistory } from "react-router";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import vStyles from "../../../assets/styles/add.module.css";
 
-// Actions necesarias
-import { fetchGenres, fetchPlatforms } from "../../store/actions";
-
-//Estilizaciones
-import vStyles from "../../assets/styles/add.module.css";
-
-// Enrutamiento
 import { Link } from "react-router-dom";
-import MainLayout from "../Layouts/mainLayout";
+import MainLayout from "../../../components/Layouts/mainLayout";
 
+/**
+ * AddVideogame route - Renders the videogame form route to add new videogames
+ * @return {React.ReactNode}
+ */
 export default function AddVideogame() {
-  // ..... Cajita de variables .....
-  const generos = useSelector((state) => state.genres);
-  //.
-  const plataformas = useSelector((state) => state.platforms);
-  //.
-  const dispatch = useDispatch();
-  //.
-  let history = useHistory();
-  //.
+  const genres = useSelector((state) => state.genres);
+  const platforms = useSelector((state) => state.platforms);
+  const history = useHistory();
   const [videogame, setVideogame] = useState({
     name: "",
     description: "",
@@ -34,23 +23,13 @@ export default function AddVideogame() {
     released: "",
     genres: [],
     platforms: [],
-  }); // Lo que necesita nuestro videojuego en el estado local para subirlo
+  });
 
   /**
-   * ******************************************
-   * ******************************************
-   * OBSERVACIONES: Este es uno de los archivos menos modularizados que tengo.
-   * ******************************************}
-   * ******************************************
+   * onInputChange - Handle input changes of the videogame properties
+   * @param {Event} e - HTML Events to fire e.preventDefault()
+   * @description preventDefault function and set the videogame properties to the state
    */
-
-  // Comenzamos con la codificación ..... ..... ..... .....
-  useEffect(() => {
-    dispatch(fetchGenres());
-    dispatch(fetchPlatforms());
-  }, []);
-
-  // ..... Cambios del formulario .....
   function onInputChange(e) {
     e.preventDefault();
     setVideogame({
@@ -85,7 +64,7 @@ export default function AddVideogame() {
       platforms: [...videogame.platforms, e.target.value],
     });
   }
-  // Eliminar las plataformas cuando nos arrepentimos
+  // Eliminar las platforms cuando nos arrepentimos
   function onDeSelect(e) {
     let filtraciones = videogame.platforms.filter((x) => {
       return x !== e;
@@ -97,12 +76,9 @@ export default function AddVideogame() {
     });
   }
 
-  // ---------------------------------------------
-  // ..... Levantamos las cosas .....
   async function onSubmit(e) {
     e.preventDefault();
 
-    // NOTE: Podés modularizar esto la verdad pero bueno, creo que queda mejor así.
     axios
       .post("http://localhost:3001/videogame/", videogame)
       .then(() => {
@@ -118,14 +94,14 @@ export default function AddVideogame() {
       <div
         className={`${vStyles.container} ${vStyles.CardItems} ${vStyles.animated} ${vStyles.fadeIn} ${vStyles.fast}`}
       >
-        {/* ..... Botón ..... */}
+        {/* ..... Button ..... */}
         <Link to="/home">
           <button className={`${vStyles.input} ${vStyles.button}`}>
             <h3>Back to Home</h3>
           </button>
         </Link>
 
-        {/* ..... Formulario requerido ..... */}
+        {/* ..... Required form ..... */}
         <form onSubmit={onSubmit}>
           <div>
             <div>
@@ -133,7 +109,7 @@ export default function AddVideogame() {
               <br />
             </div>
 
-            {/* ..... Nombre ..... */}
+            {/* ..... Name ..... */}
             <div>
               <label>Nombre:</label>
               <br />
@@ -147,7 +123,7 @@ export default function AddVideogame() {
               />
             </div>
 
-            {/* ..... Descripción ..... */}
+            {/* ..... Description ..... */}
             <div>
               <label>Descripción:</label>
               <br />
@@ -162,7 +138,7 @@ export default function AddVideogame() {
               />
             </div>
 
-            {/* ..... Imágen URL ..... */}
+            {/* ..... Image URL ..... */}
             <div>
               <label>Imágen:</label>
               <br />
@@ -211,7 +187,7 @@ export default function AddVideogame() {
               <br />
 
               {/* ..... Checkbox para los géneros seleccionados ..... */}
-              {generos?.map((x) => {
+              {genres?.map((x) => {
                 let genreSplited = x.name.split(" ");
                 return (
                   <label>
@@ -235,7 +211,7 @@ export default function AddVideogame() {
               <br />
 
               <select className={vStyles.input} onChange={(e) => onSelect(e)}>
-                {plataformas?.map((x) => {
+                {platforms?.map((x) => {
                   return (
                     <option name="platforms" value={x.name}>
                       {x.name}
